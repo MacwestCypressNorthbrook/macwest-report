@@ -192,8 +192,8 @@ export function BalanceSheetTab({
             <h3 className="text-base font-semibold text-slate-900">Asset Composition</h3>
             <SectionNote>Illustrates how the Company's GHS 39.25M asset base is deployed. A highly current-asset-weighted structure (98.9%) is typical for a services business — assets are held primarily as receivables and working capital, rather than fixed plant or equipment. The critical management focus is ensuring receivables (GHS 11.99M) are collected promptly to maintain liquidity.</SectionNote>
           </div>
-          <div className="flex gap-6 items-center">
-            <div style={{ width: 220, height: 200, flexShrink: 0 }}>
+          <div className="flex flex-col sm:flex-row gap-6 items-center">
+            <div className="w-full sm:w-[220px] h-[200px] shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie data={assetDonut} cx="50%" cy="50%" innerRadius={58} outerRadius={90} paddingAngle={2} dataKey="value" labelLine={false} label={renderPctLabel}>
@@ -228,8 +228,8 @@ export function BalanceSheetTab({
             <h3 className="text-base font-semibold text-slate-900">Funding Structure</h3>
             <SectionNote>Shows how the Company's operations are funded. Equity (GHS 8.05M, 20.5%) provides the ownership buffer; the remaining 79.5% is funded by trade and other payables. As earnings are retained and the equity base builds, this ratio will improve. No bank debt is currently outstanding — all liabilities represent operational obligations.</SectionNote>
           </div>
-          <div className="flex gap-6 items-center">
-            <div style={{ width: 220, height: 200, flexShrink: 0 }}>
+          <div className="flex flex-col sm:flex-row gap-6 items-center">
+            <div className="w-full sm:w-[220px] h-[200px] shrink-0">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie data={fundingDonut} cx="50%" cy="50%" innerRadius={58} outerRadius={90} paddingAngle={2} dataKey="value" labelLine={false} label={renderPctLabel}>

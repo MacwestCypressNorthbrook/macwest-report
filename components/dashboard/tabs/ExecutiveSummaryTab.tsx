@@ -160,17 +160,17 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
   return (
     <div className="space-y-6">
       {/* ── Board Report Banner ── */}
-      <div className="rounded-2xl bg-gradient-to-r from-[#1B3A5C] to-[#2a5080] px-8 py-6 text-white">
-        <div className="flex items-start justify-between">
+      <div className="rounded-2xl bg-gradient-to-r from-[#1B3A5C] to-[#2a5080] px-5 md:px-8 py-6 text-white shadow-lg">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-300 mb-1">Board Management Report</p>
-            <h1 className="text-2xl font-bold">{model.meta.company} — {selectedPeriod}</h1>
-            <p className="text-blue-200 text-sm mt-1">All amounts in {model.meta.currency} · Prepared for Board of Directors</p>
+            <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-blue-300 mb-1">Board Management Report</p>
+            <h1 className="text-xl md:text-2xl font-bold">{model.meta.company} — {selectedPeriod}</h1>
+            <p className="text-blue-200 text-xs md:text-sm mt-1">All amounts in {model.meta.currency} · Prepared for Board of Directors</p>
           </div>
-          <div className="text-right">
-            <p className="text-xs text-blue-300 uppercase tracking-wide">Reporting Period</p>
-            <p className="text-lg font-bold">{model.meta.periodEnding}</p>
-            {hasPrior && <p className="text-xs text-blue-300 mt-0.5">Compared to: {priorPeriod}</p>}
+          <div className="md:text-right border-l-2 md:border-l-0 md:border-r-2 border-blue-400/30 pl-3 md:pl-0 md:pr-3">
+            <p className="text-[10px] text-blue-300 uppercase tracking-wide">Reporting Period</p>
+            <p className="text-base md:text-lg font-bold">{model.meta.periodEnding}</p>
+            {hasPrior && <p className="text-[10px] text-blue-300 mt-0.5">Vs: {priorPeriod}</p>}
           </div>
         </div>
         {/* Quick headline numbers */}
@@ -182,8 +182,8 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
             { label: "Net PBT",      val: formatCompact(r.pbt[0]) },
           ].map(({ label, val }) => (
             <div key={label}>
-              <p className="text-xs text-blue-300">{label}</p>
-              <p className="text-xl font-bold text-white mt-0.5">{val}</p>
+              <p className="text-[10px] md:text-xs text-blue-300">{label}</p>
+              <p className="text-lg md:text-xl font-bold text-white mt-0.5">{val}</p>
             </div>
           ))}
         </div>

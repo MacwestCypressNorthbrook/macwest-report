@@ -53,16 +53,18 @@ function NavItem({ label, icon: Icon, badge, activeTab, onChange, open }: {
   );
 }
 
-export function DashboardSidebar({ activeTab, onChange, model }: {
+export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }: {
   activeTab: DashboardTab;
   onChange: (tab: DashboardTab) => void;
   model?: DashboardModel;
+  isOpen?: boolean;
+  onClose?: () => void;
 }) {
   const [open, setOpen] = useState(true);
 
-  return (
+  const sidebarContent = (
     <nav className={cn(
-      "sticky top-0 flex h-screen flex-col shrink-0 border-r border-slate-200 bg-white transition-[width] duration-300 overflow-hidden",
+      "flex h-full flex-col bg-white transition-[width] duration-300 overflow-hidden",
       open ? "w-60" : "w-[60px]"
     )}>
       {/* Logo */}
@@ -114,12 +116,105 @@ export function DashboardSidebar({ activeTab, onChange, model }: {
         )}
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-9 w-full items-center justify-center rounded-xl border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-600 transition-colors"
+          className="flex h-9 w-full items-center justify-center rounded-xl border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-600 transition-colors md:flex hidden"
           aria-label={open ? "Collapse sidebar" : "Expand sidebar"}
         >
           {open ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
         </button>
       </div>
     </nav>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <div className="hidden md:flex sticky top-0 h-screen border-r border-slate-200 bg-white shrink-0">
+        {sidebarContent}
+      </div>
+
+      {/* Mobile Sidebar (Drawer) */}
+      <div 
+        className={cn(
+          "fixed inset-0 z-50 flex md:hidden transition-opacity duration-300",
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        {/* Overlay */}
+        <div 
+          className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" 
+          onClick={onClose}
+        />
+        
+        {/* Drawer Content */}
+        <div 
+          className={cn(
+            "relative flex h-full w-64 flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out",
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          )}
+        >
+          {/* Close button for mobile */}
+          <button 
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          {/* Re-using the same content structure but forced to be open/expanded for mobile */}
+          <nav className="flex h-full w-full flex-col overflow-hidden">
+            {/* Logo */}
+            <div className="flex items-center gap-3 border-b border-slate-100 p-4">
+              <div className="relative shrink-0 flex items-center justify-center">
+                <Image
+                  src="/logo-nb.png"
+                  alt="Northbrook Logo"
+                  width={126}
+                  height={24}
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Nav items */}
+            <div className="flex-1 space-y-0.5 overflow-y-auto p-2">
+              {navItems.map((item) => (
+                <NavItem
+                  key={item.label}
+                  label={item.label}
+                  icon={item.icon}
+                  badge={item.badge}
+                  activeTab={activeTab}
+                  onChange={(tab) => {
+                    onChange(tab);
+                    onClose?.();
+                  }}
+                  open={true}
+                />
+              ))}
+            </div>
+
+            {/* Quick stats on mobile bottom */}
+            <div className="border-t border-slate-100 p-3">
+              {model && (
+                <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
+                  <p className="section-label mb-2">Quick Stats</p>
+                  {[
+                    { label: "ROE", value: formatPercent(model.shareholderView.roe) },
+                    { label: "D/E", value: formatTimes(model.shareholderView.debtToEquity) },
+                    { label: "Curr.", value: formatTimes(model.ratios.currentRatio) },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="flex items-center justify-between py-0.5">
+                      <span className="text-xs text-slate-500">{label}</span>
+                      <span className="text-xs font-bold text-slate-900">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+        </div>
+      </div>
+    </>
   );
 }

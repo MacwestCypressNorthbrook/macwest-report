@@ -119,16 +119,45 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
   );
   const concentration = topCustomer.value / (model.incomeStatementSeries.revenue[0] ?? 1);
 
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
   const { title, subtitle } = tabMeta[activeTab];
   const selectedPeriodLabel = data.pnl.periods[selectedPeriodIdx];
   const priorPeriodLabel    = data.pnl.periods[selectedPeriodIdx + 1] ?? null;
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
-      <DashboardSidebar activeTab={activeTab} onChange={setActiveTab} model={model} />
+    <div className="flex min-h-screen bg-slate-50 flex-col md:flex-row">
+      <DashboardSidebar 
+        activeTab={activeTab} 
+        onChange={setActiveTab} 
+        model={model} 
+        isOpen={isMobileSidebarOpen}
+        onClose={() => setIsMobileSidebarOpen(false)}
+      />
+
+      {/* Mobile Top Bar */}
+      <div className="flex md:hidden items-center justify-between px-4 py-3 bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div className="relative h-6 w-32">
+          <Image
+            src="/logo-nb.png"
+            alt="Northbrook Logo"
+            fill
+            className="object-contain object-left"
+            priority
+          />
+        </div>
+        <button 
+          onClick={() => setIsMobileSidebarOpen(true)}
+          className="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+        >
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
 
       <main className="flex-1 overflow-auto min-w-0">
-        <div className="mx-auto max-w-[1600px] px-6 pb-8 pt-6">
+        <div className="mx-auto max-w-[1600px] px-4 md:px-6 pb-8 pt-4 md:pt-6">
 
           {/* Header with central period selector */}
           <Header
@@ -139,13 +168,13 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
           />
 
           {/* Period context banner */}
-          <div className="mb-4 flex items-center gap-3 text-sm">
+          <div className="mb-4 flex flex-wrap items-center gap-2 md:gap-3 text-xs md:text-sm">
             <span className="font-semibold text-slate-700">
               Reporting period: <span className="text-blue-700">{selectedPeriodLabel}</span>
             </span>
             {priorPeriodLabel && (
               <>
-                <span className="text-slate-300">·</span>
+                <span className="text-slate-300 hidden md:inline">·</span>
                 <span className="text-slate-400">
                   Compared against: <span className="text-slate-600">{priorPeriodLabel}</span>
                 </span>
@@ -153,8 +182,8 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
             )}
             {!priorPeriodLabel && (
               <>
-                <span className="text-slate-300">·</span>
-                <span className="text-slate-400 italic">No prior period available for comparison</span>
+                <span className="text-slate-300 hidden md:inline">·</span>
+                <span className="text-slate-400 italic">No prior period available</span>
               </>
             )}
           </div>
