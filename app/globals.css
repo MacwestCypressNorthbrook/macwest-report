@@ -204,3 +204,13 @@ body {
   padding: 18px 20px;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04);
 }
+
+/* ── Print styles ── */
+@media print {
+  nav, .sidebar-item, button { display: none !important; }
+  body { background: white !important; }
+  .rounded-2xl, .rounded-xl { border-radius: 0 !important; }
+  .shadow-sm, .shadow-md { box-shadow: none !important; }
+  main { overflow: visible !important; }
+  .space-y-6 > * { page-break-inside: avoid; }
+}

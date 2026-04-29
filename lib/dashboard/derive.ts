@@ -7,11 +7,15 @@ const safeDivide = (numerator: number, denominator: number): number => {
 
 const buildKpis = (data: DashboardData): KpiCard[] => {
   const r = data.pnl;
+  const rev = [...r.revenue].reverse();
+  const gp  = [...r.grossProfit].reverse();
+  const ebt = [...r.ebitda].reverse();
+  const pbt = [...r.pbt].reverse();
   return [
-    { label: "Revenue", value: r.revenue[0], priorValue: r.revenue[1], yoy: safeDivide(r.revenue[0] - r.revenue[1], Math.abs(r.revenue[1])), tone: "navy" },
-    { label: "Gross Profit", value: r.grossProfit[0], priorValue: r.grossProfit[1], yoy: safeDivide(r.grossProfit[0] - r.grossProfit[1], Math.abs(r.grossProfit[1])), tone: "green" },
-    { label: "EBITDA", value: r.ebitda[0], priorValue: r.ebitda[1], yoy: safeDivide(r.ebitda[0] - r.ebitda[1], Math.abs(r.ebitda[1])), tone: "blue" },
-    { label: "Net Profit (PBT)", value: r.pbt[0], priorValue: r.pbt[1], yoy: safeDivide(r.pbt[0] - r.pbt[1], Math.abs(r.pbt[1])), tone: "purple" },
+    { label: "Revenue",         value: r.revenue[0],     priorValue: r.revenue[1],     yoy: safeDivide(r.revenue[0]     - r.revenue[1],     Math.abs(r.revenue[1])),     tone: "navy",   sparkline: rev },
+    { label: "Gross Profit",    value: r.grossProfit[0], priorValue: r.grossProfit[1], yoy: safeDivide(r.grossProfit[0] - r.grossProfit[1], Math.abs(r.grossProfit[1])), tone: "green",  sparkline: gp  },
+    { label: "EBITDA",          value: r.ebitda[0],      priorValue: r.ebitda[1],      yoy: safeDivide(r.ebitda[0]      - r.ebitda[1],      Math.abs(r.ebitda[1])),      tone: "blue",   sparkline: ebt },
+    { label: "Net Profit (PBT)",value: r.pbt[0],         priorValue: r.pbt[1],         yoy: safeDivide(r.pbt[0]         - r.pbt[1],         Math.abs(r.pbt[1])),         tone: "purple", sparkline: pbt },
   ];
 };
 

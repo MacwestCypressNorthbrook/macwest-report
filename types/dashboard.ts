@@ -79,6 +79,7 @@ export interface KpiCard {
   yoy: number;
   tone: "navy" | "green" | "blue" | "purple";
   unit?: "money" | "percent";
+  sparkline: number[]; // full series, oldest → newest
 }
 
 export interface MarginCard {
