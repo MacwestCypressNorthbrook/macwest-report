@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Building2, Bell, User, ChevronDown } from "lucide-react";
+import { Building2, Bell, User, Printer } from "lucide-react";
 import { DashboardModel } from "@/types/dashboard";
 
 interface HeaderProps {
@@ -75,12 +75,22 @@ export function Header({ meta, periods, selectedPeriod, onChangePeriod }: Header
           <span className="text-xs font-semibold text-slate-600">{meta.currency}</span>
         </div>
 
+        {/* Print / Export */}
+        <button
+          onClick={() => window.print()}
+          title="Print / Export PDF"
+          className="flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 text-slate-500 hover:bg-slate-50 hover:text-slate-700 transition-colors shadow-sm"
+        >
+          <Printer className="h-3.5 w-3.5" />
+          <span className="text-xs font-semibold hidden sm:inline">Export</span>
+        </button>
+
         <button className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 transition-colors">
           <Bell className="h-3.5 w-3.5" />
           <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
         </button>
 
-        <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 transition-colors">
+        <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 transition-colors shadow-sm">
           <User className="h-3.5 w-3.5" />
         </button>
       </div>

@@ -4,13 +4,14 @@ import { useState, type ComponentType } from "react";
 import Image from "next/image";
 import {
   BarChart3, Building2, Calculator, Coins, LineChart,
-  PieChart, Wallet, ChevronLeft, ChevronRight,
+  PieChart, Wallet, ChevronLeft, ChevronRight, LayoutDashboard,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DashboardModel } from "@/types/dashboard";
 import { formatPercent, formatTimes } from "@/lib/dashboard/format";
 
 export type DashboardTab =
+  | "Executive Summary"
   | "Income Statement"
   | "Financials"
   | "Revenue"
@@ -20,13 +21,14 @@ export type DashboardTab =
   | "Shareholder View";
 
 const navItems: { label: DashboardTab; icon: ComponentType<{ className?: string }>; badge?: string }[] = [
-  { label: "Income Statement",  icon: LineChart },
-  { label: "Financials",        icon: Calculator },
-  { label: "Revenue",           icon: PieChart,  badge: "⚠" },
-  { label: "Balance Sheet",     icon: Building2 },
-  { label: "Cash Flow",         icon: Wallet },
-  { label: "Ratios",            icon: BarChart3 },
-  { label: "Shareholder View",  icon: Coins },
+  { label: "Executive Summary",  icon: LayoutDashboard },
+  { label: "Income Statement",   icon: LineChart },
+  { label: "Financials",         icon: Calculator },
+  { label: "Revenue",            icon: PieChart, badge: "⚠" },
+  { label: "Balance Sheet",      icon: Building2 },
+  { label: "Cash Flow",          icon: Wallet },
+  { label: "Ratios",             icon: BarChart3 },
+  { label: "Shareholder View",   icon: Coins },
 ];
 
 function NavItem({ label, icon: Icon, badge, activeTab, onChange, open }: {
@@ -65,22 +67,17 @@ export function DashboardSidebar({ activeTab, onChange, model }: {
     )}>
       {/* Logo */}
       <div className={cn("flex items-center gap-3 border-b border-slate-100 p-4", !open && "justify-center p-3")}>
-        <div className="relative h-9 w-9 shrink-0 flex items-center justify-center">
-          <Image 
-            src="/logo-nb.png" 
-            alt="Northbrook Logo" 
-            width={36}
-            height={36}
+        <div className="relative  shrink-0 flex items-center justify-center">
+          <Image
+            src="/logo-nb.png"
+            alt="Northbrook Logo"
+            width={126}
+            height={24}
             className="object-contain"
             priority
           />
         </div>
-        {open && (
-          <div>
-            <p className="text-sm font-bold text-slate-900 leading-tight">North-Brook</p>
-            <p className="text-[11px] text-slate-400">Financial Portal</p>
-          </div>
-        )}
+
       </div>
 
       {/* Nav items */}

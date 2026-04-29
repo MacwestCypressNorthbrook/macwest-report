@@ -11,6 +11,7 @@ import { RatiosTab } from "@/components/dashboard/tabs/RatiosTab";
 import { FinancialsTab } from "@/components/dashboard/tabs/FinancialsTab";
 import { CashFlowTab } from "@/components/dashboard/tabs/CashFlowTab";
 import { ShareholderViewTab } from "@/components/dashboard/tabs/ShareholderViewTab";
+import { ExecutiveSummaryTab } from "@/components/dashboard/tabs/ExecutiveSummaryTab";
 import { DashboardSidebar, DashboardTab } from "@/components/dashboard/DashboardSidebar";
 import { formatPercent, formatTimes } from "@/lib/dashboard/format";
 
@@ -28,6 +29,7 @@ const BalanceSheetTab = dynamic(
 );
 
 const tabMeta: Record<DashboardTab, { title: string; subtitle: string }> = {
+  "Executive Summary": { title: "Executive Summary", subtitle: "Board-level one-page overview — financial highlights, risk register, margin performance and FY projection." },
   "Income Statement":  { title: "Income Statement", subtitle: "Revenue, Gross Profit, EBITDA and Net Profit trend — selected period vs prior periods." },
   "Financials":        { title: "P&L Analysis", subtitle: "Full Profit & Loss decomposition: revenue to net profit waterfall, cost structure and period-over-period comparison." },
   "Revenue":           { title: "Revenue Deep Dive", subtitle: "Client revenue distribution, service-line breakdown and customer concentration risk analysis." },
@@ -49,7 +51,7 @@ const PNL_TO_BS_START: Record<number, number> = {
 };
 
 export function DashboardPortal({ data }: { data: DashboardData }) {
-  const [activeTab, setActiveTab] = useState<DashboardTab>("Income Statement");
+  const [activeTab, setActiveTab] = useState<DashboardTab>("Executive Summary");
 
   /* ── Selected period index (0 = most recent = Q1 2026) ── */
   const [selectedPeriodIdx, setSelectedPeriodIdx] = useState(0);
@@ -179,6 +181,15 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
             </div>
 
             <div className="px-6 py-6">
+              {activeTab === "Executive Summary" && (
+                <ExecutiveSummaryTab
+                  model={model}
+                  selectedPeriod={selectedPeriodLabel}
+                  priorPeriod={priorPeriodLabel}
+                  allPeriods={data.pnl.periods}
+                  allRevenue={data.pnl.revenue}
+                />
+              )}
               {activeTab === "Income Statement" && (
                 <IncomeStatementTab
                   periods={model.incomeStatementSeries.periods}
