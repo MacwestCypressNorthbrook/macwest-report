@@ -13,7 +13,7 @@ import { formatPercent, formatTimes } from "@/lib/dashboard/format";
 export type DashboardTab =
   | "Executive Summary"
   | "Income Statement"
-  | "Financials"
+  // | "Financials"
   | "Revenue"
   | "Balance Sheet"
   | "Cash Flow"
@@ -21,14 +21,14 @@ export type DashboardTab =
   | "Shareholder View";
 
 const navItems: { label: DashboardTab; icon: ComponentType<{ className?: string }>; badge?: string }[] = [
-  { label: "Executive Summary",  icon: LayoutDashboard },
-  { label: "Income Statement",   icon: LineChart },
-  { label: "Financials",         icon: Calculator },
-  { label: "Revenue",            icon: PieChart, badge: "⚠" },
-  { label: "Balance Sheet",      icon: Building2 },
-  { label: "Cash Flow",          icon: Wallet },
-  { label: "Ratios",             icon: BarChart3 },
-  { label: "Shareholder View",   icon: Coins },
+  { label: "Executive Summary", icon: LayoutDashboard },
+  { label: "Income Statement", icon: LineChart },
+  // { l abel: "Financials",         icon: Calculator },
+  { label: "Revenue", icon: PieChart, badge: "⚠" },
+  { label: "Balance Sheet", icon: Building2 },
+  { label: "Cash Flow", icon: Wallet },
+  { label: "Ratios", icon: BarChart3 },
+  { label: "Shareholder View", icon: Coins },
 ];
 
 function NavItem({ label, icon: Icon, badge, activeTab, onChange, open }: {
@@ -133,27 +133,27 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
       </div>
 
       {/* Mobile Sidebar (Drawer) */}
-      <div 
+      <div
         className={cn(
           "fixed inset-0 z-50 flex md:hidden transition-opacity duration-300",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
         {/* Overlay */}
-        <div 
-          className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" 
+        <div
+          className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
           onClick={onClose}
         />
-        
+
         {/* Drawer Content */}
-        <div 
+        <div
           className={cn(
             "relative flex h-full w-64 flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out",
             isOpen ? "translate-x-0" : "-translate-x-full"
           )}
         >
           {/* Close button for mobile */}
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600"
           >

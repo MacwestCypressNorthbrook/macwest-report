@@ -31,13 +31,12 @@ const BalanceSheetTab = dynamic(
 
 const tabMeta: Record<DashboardTab, { title: string; subtitle: string }> = {
   "Executive Summary": { title: "Executive Summary", subtitle: "Board-level one-page overview — financial highlights, risk register, margin performance and FY projection." },
-  "Income Statement":  { title: "Income Statement", subtitle: "Revenue, Gross Profit, EBITDA and Net Profit trend — selected period vs prior periods." },
-  "Financials":        { title: "P&L Analysis", subtitle: "Full Profit & Loss decomposition: revenue to net profit waterfall, cost structure and period-over-period comparison." },
-  "Revenue":           { title: "Revenue Deep Dive", subtitle: "Client revenue distribution, service-line breakdown and customer concentration risk analysis." },
-  "Balance Sheet":     { title: "Balance Sheet", subtitle: "Asset composition, funding structure and capital adequacy across reporting periods. Equity position and leverage trajectory." },
-  "Cash Flow":         { title: "Cash Flow & Working Capital", subtitle: "Cash position, receivables/payables cycle, DSO, DPO and Cash Conversion Cycle." },
-  "Ratios":            { title: "Financial Ratios Dashboard", subtitle: "Liquidity, leverage, profitability and efficiency diagnostics — computed for the selected reporting period." },
-  "Shareholder View":  { title: "Shareholder Value Report", subtitle: "ROE, ROA, equity growth and capital structure — assessed for the selected reporting period." },
+  "Income Statement": { title: "Income Statement", subtitle: "Revenue, Gross Profit, EBITDA and Net Profit trend — selected period vs prior periods." },
+  "Revenue": { title: "Revenue Deep Dive", subtitle: "Client revenue distribution, service-line breakdown and customer concentration risk analysis." },
+  "Balance Sheet": { title: "Balance Sheet", subtitle: "Asset composition, funding structure and capital adequacy across reporting periods. Equity position and leverage trajectory." },
+  "Cash Flow": { title: "Cash Flow & Working Capital", subtitle: "Cash position, receivables/payables cycle, DSO, DPO and Cash Conversion Cycle." },
+  "Ratios": { title: "Financial Ratios Dashboard", subtitle: "Liquidity, leverage, profitability and efficiency diagnostics — computed for the selected reporting period." },
+  "Shareholder View": { title: "Shareholder Value Report", subtitle: "ROE, ROA, equity growth and capital structure — assessed for the selected reporting period." },
 };
 
 /**
@@ -72,41 +71,41 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
       ...data,
       pnl: {
         ...data.pnl,
-        periods:         data.pnl.periods.slice(pi),
-        revenue:         data.pnl.revenue.slice(pi),
-        directCosts:     data.pnl.directCosts.slice(pi),
-        grossProfit:     data.pnl.grossProfit.slice(pi),
-        opex:            data.pnl.opex.slice(pi),
+        periods: data.pnl.periods.slice(pi),
+        revenue: data.pnl.revenue.slice(pi),
+        directCosts: data.pnl.directCosts.slice(pi),
+        grossProfit: data.pnl.grossProfit.slice(pi),
+        opex: data.pnl.opex.slice(pi),
         operatingIncome: data.pnl.operatingIncome.slice(pi),
-        otherIncome:     data.pnl.otherIncome.slice(pi),
-        otherExpenses:   data.pnl.otherExpenses.slice(pi),
-        pbt:             data.pnl.pbt.slice(pi),
-        pat:             data.pnl.pat.slice(pi),
-        ebitda:          data.pnl.ebitda.slice(pi),
+        otherIncome: data.pnl.otherIncome.slice(pi),
+        otherExpenses: data.pnl.otherExpenses.slice(pi),
+        pbt: data.pnl.pbt.slice(pi),
+        pat: data.pnl.pat.slice(pi),
+        ebitda: data.pnl.ebitda.slice(pi),
       },
       margins: {
-        grossMargin:     data.margins.grossMargin.slice(pi),
+        grossMargin: data.margins.grossMargin.slice(pi),
         operatingMargin: data.margins.operatingMargin.slice(pi),
-        netMarginPbt:    data.margins.netMarginPbt.slice(pi),
-        netMarginPat:    data.margins.netMarginPat.slice(pi),
+        netMarginPbt: data.margins.netMarginPbt.slice(pi),
+        netMarginPat: data.margins.netMarginPat.slice(pi),
       },
       balanceSheet: {
         ...bs,
-        periods:                 bs.periods.slice(bi),
-        currentAssets:           bs.currentAssets.slice(bi),
-        cashAndBank:             bs.cashAndBank.slice(bi),
-        receivables:             bs.receivables.slice(bi),
-        otherCurrentAssets:      bs.otherCurrentAssets.slice(bi),
-        nonCurrentAssets:        bs.nonCurrentAssets.slice(bi),
-        totalAssets:             bs.totalAssets.slice(bi),
-        tradePayables:           bs.tradePayables.slice(bi),
+        periods: bs.periods.slice(bi),
+        currentAssets: bs.currentAssets.slice(bi),
+        cashAndBank: bs.cashAndBank.slice(bi),
+        receivables: bs.receivables.slice(bi),
+        otherCurrentAssets: bs.otherCurrentAssets.slice(bi),
+        nonCurrentAssets: bs.nonCurrentAssets.slice(bi),
+        totalAssets: bs.totalAssets.slice(bi),
+        tradePayables: bs.tradePayables.slice(bi),
         otherCurrentLiabilities: bs.otherCurrentLiabilities.slice(bi),
-        currentLiabilities:      bs.currentLiabilities.slice(bi),
-        payables:                bs.payables.slice(bi),
-        totalLiabilities:        bs.totalLiabilities.slice(bi),
-        retainedEarnings:        bs.retainedEarnings.slice(bi),
-        currentYearEarnings:     bs.currentYearEarnings.slice(bi),
-        totalEquity:             bs.totalEquity.slice(bi),
+        currentLiabilities: bs.currentLiabilities.slice(bi),
+        payables: bs.payables.slice(bi),
+        totalLiabilities: bs.totalLiabilities.slice(bi),
+        retainedEarnings: bs.retainedEarnings.slice(bi),
+        currentYearEarnings: bs.currentYearEarnings.slice(bi),
+        totalEquity: bs.totalEquity.slice(bi),
       },
     };
   }, [data, selectedPeriodIdx]);
@@ -124,14 +123,14 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
 
   const { title, subtitle } = tabMeta[activeTab];
   const selectedPeriodLabel = data.pnl.periods[selectedPeriodIdx];
-  const priorPeriodLabel    = data.pnl.periods[selectedPeriodIdx + 1] ?? null;
+  const priorPeriodLabel = data.pnl.periods[selectedPeriodIdx + 1] ?? null;
 
   return (
     <div className="flex min-h-screen bg-slate-50 flex-col md:flex-row">
-      <DashboardSidebar 
-        activeTab={activeTab} 
-        onChange={setActiveTab} 
-        model={model} 
+      <DashboardSidebar
+        activeTab={activeTab}
+        onChange={setActiveTab}
+        model={model}
         isOpen={isMobileSidebarOpen}
         onClose={() => setIsMobileSidebarOpen(false)}
       />
@@ -147,7 +146,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
             priority
           />
         </div>
-        <button 
+        <button
           onClick={() => setIsMobileSidebarOpen(true)}
           className="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
         >
@@ -232,7 +231,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
                   operatingMargin={shiftedData.margins.operatingMargin}
                 />
               )}
-              {activeTab === "Financials" && (
+              {/* {activeTab === "Financials" && (
                 <FinancialsTab
                   periods={model.incomeStatementSeries.periods}
                   revenue={shiftedData.pnl.revenue}
@@ -243,7 +242,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
                   pbt={shiftedData.pnl.pbt}
                   pat={shiftedData.pnl.pat}
                 />
-              )}
+              )} */}
               {activeTab === "Revenue" && (
                 <RevenueTab
                   customers={model.revenueByCustomer}
