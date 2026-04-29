@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useCallback } from "react";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { DashboardData } from "@/types/dashboard";
 import { buildDashboardModel } from "@/lib/dashboard/derive";
