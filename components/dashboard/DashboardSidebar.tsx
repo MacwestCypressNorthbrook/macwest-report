@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type ComponentType } from "react";
+import Image from "next/image";
 import {
   BarChart3, Building2, Calculator, Coins, LineChart,
-  PieChart, Wallet, ChevronLeft, ChevronRight, TrendingUp,
+  PieChart, Wallet, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { DashboardModel } from "@/types/dashboard";
@@ -64,8 +65,15 @@ export function DashboardSidebar({ activeTab, onChange, model }: {
     )}>
       {/* Logo */}
       <div className={cn("flex items-center gap-3 border-b border-slate-100 p-4", !open && "justify-center p-3")}>
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-md shadow-blue-200">
-          <TrendingUp className="h-4.5 w-4.5 text-white" />
+        <div className="relative h-9 w-9 shrink-0 flex items-center justify-center">
+          <Image 
+            src="/logo-nb.png" 
+            alt="Northbrook Logo" 
+            width={36}
+            height={36}
+            className="object-contain"
+            priority
+          />
         </div>
         {open && (
           <div>
