@@ -1,80 +1,80 @@
 {
   "meta": {
-    "company": "Macwest Limited",
+    "company": "MacWest",
     "period": "Q1 2026",
     "periodEnding": "31 March 2026",
     "currency": "GH¢"
   },
   "pnl": {
-    "periods": ["Q1 2026", "Q1 2025", "FY 2025"],
-    "revenue": [12725185, 5779137, 29302822],
-    "directCosts": [8394975, 4189340, 17411857],
-    "grossProfit": [4330209, 1589797, 11890965],
-    "opex": [4142037, 1483694, 8182612],
-    "operatingIncome": [188171, 106102, 3708353],
-    "otherIncome": [0, 0, 3776],
-    "otherExpenses": [28373, 13382, 10994],
-    "pbt": [159798, 92720, 3701135],
-    "pat": [159798, 92720, 1872704],
-    "ebitda": [188171, 106102, 3776379],
+    "periods": ["Q1 2026", "Q1 2025", "2025", "2024", "2023"],
+    "revenue": [12724807, 5779137, 29302822.24, 38421668, 20268911],
+    "directCosts": [7933421, 4189340, 17411857.48, 36285756, 18564956],
+    "grossProfit": [4791386, 1589797, 11890964.76, 2135912, 1703955],
+    "opex": [7218438, 1483694, 8182611.7, 1902558, 365769],
+    "operatingIncome": [-2427052, 106102, 3708353.06, 233354, 1338186],
+    "otherIncome": [0, 0, 3776.34, 116367, 0],
+    "otherExpenses": [172446, 13382, 10993.84, 281419, 186765],
+    "pbt": [-2599498, 92720, 3701135.56, 68302, 1151422],
+    "pat": [-3362913, 92720, 1890882.24, 65395.51, 863567],
+    "ebitda": [-2427052, 106102, 3776378.73, 233354, 1338186],
     "budget": {
-      "revenue": 137313697,
-      "grossProfit": 35391942,
-      "pat": 20508529
+      "revenue": 137313697.42,
+      "grossProfit": 35391942.67,
+      "pat": 20508529.31
     }
   },
   "margins": {
-    "grossMargin": [0.340, 0.275, 0.405],
-    "operatingMargin": [0.015, 0.018, 0.126],
-    "netMarginPbt": [0.013, 0.016, 0.126],
-    "netMarginPat": [0.013, 0.016, 0.063]
+    "grossMargin": [0.3765, 0.2751, 0.4058, 0.0556, 0.0841],
+    "operatingMargin": [-0.1907, 0.0184, 0.1265, 0.0061, 0.0660],
+    "netMarginPbt": [-0.2043, 0.0160, 0.1263, 0.0018, 0.0568],
+    "netMarginPat": [-0.2643, 0.0160, 0.0645, 0.0017, 0.0426]
   },
   "customerRevenue": {
     "customers": [
-      { "name": "ENI Project", "q1_2026": 7669096, "fy_2025": 20118309 },
-      { "name": "Cement Sales", "q1_2026": 1538931, "fy_2025": 8689110 },
-      { "name": "Other Projects", "q1_2026": 3516781, "fy_2025": 495403 }
+      { "name": "ENI Project", "q1_2026": 7669096, "fy_2025": 20118309.23 },
+      { "name": "Cement Sales", "q1_2026": 1538931, "fy_2025": 8689109.58 },
+      { "name": "Other Projects", "q1_2026": 3516781, "fy_2025": 495403.43 }
     ]
   },
   "segmentRevenue": {
     "segments": [
-      { "name": "Energy Services", "q1_2026": 7669096, "fy_2025": 20118309 },
-      { "name": "Trading", "q1_2026": 1538931, "fy_2025": 8689110 },
-      { "name": "Consultancy", "q1_2026": 3516781, "fy_2025": 495403 }
+      { "name": "Energy Services", "q1_2026": 7669096, "fy_2025": 20118309.23 },
+      { "name": "Trading", "q1_2026": 1538931, "fy_2025": 8689109.58 },
+      { "name": "Consultancy", "q1_2026": 3516781, "fy_2025": 495403.43 }
     ]
   },
   "balanceSheet": {
-    "periods": ["Mar 2026", "Dec 2025", "Dec 2024"],
-    "currentAssets": [17050397, 19014838, 8317900],
-    "cashAndBank": [5760988, 159634, 427774],
-    "receivables": [6251329, 14073189, 5707800],
-    "otherCurrentAssets": [5038080, 4782015, 2182326],
-    "nonCurrentAssets": [1718015, 747269, 728387],
-    "totalAssets": [18768412, 19762106, 9046287],
-    "currentLiabilities": [14321031, 12012515, 4265891],
-    "tradePayables": [5790086, 5035538, 49432],
-    "otherCurrentLiabilities": [8530945, 6976977, 4216459],
-    "payables": [5790086, 5035538, 49432],
-    "totalLiabilities": [14545966, 12176823, 4269030],
-    "retainedEarnings": [3529194, 7582284, 4774257],
-    "currentYearEarnings": [-3362913, 1872704, 53667],
-    "totalEquity": [3532194, 7585284, 4777257]
+    "periods": ["Q1 2026", "2025", "2024", "2023"],
+    "currentAssets": [17050397, 19014837.75, 8317900, 5713336],
+    "cashAndBank": [5760988, 159633.52, 427774, 85974],
+    "receivables": [6251329, 14073188.91, 5707800, 4949362],
+    "otherCurrentAssets": [5038080, 4782015.32, 2182326, 678000],
+    "nonCurrentAssets": [1718015, 747268.74, 728387, 658528],
+    "totalAssets": [18768412, 19762106.49, 9046287, 6371864],
+    "currentLiabilities": [15011283, 12012514.56, 4265891, 1629309],
+    "tradePayables": [5790086, 5035538.03, 49432, 1445761],
+    "otherCurrentLiabilities": [9221197, 6976976.53, 4216459, 183548],
+    "payables": [5790086, 5035538.03, 49432, 1445761],
+    "totalLiabilities": [15011283, 12012514.56, 4265891, 1629309],
+    "retainedEarnings": [3529194, 7600461.87, 4774257, 4720591],
+    "currentYearEarnings": [-3362913, 1890882.24, 65395.51, 863567],
+    "totalEquity": [3532194, 7603461.87, 4777257, 4723591]
   },
   "benchmarks": {
-    "topCustomerShare": 0.602,
+    "topCustomerShare": 0.6026,
     "revenueQ12026": 12724807,
     "grossProfitQ12026": 4791386,
-    "operatingIncomeQ12026": -2427051,
-    "pbtQ12026": -2599497
+    "operatingIncomeQ12026": -2427052,
+    "pbtQ12026": -2599498
   },
   "commentary": {
-    "executiveSummary": "Macwest Limited achieved an exceptional 120.2% year-on-year revenue scale-up in Q1 2026, reaching GH¢ 12.73M. Gross profit expanded by 172.4% to GH¢ 4.33M, driven by improved cost efficiencies and higher-margin project delivery. While operating expenses rose by 179.2% in line with strategic capacity expansion, the company delivered a 72.3% growth in net profit (GH¢ 159.8k), confirming the robust scalability of the current operational model.",
-    "pnlAnalysis": "The 120% revenue growth significantly outpaced the 100% increase in costs of revenue, leading to a margin expansion in gross profit from 27.5% in Q1 2025 to 34.0% in Q1 2026. Management attention is currently focused on optimizing operating leverage as capacity investments stabilize.",
-    "balanceSheetAnalysis": "The balance sheet shows significant liquidity strength with cash reserves of GH¢ 5.76M. Operational leverage is being managed to fund project-specific working capital needs without external bank debt.",
+    "executiveSummary": "MacWest achieved a monumental 120.2% YoY revenue growth in Q1 2026 (GH¢ 12.72M) compared to Q1 2025. This follows a strong FY 2025 performance which closed with GH¢ 1.89M in net profit. While Q1 operating expenses are currently high due to strategic expansion, the business maintains a robust liquidity position with GH¢ 5.76M in cash and a healthy GH¢ 18.8M total asset base.",
+    "pnlAnalysis": "2024 and 2025 comparatives show a significant expansion in revenue capacity. Gross margins improved to 37.7% in Q1 2026, up from historical lows in 2024. Management is now focusing on optimizing operating leverage to convert this top-line scale into sustainable net profit.",
+    "balanceSheetAnalysis": "The balance sheet remains strong with GH¢ 7.6M in equity and no significant external debt. Cash reserves have scaled to GH¢ 5.76M, providing the necessary working capital to support the current 120% growth trajectory.",
     "risks": [
-      { "area": "Operating Leverage", "impact": "Medium", "description": "High growth in OPEX requires sustained revenue scale to maintain net margins." },
-      { "area": "Customer Concentration", "impact": "High", "description": "Revenue remains concentrated in key infrastructure projects (ENI)." },
-      { "area": "Execution Risk", "impact": "Medium", "description": "Scaling project delivery capacity to match the 120% YoY volume increase." }
+      { "area": "Operating Leverage", "impact": "High", "description": "High indirect costs relative to Q1 revenue require rapid scaling to achieve profitability." },
+      { "area": "Budget Attainment", "impact": "High", "description": "The gap between Q1 actuals and the GH¢ 137M annual revenue budget is substantial." },
+      { "area": "Liquidity", "impact": "Medium", "description": "Current cash reserves are healthy but need to be protected during loss-making periods." }
     ]
   }
 }

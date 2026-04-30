@@ -42,13 +42,14 @@ const tabMeta: Record<DashboardTab, { title: string; subtitle: string }> = {
 
 /**
  * Maps P&L period index → the Balance Sheet start index that best represents
- * that period. BS periods: [Mar 2026, Dec 2025, Mar 2025]
+ * that period. BS periods: [Q1 2026, 2025, 2024, 2023]
  */
 const PNL_TO_BS_START: Record<number, number> = {
-  0: 0, // Q1 2026  → start at Mar 2026
-  1: 1, // FY 2025  → start at Dec 2025
-  2: 2, // FY 2024  → start at Mar 2025 (closest available)
-  3: 2, // FY 2023  → start at Mar 2025 (only available historical BS)
+  0: 0, // Q1 2026 -> Q1 2026 BS
+  1: 2, // Q1 2025 -> 2024 Actual BS (closest historical)
+  2: 1, // 2025    -> 2025 Actual BS
+  3: 2, // 2024    -> 2024 Actual BS
+  4: 3, // 2023    -> 2023 Actual BS
 };
 
 export function DashboardPortal({ data }: { data: DashboardData }) {

@@ -106,29 +106,12 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
     Revenue: allRevenue[allRevenue.length - 1 - i] ?? 0,
   }));
 
-  /* ── Risk register ── */
-  const risks = [
-    {
-      rag: "amber" as RAG,
-      title: "Operating Leverage Stabilization",
-      detail: "179.2% increase in OPEX reflects capacity expansion to support 120% revenue growth. Focus remains on optimizing cost absorption in H2.",
-    },
-    {
-      rag: "green" as RAG,
-      title: "Gross Margin Expansion",
-      detail: "Gross margin expanded from 27.5% to 34.0% YoY, confirming improved contract pricing and tighter direct cost management.",
-    },
-    {
-      rag: rt.currentRatio >= 1.5 ? "green" as RAG : "amber" as RAG,
-      title: `Liquidity Strength — Current Ratio ${formatTimes(rt.currentRatio)}`,
-      detail: `Strong cash position of GH¢ 5.76M provides substantial buffer for project-specific working capital cycles.`,
-    },
-    {
-      rag: "amber" as RAG,
-      title: "Revenue Concentration",
-      detail: "Strategic focus on large-scale infrastructure projects requires careful management of client concentration risks.",
-    },
-  ];
+  /* ── Risk register from data ── */
+  const risks = model.commentary.risks.map((r) => ({
+    rag: (r.impact === "High" ? "red" : r.impact === "Medium" ? "amber" : "green") as RAG,
+    title: r.area,
+    detail: r.description,
+  }));
 
   function TooltipFmt({ active, payload, label }: any) {
     if (!active || !payload?.length) return null;
@@ -159,9 +142,7 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
             </div>
             <h1 className="text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">Executive Overview</h1>
             <p className="text-slate-500 mt-4 w-full text-base leading-relaxed">
-              Q1 2026 marks a period of significant scale-up for Macwest Limited, with revenue growing 120.2% YoY.
-              The business remains fundamentally profitable with a 72.3% increase in Net Profit, supported by a
-              strengthened liquidity position and improved gross margin profile. Below is the detailed breakdown of our current trajectory.
+              {model.commentary.executiveSummary}
             </p>
           </div>
         </div>

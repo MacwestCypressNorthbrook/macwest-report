@@ -76,6 +76,7 @@ export const buildDashboardModel = (data: DashboardData): DashboardModel => {
     meta: data.meta,
     kpis: buildKpis(data),
     margins: buildMargins(data),
+    commentary: data.commentary,
     incomeStatementSeries: {
       periods: data.pnl.periods,
       revenue: data.pnl.revenue,

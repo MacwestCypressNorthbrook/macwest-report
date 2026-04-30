@@ -70,6 +70,12 @@ export interface DashboardData {
     operatingIncomeQ12026: number;
     pbtQ12026: number;
   };
+  commentary: {
+    executiveSummary: string;
+    pnlAnalysis: string;
+    balanceSheetAnalysis: string;
+    risks: { area: string; impact: string; description: string }[];
+  };
 }
 
 export interface KpiCard {
@@ -111,6 +117,7 @@ export interface DashboardModel {
   meta: DashboardData["meta"];
   kpis: KpiCard[];
   margins: MarginCard[];
+  commentary: DashboardData["commentary"];
   incomeStatementSeries: {
     periods: string[];
     revenue: number[];
