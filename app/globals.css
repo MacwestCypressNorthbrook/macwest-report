@@ -65,10 +65,10 @@ body {
 
 .sidebar-item {
   display: flex;
-  align-items: start;
+  align-items: center;
   gap: 12px;
   padding: 10px 16px;
-  border-radius: 12px;
+  border-radius: 10px;
   color: var(--slate-500);
   font-size: 0.875rem;
   font-weight: 500;
@@ -82,8 +82,8 @@ body {
 }
 
 .sidebar-item.active {
-  background: var(--slate-100);
-  color: var(--slate-900);
+  background: var(--primary-light);
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -263,11 +263,29 @@ body {
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease both;
+}
+
 @media print {
 
   nav,
+  aside,
   .sidebar-item,
-  button {
+  button,
+  .no-print {
     display: none !important;
   }
 
@@ -287,9 +305,19 @@ body {
 
   main {
     overflow: visible !important;
+    padding: 0 !important;
   }
 
   .space-y-6>* {
     page-break-inside: avoid;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
   }
 }

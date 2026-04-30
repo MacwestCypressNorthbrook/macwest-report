@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { KpiCard } from "@/types/dashboard";
-import { formatMoney, formatPercent } from "@/lib/dashboard/format";
+import { formatMoney } from "@/lib/dashboard/format";
 import { TrendingUp, TrendingDown, DollarSign, Zap, Percent } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -62,11 +62,6 @@ function KpiCardItem({ kpi, index }: { kpi: KpiCard; index: number }) {
         <div className={cn("flex h-10 w-10 items-center justify-center rounded-xl border border-slate-100", iconBg)}>
           <Icon className={cn("h-5 w-5", iconColor)} />
         </div>
-        <button className="text-slate-300 hover:text-slate-600 transition-colors">
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-          </svg>
-        </button>
       </div>
 
       <div className="mt-6">

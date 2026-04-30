@@ -4,19 +4,16 @@ import {
   ResponsiveContainer,
   AreaChart,
   Area,
-  BarChart,
-  Bar,
   CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
-  Cell,
 } from "recharts";
 import { DashboardModel } from "@/types/dashboard";
-import { formatCompact, formatMoney, formatPercent, formatTimes } from "@/lib/dashboard/format";
+import { formatCompact, formatPercent, formatTimes } from "@/lib/dashboard/format";
 import {
   TrendingUp, TrendingDown, CheckCircle, AlertTriangle, XCircle,
-  ShieldAlert, BarChart3, DollarSign, Activity, Target, Layers,
+  ShieldAlert, BarChart3, Activity, Target,
 } from "lucide-react";
 
 const C = { navy: "#1B3A5C", maroon: "#941c1c", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626", teal: "#0d9488", emerald: "#0d9488" };
@@ -75,13 +72,15 @@ interface Props {
   priorPeriod: string | null;
   allPeriods: string[];
   allRevenue: number[];
+  allGrossProfit: number[];
+  allEBITDA: number[];
+  allPBT: number[];
 }
 
-export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPeriods, allRevenue }: Props) {
+export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPeriods, allRevenue, allGrossProfit, allEBITDA, allPBT }: Props) {
   const r = model.incomeStatementSeries;
   const bs = model.balanceSheetSeries;
   const rt = model.ratios;
-  const sv = model.shareholderView;
 
   const hasPrior = priorPeriod !== null;
   const safePct = (a: number, b: number) => b !== 0 ? (a - b) / Math.abs(b) : 0;
@@ -93,33 +92,19 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
   const annualisedEBITDA = r.ebitda[0] * 4;
   const annualisedPBT = r.pbt[0] * 4;
 
-  // Budget progress (Q1 Actual / Annual Budget)
-  // Budget Revenue: 137,313,697 (from JSON)
-  const budgetRevenue = 137313697;
-  const budgetProgress = (r.revenue[0] / budgetRevenue) * 100;
+  /* FY actuals — last entry in the unshifted full-series arrays */
+  const fyIdx = allPeriods.length - 1;
+  const fyLabel = allPeriods[fyIdx] ?? "Prior FY";
+  const fyRevenue = allRevenue[fyIdx] ?? 0;
+  const fyGP = allGrossProfit[fyIdx] ?? 0;
+  const fyEBITDA = allEBITDA[fyIdx] ?? 0;
+  const fyPBT = allPBT[fyIdx] ?? 0;
 
   /* ── Revenue trend chart ── */
   const revTrendData = allPeriods.slice().reverse().map((p, i) => ({
     period: p,
     Revenue: allRevenue[allRevenue.length - 1 - i] ?? 0,
   }));
-
-  /* ── Margin bars ── */
-  const margins = [
-    { label: "Gross Margin", value: rt.grossMargin, color: C.maroon, benchmark: 0.30 },
-    { label: "Operating Margin", value: rt.operatingMargin, color: C.blue, benchmark: 0.10 },
-    { label: "Net Margin (PAT)", value: rt.netMarginPAT, color: C.purple, benchmark: 0.05 },
-    { label: "EBITDA Margin", value: rt.ebitdaMargin, color: C.navy, benchmark: 0.15 },
-  ];
-
-  /* ── P&L snapshot rows ── */
-  const pnlRows = [
-    { label: "Revenue", value: formatCompact(r.revenue[0]), change: hasPrior ? safePct(r.revenue[0], r.revenue[1]) : undefined },
-    { label: "Gross Profit", value: formatCompact(r.grossProfit[0]), change: hasPrior ? safePct(r.grossProfit[0], r.grossProfit[1]) : undefined },
-    { label: "EBITDA", value: formatCompact(r.ebitda[0]), change: hasPrior ? safePct(r.ebitda[0], r.ebitda[1]) : undefined },
-    { label: "Operating Income", value: formatCompact(r.operatingIncome[0]), change: hasPrior ? safePct(r.operatingIncome[0], r.operatingIncome[1]) : undefined },
-    { label: "Net Profit (PBT)", value: formatCompact(r.pbt[0]), change: hasPrior ? safePct(r.pbt[0], r.pbt[1]) : undefined },
-  ];
 
   /* ── Risk register ── */
   const risks = [
@@ -280,15 +265,15 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
           <p className="text-xs text-slate-400 mb-4">Based on Q1 2026 run-rate. Assumes consistent performance for the remaining three quarters.</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { label: "Revenue (FY2026E)", val: formatCompact(annualisedRevenue), vs: formatCompact(58545664.29), vsLabel: "FY2025 actual", color: C.navy },
-              { label: "Gross Profit (FY2026E)", val: formatCompact(annualisedGP), vs: formatCompact(10923149.5), vsLabel: "FY2025 actual", color: C.teal },
-              { label: "EBITDA (FY2026E)", val: formatCompact(annualisedEBITDA), vs: formatCompact(1890000), vsLabel: "FY2025 actual", color: C.blue },
-              { label: "Net PBT (FY2026E)", val: formatCompact(annualisedPBT), vs: formatCompact(2422322.56), vsLabel: "FY2025 actual", color: C.purple },
-            ].map(({ label, val, vs, vsLabel, color }) => (
+              { label: "Revenue (FY2026E)", val: formatCompact(annualisedRevenue), vs: formatCompact(fyRevenue), color: C.navy },
+              { label: "Gross Profit (FY2026E)", val: formatCompact(annualisedGP), vs: formatCompact(fyGP), color: C.teal },
+              { label: "EBITDA (FY2026E)", val: formatCompact(annualisedEBITDA), vs: formatCompact(fyEBITDA), color: C.blue },
+              { label: "Net PBT (FY2026E)", val: formatCompact(annualisedPBT), vs: formatCompact(fyPBT), color: C.purple },
+            ].map(({ label, val, vs, color }) => (
               <div key={label} className="rounded-xl bg-slate-50 border border-slate-200 p-4 text-center">
                 <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{label}</p>
                 <p className="text-xl font-bold mt-1" style={{ color }}>{val}</p>
-                <p className="text-xs text-slate-400 mt-1">vs {vs}</p>
+                <p className="text-xs text-slate-400 mt-1">vs {vs} ({fyLabel} actual)</p>
               </div>
             ))}
           </div>

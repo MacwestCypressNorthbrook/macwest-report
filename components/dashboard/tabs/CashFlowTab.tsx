@@ -236,13 +236,7 @@ export function CashFlowTab({
             ))}
           </div>
 
-          {/* Receivables as % of assets */}
-          <div className="mt-4 rounded-xl bg-slate-50 border border-slate-200 p-3">
-            <p className="text-xs text-blue-800 font-medium">
-              Receivables as % of Total Assets: <strong>{formatPercent((receivables[0] ?? 0) / ((receivables[0] ?? 0) + (payables[0] ?? 0) + Math.max(cashAtEnd[0] ?? 0, 0) + 1))}</strong>
-            </p>
-            <p className="text-xs text-blue-700 mt-0.5">Monitor receivables ageing — 64-day DSO requires active debtor management.</p>
-          </div>
+
         </div>
       </div>
 

@@ -190,7 +190,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
           </div>
 
           <KPIStrip kpis={model.kpis} />
-          <MarginBand margins={model.margins} />
+          <MarginBand margins={model.margins} priorLabel={priorPeriodLabel ?? undefined} />
 
           {/* Tab Navigation (Reference Style) */}
           <div className="mb-6 border-b border-slate-200">
@@ -218,7 +218,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
 
           {/* Main content card */}
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-            <div className="px-8 py-8">
+            <div className="px-4 py-5 md:px-8 md:py-8">
               <div className="mb-8">
                 <h2 className="text-xl font-bold text-slate-900">{title}</h2>
                 <p className="text-sm text-slate-500 mt-1">{subtitle}</p>
@@ -230,6 +230,9 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
                   priorPeriod={priorPeriodLabel}
                   allPeriods={data.pnl.periods}
                   allRevenue={data.pnl.revenue}
+                  allGrossProfit={data.pnl.grossProfit}
+                  allEBITDA={data.pnl.ebitda}
+                  allPBT={data.pnl.pbt}
                 />
               )}
               {activeTab === "Income Statement" && (

@@ -102,7 +102,7 @@ export function RevenueTab({
       />
 
       {/* ── Concentration Risk Alert ── */}
-      {concentration > 0.85 && (
+      {concentration > 0.5 && (
         <div className="flex items-start gap-4 rounded-2xl border-2 border-amber-300 bg-amber-50 p-5">
           <ShieldAlert className="h-6 w-6 text-amber-600 shrink-0 mt-0.5" />
           <div>
@@ -232,7 +232,7 @@ export function RevenueTab({
           </div>
 
           {[
-            { label: "Top Client Share", value: formatPercent(topCustomer.pct), sub: topCustomer.name, status: topCustomer.pct > 0.8 ? "danger" : "warn", icon: <AlertTriangle className="h-4 w-4" /> },
+            { label: "Top Client Share", value: formatPercent(topCustomer.pct), sub: topCustomer.name, status: topCustomer.pct > 0.5 ? "danger" : "warn", icon: <AlertTriangle className="h-4 w-4" /> },
             { label: "Top 3 Clients Share", value: formatPercent(top3Share), sub: "Combined", status: top3Share > 0.9 ? "warn" : "good", icon: <Users className="h-4 w-4" /> },
             { label: "Active Clients", value: String(customers.filter((c) => c.value > 0).length), sub: "Q1 2026", status: "good", icon: <TrendingUp className="h-4 w-4" /> },
           ].map(({ label, value, sub, status, icon }) => (

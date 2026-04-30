@@ -21,6 +21,7 @@ import {
 import { formatPercent, formatTimes, formatMoney, formatCompact } from "@/lib/dashboard/format";
 import { TrendingUp, TrendingDown, Award, ShieldCheck, AlertTriangle, Zap, DollarSign, BarChart3 } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
+import { cn } from "@/lib/utils";
 
 const C = { navy: "#1B3A5C", maroon: "#941c1c", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626", teal: "#0d9488", emerald: "#0d9488" };
 
@@ -367,7 +368,14 @@ export function ShareholderViewTab({
                     <td className="font-medium text-slate-800">{metric}</td>
                     <td className="text-right font-bold text-slate-900 tabular-nums">{value}</td>
                     <td>
-                      <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-semibold bg-${color}-50 text-${color}-700`}>
+                      <span className={cn(
+                        "inline-block px-2 py-0.5 rounded-md text-xs font-semibold",
+                        color === "teal" && "bg-teal-50 text-teal-700",
+                        color === "blue" && "bg-blue-50 text-blue-700",
+                        color === "amber" && "bg-amber-50 text-amber-700",
+                        color === "red" && "bg-red-50 text-red-700",
+                        color === "navy" && "bg-slate-100 text-slate-700"
+                      )}>
                         {status}
                       </span>
                     </td>

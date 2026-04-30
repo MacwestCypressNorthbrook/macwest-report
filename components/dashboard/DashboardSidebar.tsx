@@ -42,7 +42,7 @@ function NavItem({ label, icon: Icon, badge, activeTab, onChange, open }: {
   const active = activeTab === label;
   return (
     <button onClick={() => onChange(label)} className={cn("sidebar-item", active && "active")}>
-      <Icon className="h-4.5 w-4.5 shrink-0" />
+      <Icon className="h-5 w-5 shrink-0" />
       {open && (
         <span className="flex-1 whitespace-nowrap text-sm">{label}</span>
       )}
@@ -68,7 +68,7 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
       open ? "w-60" : "w-[60px]"
     )}>
       {/* Logo */}
-      <div className={cn("flex items-center gap-3 border-b border-slate-100 p-6", !open && "justify-center p-4")}>
+      <div className={cn("flex items-center gap-3 border-b border-slate-100 p-6", !open && "px-4")}>
         <div className="relative shrink-0 flex items-center justify-center">
           <Image
             src="/logo-macwest-new.png"
@@ -115,7 +115,7 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
         )}
         <button
           onClick={() => setOpen(!open)}
-          className="flex h-9 w-full items-center justify-center rounded-xl border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-600 transition-colors md:flex hidden"
+          className="hidden md:flex h-9 w-full items-center justify-center rounded-xl border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-600 transition-colors"
           aria-label={open ? "Collapse sidebar" : "Expand sidebar"}
         >
           {open ? <ChevronLeft className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
@@ -199,12 +199,10 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
                 <div className="h-9 w-9 rounded-full bg-[#941c1c] flex items-center justify-center text-white font-bold text-xs shadow-sm border border-[#941c1c]/10">
                   MW
                 </div>
-                {open && (
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-slate-900 truncate">Macwest Limited</p>
-                    <p className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">CFO Portal</p>
-                  </div>
-                )}
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-slate-900 truncate">Macwest Limited</p>
+                  <p className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">CFO Portal</p>
+                </div>
               </div>
             </div>
 

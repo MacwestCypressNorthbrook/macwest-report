@@ -4,7 +4,7 @@ import { MarginCard } from "@/types/dashboard";
 import { formatPercent } from "@/lib/dashboard/format";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
-function MarginChip({ margin, index }: { margin: MarginCard; index: number }) {
+function MarginChip({ margin, index, priorLabel }: { margin: MarginCard; index: number; priorLabel: string }) {
   const delta = margin.current - margin.prior;
   const up = delta > 0;
   const changePpt = delta * 100;
@@ -33,7 +33,7 @@ function MarginChip({ margin, index }: { margin: MarginCard; index: number }) {
       </div>
 
       <div className="mt-2 flex items-center justify-between">
-        <span className="text-xs text-slate-400">vs FY2025: {formatPercent(margin.prior)}</span>
+        <span className="text-xs text-slate-400">vs {priorLabel}: {formatPercent(margin.prior)}</span>
         <span className={`text-xs font-semibold ${c.text}`} style={{ background: c.light, padding: "2px 8px", borderRadius: 999 }}>
           {formatPercent(margin.current)}
         </span>
@@ -42,10 +42,11 @@ function MarginChip({ margin, index }: { margin: MarginCard; index: number }) {
   );
 }
 
-export function MarginBand({ margins }: { margins: MarginCard[] }) {
+export function MarginBand({ margins, priorLabel }: { margins: MarginCard[]; priorLabel?: string }) {
+  const label = priorLabel ?? "prior period";
   return (
     <section className="mb-5 grid grid-cols-1 gap-4 md:grid-cols-3" aria-label="Margin indicators">
-      {margins.map((m, i) => <MarginChip key={m.label} margin={m} index={i} />)}
+      {margins.map((m, i) => <MarginChip key={m.label} margin={m} index={i} priorLabel={label} />)}
     </section>
   );
 }
