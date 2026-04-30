@@ -1,4 +1,4 @@
-import data from "@/data/northbrook-dashboard-data.json";
+import data from "@/data/macwest-dashboard-data.json";
 import { DashboardPortal } from "@/components/dashboard/DashboardPortal";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { DashboardData } from "@/types/dashboard";

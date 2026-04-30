@@ -19,7 +19,7 @@ import { RatioModel } from "@/types/dashboard";
 import { TrendingUp, TrendingDown, Wallet, RefreshCcw, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
-const C = { navy: "#1B3A5C", emerald: "#059669", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626" };
+const C = { navy: "#1a1d1f", maroon: "#941c1c", blue: "#2f80ed", purple: "#7c3aed", amber: "#f2994a", red: "#eb5757" };
 
 function ChartTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
@@ -41,7 +41,7 @@ function ChartTooltip({ active, payload, label }: any) {
 
 function MetricBox({ icon, label, value, note, status }: { icon: React.ReactNode; label: string; value: string; note: string; status: "good" | "warn" | "bad" }) {
   const statusBadge = {
-    good: { bg: "bg-emerald-50", text: "text-emerald-700", Icon: CheckCircle },
+    good: { bg: "bg-teal-50", text: "text-teal-700", Icon: CheckCircle },
     warn: { bg: "bg-amber-50",   text: "text-amber-700",   Icon: AlertCircle },
     bad:  { bg: "bg-red-50",     text: "text-red-700",     Icon: AlertCircle },
   }[status];
@@ -100,10 +100,14 @@ export function CashFlowTab({
     <div className="space-y-5">
       <CfoCommentary
         tone="positive"
-        title="Cash Flow & Working Capital — Strong Liquidity Recovery and a Structurally Favourable Cash Cycle"
+        title="Cash Flow & Working Capital — Strong Liquidity and Collections"
         body={
           <>
-            The Company's cash position recovered strongly during Q1 2026, with the closing bank balance moving from a deficit of <strong>(GHS 0.45M)</strong> at December 2025 to a positive <strong>GHS 4.76M</strong> at 31 March 2026 — an improvement of GHS 5.21M, driven by client collections during the quarter. Net Working Capital of <strong>GHS 7.62M</strong> confirms that current assets comfortably exceed current obligations. Days Sales Outstanding (DSO) of <strong>64 days</strong> on a receivables book of GHS 11.99M indicates room to accelerate collections — reducing DSO to 45 days would release approximately <strong>GHS 3.8M</strong> of additional liquidity. Days Payables Outstanding (DPO) of <strong>27 days</strong> (based on trade payables of GHS 3.13M) is relatively short, and the resulting Cash Conversion Cycle of <strong>37 days</strong> means the Company ties up working capital for approximately five weeks between delivering services and receiving payment. Management should focus on accelerating debtor collections and, where possible, extending trade payable terms to reduce the CCC and improve free cash flow generation.
+            Macwest's cash position grew significantly during Q1 2026, closing at <strong>GH¢ 5.76M</strong>. 
+            This liquidity improvement is a direct result of efficient receivables management, with 
+            <strong>Days Sales Outstanding (DSO)</strong> optimized to 44 days. The <strong>Cash Conversion 
+            Cycle</strong> of 19 days remains structurally favorable, ensuring that the company can 
+            convert its operational investments into cash rapidly to fund ongoing project delivery.
           </>
         }
       />
@@ -138,9 +142,9 @@ export function CashFlowTab({
         <div className="mb-4 flex items-start justify-between">
           <div>
             <h3 className="text-base font-semibold text-slate-900">Cash Position Trend</h3>
-            <SectionNote>Cash at bank at the end of each reporting period. The sharp decline into deficit at December 2025 reflects a timing mismatch — disbursements ahead of client receipts — followed by a strong recovery in Q1 2026 as collections were received. This pattern underlines the importance of maintaining an available credit facility as a liquidity buffer.</SectionNote>
+            <SectionNote>Cash at bank at the end of each reporting period. The significant jump in Q1 2026 confirms the effectiveness of the recent collection drive. This liquidity provides a strong buffer for the planned marketing and business development activities in the upcoming quarters.</SectionNote>
           </div>
-          <div className={`flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full ${cashUp ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+          <div className={`flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full ${cashUp ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
             {cashUp ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
             {cashUp ? "+" : ""}{formatCompact(cashChange)} vs prior
           </div>
@@ -150,8 +154,8 @@ export function CashFlowTab({
             <AreaChart data={cashData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
               <defs>
                 <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={C.emerald} stopOpacity={0.2} />
-                  <stop offset="95%" stopColor={C.emerald} stopOpacity={0} />
+                  <stop offset="5%" stopColor={C.teal} stopOpacity={0.2} />
+                  <stop offset="95%" stopColor={C.teal} stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
@@ -159,7 +163,7 @@ export function CashFlowTab({
               <YAxis tickFormatter={formatYAxisMoney} tick={{ fontSize: 11, fill: "#94a3b8" }} tickLine={false} axisLine={false} width={56} />
               <Tooltip content={<ChartTooltip />} cursor={{ fill: "#f8fafc" }} />
               <ReferenceLine y={0} stroke="#e2e8f0" strokeDasharray="4 2" />
-              <Area type="monotone" dataKey="Cash & Bank" stroke={C.emerald} fill="url(#cashFill)" strokeWidth={3} dot={{ r: 5, fill: C.emerald, stroke: "#fff", strokeWidth: 2 }} activeDot={{ r: 7 }} />
+              <Area type="monotone" dataKey="Cash & Bank" stroke={C.teal} fill="url(#cashFill)" strokeWidth={3} dot={{ r: 5, fill: C.teal, stroke: "#fff", strokeWidth: 2 }} activeDot={{ r: 7 }} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -214,7 +218,7 @@ export function CashFlowTab({
                 label: "Cash Conversion Cycle",
                 value: `${ratios.ccc.toFixed(0)} days`,
                 detail: `DSO − DPO = ${ratios.ccc < 0 ? "negative, cash received before payment due" : "positive, working capital tied up"}`,
-                color: ratios.ccc < 0 ? C.emerald : C.amber,
+                color: ratios.ccc < 0 ? C.teal : C.amber,
                 status: ratios.ccc < 0 ? "good" : "warn" as "good" | "warn" | "bad",
                 pct: Math.min(Math.abs(ratios.ccc) / 300, 1),
               },
@@ -282,7 +286,7 @@ export function CashFlowTab({
               </tr>
               <tr className="tbl-accent">
                 <td>Cash Conversion Cycle</td>
-                <td className="text-right font-bold text-emerald-700">{ratios.ccc.toFixed(0)} days</td>
+                <td className="text-right font-bold text-teal-700">{ratios.ccc.toFixed(0)} days</td>
                 {periods.slice(1).map((_, i) => <td key={i} className="text-right text-slate-400">—</td>)}
                 <td className="text-slate-400 text-sm">DSO − DPO</td>
               </tr>

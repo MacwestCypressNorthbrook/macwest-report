@@ -15,6 +15,7 @@ import { ShareholderViewTab } from "@/components/dashboard/tabs/ShareholderViewT
 import { ExecutiveSummaryTab } from "@/components/dashboard/tabs/ExecutiveSummaryTab";
 import { DashboardSidebar, DashboardTab } from "@/components/dashboard/DashboardSidebar";
 import { formatPercent, formatTimes } from "@/lib/dashboard/format";
+import { cn } from "@/lib/utils";
 
 const IncomeStatementTab = dynamic(
   () => import("@/components/dashboard/tabs/IncomeStatementTab").then((m) => m.IncomeStatementTab),
@@ -126,7 +127,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
   const priorPeriodLabel = data.pnl.periods[selectedPeriodIdx + 1] ?? null;
 
   return (
-    <div className="flex min-h-screen bg-slate-50 flex-col md:flex-row">
+    <div className="flex min-h-screen bg-[#fcfcfc] flex-col md:flex-row font-['Outfit']">
       <DashboardSidebar
         activeTab={activeTab}
         onChange={setActiveTab}
@@ -139,8 +140,8 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
       <div className="flex md:hidden items-center justify-between px-4 py-3 bg-white border-b border-slate-200 sticky top-0 z-40">
         <div className="relative h-6 w-32">
           <Image
-            src="/logo-nb.png"
-            alt="Northbrook Logo"
+            src="/logo-macwest-new.png"
+            alt="Macwest Logo"
             fill
             className="object-contain object-left"
             priority
@@ -191,25 +192,37 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
           <KPIStrip kpis={model.kpis} />
           <MarginBand margins={model.margins} />
 
-          {/* Tab content card */}
-          <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="flex items-start justify-between border-b border-slate-100 px-6 py-5">
-              <div>
-                <h2 className="text-lg font-bold text-slate-900">{title}</h2>
-                <p className="mt-0.5 text-sm text-slate-400">{subtitle}</p>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 ml-4">
-                <span className="badge badge-success">ROE {formatPercent(model.shareholderView.roe)}</span>
-                <span className={`badge ${model.shareholderView.debtToEquity > 3 ? "badge-warning" : "badge-neutral"}`}>
-                  D/E {formatTimes(model.shareholderView.debtToEquity)}
-                </span>
-                {concentration > 0.85 && (
-                  <span className="badge badge-warning">⚠ Conc. {formatPercent(concentration)}</span>
-                )}
-              </div>
+          {/* Tab Navigation (Reference Style) */}
+          <div className="mb-6 border-b border-slate-200">
+            <div className="flex items-center gap-8 overflow-x-auto scrollbar-hide">
+              {(Object.keys(tabMeta) as DashboardTab[]).map((tab) => {
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={cn(
+                      "pb-4 text-sm font-semibold transition-all relative whitespace-nowrap",
+                      isActive ? "text-[#941c1c]" : "text-slate-400 hover:text-slate-600"
+                    )}
+                  >
+                    {tab}
+                    {isActive && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#941c1c] rounded-full" />
+                    )}
+                  </button>
+                );
+              })}
             </div>
+          </div>
 
-            <div className="px-6 py-6">
+          {/* Main content card */}
+          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+            <div className="px-8 py-8">
+              <div className="mb-8">
+                <h2 className="text-xl font-bold text-slate-900">{title}</h2>
+                <p className="text-sm text-slate-500 mt-1">{subtitle}</p>
+              </div>
               {activeTab === "Executive Summary" && (
                 <ExecutiveSummaryTab
                   model={model}

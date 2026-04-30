@@ -33,8 +33,8 @@ export const formatTimes = (value: number): string => `${value.toFixed(2)}x`;
 export const formatCompact = (value: number): string => {
   const abs = Math.abs(value);
   const sign = value < 0 ? "-" : "";
-  if (abs >= 1_000_000) return `${sign}GHS ${(abs / 1_000_000).toFixed(2)}M`;
-  if (abs >= 1_000) return `${sign}GHS ${(abs / 1_000).toFixed(0)}K`;
+  if (abs >= 1_000_000) return `${sign}GH¢ ${(abs / 1_000_000).toFixed(2)}M`;
+  if (abs >= 1_000) return `${sign}GH¢ ${(abs / 1_000).toFixed(0)}K`;
   return formatMoney(value);
 };
 

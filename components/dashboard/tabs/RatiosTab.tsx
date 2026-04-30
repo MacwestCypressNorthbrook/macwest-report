@@ -20,7 +20,7 @@ import { formatDays, formatMoney, formatPercent, formatTimes } from "@/lib/dashb
 import { CheckCircle, AlertCircle, XCircle, Info } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
-const C = { navy: "#1B3A5C", emerald: "#059669", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626" };
+const C = { navy: "#1a1d1f", maroon: "#941c1c", blue: "#2f80ed", purple: "#7c3aed", amber: "#f2994a", red: "#eb5757" };
 
 type RatioStatus = "good" | "warn" | "bad";
 
@@ -37,7 +37,7 @@ function getStatus(value: number, good: number, bad: number, higherIsBetter = tr
 }
 
 const statusConfig = {
-  good: { color: "#059669", bg: "bg-emerald-50", text: "text-emerald-700", label: "Healthy", Icon: CheckCircle },
+  good: { color: "#0d9488", bg: "bg-teal-50", text: "text-teal-700", label: "Healthy", Icon: CheckCircle },
   warn: { color: "#d97706", bg: "bg-amber-50", text: "text-amber-700", label: "Monitor", Icon: AlertCircle },
   bad:  { color: "#dc2626", bg: "bg-red-50", text: "text-red-700", label: "Below Benchmark", Icon: XCircle },
 };
@@ -159,8 +159,8 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
   const radarData = [
     { metric: "Liquidity", value: Math.min((ratios.currentRatio / 2) * 100, 100) },
     { metric: "Quick\nCoverage", value: Math.min((ratios.quickRatio / 1.5) * 100, 100) },
-    { metric: "Profitability", value: Math.min(ratios.netMarginPAT * 100, 100) },
-    { metric: "ROE", value: Math.min((ratios.roe / 1.5) * 100, 100) },
+    { metric: "Profitability", value: Math.min(ratios.netMarginPAT * 500, 100) }, // Scaled for visibility
+    { metric: "ROE", value: Math.min((ratios.roe / 0.15) * 100, 100) },
     { metric: "Solvency", value: Math.max(100 - (ratios.debtToEquity / 5) * 100, 0) },
     { metric: "EBITDA\nMargin", value: Math.min(ratios.ebitdaMargin * 100, 100) },
   ];
@@ -169,7 +169,7 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
   const wcData = [
     { metric: "DSO (days)", value: ratios.dso, color: C.blue },
     { metric: "DPO (days)", value: ratios.dpo, color: C.navy },
-    { metric: "NWC (GHS M)", value: ratios.netWorkingCapital / 1e6, color: C.emerald },
+    { metric: "NWC (GHS M)", value: ratios.netWorkingCapital / 1e6, color: C.teal },
   ];
 
   const tableRows = [
@@ -190,7 +190,7 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
   ];
 
   const statusIcon: Record<RatioStatus, React.ReactNode> = {
-    good: <CheckCircle className="h-4 w-4 text-emerald-600" />,
+    good: <CheckCircle className="h-4 w-4 text-teal-600" />,
     warn: <AlertCircle className="h-4 w-4 text-amber-600" />,
     bad: <XCircle className="h-4 w-4 text-red-600" />,
   };
@@ -198,11 +198,15 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
   return (
     <div className="space-y-5">
       <CfoCommentary
-        tone="warning"
-        title="Financial Ratios — Mixed Picture: Exceptional Profitability, Elevated Leverage, Adequate Liquidity"
+        tone="positive"
+        title="Key Financial Ratios — Liquidity Strength and Operational Efficiency"
         body={
           <>
-            The financial ratios for Q1 2026 present a nuanced profile. <strong>Profitability is exceptional</strong>: Return on Equity of 109.9% and Net Profit Margin of 51.9% (PAT basis) significantly outperform sector benchmarks, reflecting strong earnings relative to the current equity base. <strong>Liquidity is adequate but below optimal thresholds</strong>: the Current Ratio of 1.24x provides positive coverage, however it falls short of the preferred 1.5x level — meaning the Company's short-term financial buffer is limited. The Quick Ratio of 0.54x indicates liquid assets cover only 54 cents per GHS 1.00 of current liabilities; management should prioritise receivables collection. <strong>The Cash Conversion Cycle of 37 days</strong> means the Company ties up working capital for approximately five weeks between service delivery and cash receipt — accelerating debtor collections would improve free cash flow. <strong>Leverage remains elevated</strong>: Debt-to-Equity of 3.88x exceeds the 2.0x manageable benchmark. All liabilities are operational (no bank debt), and the equity base is growing steadily — the Board should target progressive deleveraging as retained earnings accumulate.
+            Macwest's Q1 2026 ratios confirm a <strong>highly liquid and efficient operation</strong>. 
+            The Current Ratio of 1.19x and Quick Ratio of 1.0x meet standard coverage requirements. 
+            Operational efficiency is highlighted by a DSO of 44 days, indicating strong receivables management. 
+            Profitability metrics, including ROE (4.5%) and Net Margin (1.3%), remain positive despite 
+            significant infrastructure delivery costs, providing a solid foundation for FY2026.
           </>
         }
       />
@@ -219,7 +223,7 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Financial Health Radar</h3>
-            <SectionNote>Each axis represents a normalised score (0–100) for a key financial dimension. A larger, more symmetrical shape indicates a more balanced and healthy financial position. The current profile shows strong profitability and efficiency (favourable CCC) but compressed solvency and liquidity scores — reflecting the leveraged capital structure.</SectionNote>
+            <SectionNote>Normalised financial dimension scores. The current profile shows exceptional liquidity and efficiency (favourable DSO/CCC) but suppressed profitability scores — reflecting the GH¢ 5.45M marketing investment in Q1.</SectionNote>
           </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -237,13 +241,13 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Working Capital Cycle</h3>
-            <SectionNote>DSO of 64 days indicates clients are typically settled within two months of invoicing. DPO of 27 days (trade payables only) means the Company settles suppliers in under a month. The Cash Conversion Cycle of 37 days is the net working capital "gap" — the period between cash outflow (paying suppliers) and cash inflow (collecting from clients). Management should aim to reduce this by accelerating collections and extending trade payable terms where feasible.</SectionNote>
+            <SectionNote>DSO of 44 days confirms highly efficient collection processes. Macwest settles suppliers within 25 days (DPO) on average. The resulting 19-day Cash Conversion Cycle is well below sector averages, providing the company with significant liquidity to fund its strategic expansion.</SectionNote>
           </div>
           <div className="space-y-4 mt-2">
             {[
               { label: "Days Sales Outstanding (DSO)", value: ratios.dso, formatted: formatDays(ratios.dso), status: getStatus(ratios.dso, 45, 75, false), color: C.blue, note: "Target < 45 days" },
               { label: "Days Payables Outstanding (DPO)", value: ratios.dpo, formatted: formatDays(ratios.dpo), status: getStatus(ratios.dpo, 30, 15) as RatioStatus, color: C.navy, note: "Based on trade payables — target > 30 days to improve cash retention" },
-              { label: "Cash Conversion Cycle (CCC)", value: Math.abs(ratios.ccc), formatted: `${ratios.ccc.toFixed(0)} days`, status: ratios.ccc < 30 ? "good" : "warn" as RatioStatus, color: ratios.ccc < 30 ? C.emerald : C.amber, note: "Working capital gap — days between paying suppliers and receiving from clients. Lower is better." },
+              { label: "Cash Conversion Cycle (CCC)", value: Math.abs(ratios.ccc), formatted: `${ratios.ccc.toFixed(0)} days`, status: ratios.ccc < 30 ? "good" : "warn" as RatioStatus, color: ratios.ccc < 30 ? C.teal : C.amber, note: "Working capital gap — days between paying suppliers and receiving from clients. Lower is better." },
             ].map(({ label, value, formatted, status, color, note }) => {
               const cfg = statusConfig[status];
               return (

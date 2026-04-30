@@ -12,8 +12,8 @@ interface CfoCommentaryProps {
 }
 
 const toneConfig: Record<Tone, { border: string; bg: string; icon: React.ReactNode; label: string; labelColor: string }> = {
-  neutral:  { border: "border-blue-200",   bg: "bg-blue-50/60",   icon: <Info className="h-4 w-4 text-blue-500 shrink-0 mt-0.5" />,       label: "CFO Commentary",     labelColor: "text-blue-700" },
-  positive: { border: "border-emerald-200", bg: "bg-emerald-50/60", icon: <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />, label: "CFO Commentary",     labelColor: "text-emerald-700" },
+  neutral:  { border: "border-slate-200",   bg: "bg-slate-50/60",   icon: <Info className="h-4 w-4 text-slate-500 shrink-0 mt-0.5" />,       label: "CFO Commentary",     labelColor: "text-slate-700" },
+  positive: { border: "border-[#0d9488]/20", bg: "bg-[#0d9488]/5", icon: <CheckCircle className="h-4 w-4 text-[#0d9488] shrink-0 mt-0.5" />, label: "CFO Commentary",     labelColor: "text-[#0d9488]" },
   warning:  { border: "border-amber-200",   bg: "bg-amber-50/60",   icon: <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />, label: "Risk Observation",   labelColor: "text-amber-700" },
   critical: { border: "border-red-200",     bg: "bg-red-50/60",     icon: <AlertTriangle className="h-4 w-4 text-red-600 shrink-0 mt-0.5" />,   label: "Critical Observation", labelColor: "text-red-700" },
 };

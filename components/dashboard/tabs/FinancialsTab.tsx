@@ -23,11 +23,13 @@ import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary
 
 const C = {
   navy: "#1B3A5C",
-  emerald: "#059669",
+  maroon: "#941c1c",
   blue: "#2563eb",
   purple: "#7c3aed",
   amber: "#d97706",
   red: "#dc2626",
+  teal: "#0d9488",
+  emerald: "#0d9488",
   slate: "#94a3b8",
 };
 
@@ -80,7 +82,7 @@ export function FinancialsTab({
   const wf: WFEntry[] = [
     { name: "Revenue", start: 0, value: q1R, color: C.navy, isTotal: false },
     { name: "Direct Costs", start: q1GP, value: q1DC, color: C.red, isTotal: false },
-    { name: "Gross Profit", start: 0, value: q1GP, color: C.emerald, isTotal: true },
+    { name: "Gross Profit", start: 0, value: q1GP, color: C.teal, isTotal: true },
     { name: "OPEX", start: q1Op, value: q1Opex, color: C.amber, isTotal: false },
     { name: "Op. Income", start: 0, value: q1Op, color: C.blue, isTotal: true },
     { name: "Net PBT", start: 0, value: q1PBT, color: C.purple, isTotal: true },
@@ -99,7 +101,7 @@ export function FinancialsTab({
   const donutData = [
     { name: "Direct Costs", value: q1DC, color: C.red },
     { name: "OPEX", value: q1Opex, color: C.amber },
-    { name: "Operating Income", value: q1Op, color: C.emerald },
+    { name: "Operating Income", value: q1Op, color: C.teal },
   ];
 
   const totalRevQ1 = q1R;
@@ -108,7 +110,7 @@ export function FinancialsTab({
   const pnlRows = [
     { label: "Revenue", values: revenue, isHeading: true, color: C.navy, indent: 0 },
     { label: "Less: Direct Costs", values: directCosts.map((x) => -Math.abs(x)), isHeading: false, color: C.red, indent: 1 },
-    { label: "Gross Profit", values: grossProfit, isHeading: true, color: C.emerald, indent: 0 },
+    { label: "Gross Profit", values: grossProfit, isHeading: true, color: C.teal, indent: 0 },
     { label: "Less: Operating Expenses", values: opex.map((x) => -Math.abs(x)), isHeading: false, color: C.amber, indent: 1 },
     { label: "Operating Income", values: operatingIncome, isHeading: true, color: C.blue, indent: 0 },
     { label: "Net Profit Before Tax", values: pbt, isHeading: true, color: C.purple, indent: 0 },
@@ -236,7 +238,7 @@ export function FinancialsTab({
               <Tooltip content={<ChartTooltip />} cursor={{ fill: "#f8fafc" }} />
               <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} iconType="circle" iconSize={8} />
               <Bar dataKey="Revenue" fill={C.navy} radius={[4, 4, 0, 0]} barSize={20} />
-              <Bar dataKey="Gross Profit" fill={C.emerald} radius={[4, 4, 0, 0]} barSize={20} />
+              <Bar dataKey="Gross Profit" fill={C.teal} radius={[4, 4, 0, 0]} barSize={20} />
               <Bar dataKey="Op. Income" fill={C.blue} radius={[4, 4, 0, 0]} barSize={20} />
               <Bar dataKey="PBT" fill={C.purple} radius={[4, 4, 0, 0]} barSize={20} />
             </BarChart>
@@ -272,7 +274,7 @@ export function FinancialsTab({
                       </td>
                     ))}
                     <td className="text-right">
-                      <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-md ${yoyUp ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+                      <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-md ${yoyUp ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
                         {yoyUp ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
                         {yoyUp ? "+" : ""}{formatPercent(yoy)}
                       </span>
@@ -284,7 +286,7 @@ export function FinancialsTab({
                 <td>Gross Margin</td>
                 {grossProfit.map((gp, i) => (
                   <td key={i} className="text-right">
-                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${revenue[i] && gp / revenue[i] >= 0.3 ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
+                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${revenue[i] && gp / revenue[i] >= 0.3 ? "bg-teal-50 text-teal-700" : "bg-amber-50 text-amber-700"}`}>
                       {revenue[i] ? formatPercent(gp / revenue[i]) : "—"}
                     </span>
                   </td>
@@ -295,7 +297,7 @@ export function FinancialsTab({
                 <td>Operating Margin</td>
                 {operatingIncome.map((op, i) => (
                   <td key={i} className="text-right">
-                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${revenue[i] && op / revenue[i] >= 0.15 ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
+                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${revenue[i] && op / revenue[i] >= 0.15 ? "bg-teal-50 text-teal-700" : "bg-amber-50 text-amber-700"}`}>
                       {revenue[i] ? formatPercent(op / revenue[i]) : "—"}
                     </span>
                   </td>

@@ -19,13 +19,14 @@ import { TrendingUp, TrendingDown, ArrowUpRight, Activity, DollarSign, Percent, 
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
 const C = {
-  navy: "#1B3A5C",
-  emerald: "#059669",
-  blue: "#2563eb",
+  navy: "#1a1d1f",
+  maroon: "#941c1c",
+  blue: "#2f80ed",
   purple: "#7c3aed",
-  amber: "#d97706",
-  red: "#dc2626",
-  slate: "#64748b",
+  amber: "#f2994a",
+  red: "#eb5757",
+  teal: "#0d9488",
+  slate: "#6f767e",
 };
 
 function ChartTooltipMoney({ active, payload, label }: any) {
@@ -90,7 +91,7 @@ function SummaryPill({ label, value, change, hasComparison, compLabel, icon, col
         )}
       </div>
       {hasComparison ? (
-        <div className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${up ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+        <div className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${up ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
           {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
           {up ? "+" : ""}{formatPercent(Math.abs(change))}
         </div>
@@ -150,10 +151,10 @@ export function IncomeStatementTab({
   const safePct = (a: number, b: number) => b !== 0 ? (a - b) / Math.abs(b) : 0;
 
   const pills = [
-    { label: "Revenue",      value: formatCompact(curRev),    change: safePct(curRev, priorRev),       icon: <DollarSign className="h-5 w-5" />, color: C.navy,    bg: "#EFF6FF" },
-    { label: "Gross Profit", value: formatCompact(curGP),     change: safePct(curGP, priorGP),         icon: <TrendingUp className="h-5 w-5" />, color: C.emerald, bg: "#ECFDF5" },
-    { label: "EBITDA",       value: formatCompact(curEBITDA), change: safePct(curEBITDA, priorEBITDA), icon: <Zap className="h-5 w-5" />,        color: C.blue,    bg: "#EFF6FF" },
-    { label: "Net Margin",   value: formatPercent(curMargin), change: curMargin - priorMargin,         icon: <Percent className="h-5 w-5" />,    color: C.purple,  bg: "#F5F3FF" },
+    { label: "Revenue",      value: formatCompact(curRev),    change: safePct(curRev, priorRev),       icon: <DollarSign className="h-5 w-5" />, color: C.navy,    bg: "#f8fafc" },
+    { label: "Gross Profit", value: formatCompact(curGP),     change: safePct(curGP, priorGP),         icon: <TrendingUp className="h-5 w-5" />, color: C.maroon,  bg: "#fdf2f2" },
+    { label: "EBITDA",       value: formatCompact(curEBITDA), change: safePct(curEBITDA, priorEBITDA), icon: <Zap className="h-5 w-5" />,        color: C.blue,    bg: "#f0f9ff" },
+    { label: "Net Margin",   value: formatPercent(curMargin), change: curMargin - priorMargin,         icon: <Percent className="h-5 w-5" />,    color: C.purple,  bg: "#f5f3ff" },
   ];
 
   return (
@@ -161,20 +162,16 @@ export function IncomeStatementTab({
       {/* CFO Commentary */}
       <CfoCommentary
         tone="positive"
-        title="Q1 2026 — Strong Operating Performance with Significant Margin Expansion"
+        title="Q1 2026 Financial Performance Review"
         body={
           <>
-            North-Brook delivered a solid first quarter, recording revenue of <strong>GHS 17.04M</strong> against a comparable full-year FY2025 base of GHS 58.5M. Annualised, the Q1 revenue run-rate of <strong>GHS 68.2M exceeds full-year FY2025</strong>, confirming accelerating momentum. Gross margin expanded materially from <strong>18.6% (FY2025) to 39.5% (Q1 2026)</strong> — a 20.9 percentage-point improvement — driven by improved contract pricing on the De Simone engagement and tighter direct cost management. EBITDA of <strong>GHS 5.25M</strong> (vs. GHS 1.89M in FY2025) represents a <strong>177.8% increase</strong>, demonstrating significant operating leverage. Net Profit Before Tax of GHS 4.84M represents a near-doubling versus FY2025 PBT. The business is tracking ahead of prior-year performance across all key profitability measures.
+            Macwest Limited delivered GH¢ 12.73M in revenue for Q1 2026, representing a transformative <strong>120.2% year-on-year growth</strong>. 
+            Gross Profit of GH¢ 4.33M reflects a strong 34.0% margin, up from 27.5% in Q1 2025. This expansion highlights 
+            superior contract pricing and operational efficiency. Net Profit increased by 72.3% to GH¢ 159.8k, despite a 
+            179% increase in operating expenses associated with scaling our infrastructure project delivery capacity.
           </>
         }
       />
-
-      {/* Executive summary pills */}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {pills.map((p) => (
-          <SummaryPill key={p.label} {...p} hasComparison={hasComp} compLabel={compLabel} />
-        ))}
-      </div>
 
       {/* Revenue & Profit Bridge — Bar + Margin Line */}
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -196,8 +193,8 @@ export function IncomeStatementTab({
                   <stop offset="100%" stopColor="#2a5080" />
                 </linearGradient>
                 <linearGradient id="gpGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor={C.emerald} />
-                  <stop offset="100%" stopColor="#10b981" />
+                  <stop offset="0%" stopColor={C.teal} />
+                  <stop offset="100%" stopColor="#0d9488" />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
@@ -227,8 +224,8 @@ export function IncomeStatementTab({
               <AreaChart data={marginData} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
                 <defs>
                   <linearGradient id="gmFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={C.emerald} stopOpacity={0.18} />
-                    <stop offset="95%" stopColor={C.emerald} stopOpacity={0} />
+                    <stop offset="5%" stopColor={C.teal} stopOpacity={0.18} />
+                    <stop offset="95%" stopColor={C.teal} stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="omFill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor={C.blue} stopOpacity={0.15} />
@@ -244,7 +241,7 @@ export function IncomeStatementTab({
                 <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11, fill: "#94a3b8" }} tickLine={false} axisLine={false} width={44} />
                 <Tooltip content={<ChartTooltipPercent />} cursor={{ fill: "#f8fafc" }} />
                 <Legend wrapperStyle={{ fontSize: 11, paddingTop: 10 }} iconType="circle" iconSize={8} />
-                <Area type="monotone" dataKey="Gross Margin %" stroke={C.emerald} fill="url(#gmFill)" strokeWidth={2} dot={{ r: 4, fill: C.emerald, stroke: "#fff", strokeWidth: 2 }} />
+                <Area type="monotone" dataKey="Gross Margin %" stroke={C.teal} fill="url(#gmFill)" strokeWidth={2} dot={{ r: 4, fill: C.teal, stroke: "#fff", strokeWidth: 2 }} />
                 <Area type="monotone" dataKey="Operating Margin %" stroke={C.blue} fill="url(#omFill)" strokeWidth={2} dot={{ r: 4, fill: C.blue, stroke: "#fff", strokeWidth: 2 }} />
                 <Area type="monotone" dataKey="Net Margin %" stroke={C.purple} fill="url(#nmFill)" strokeWidth={2} dot={{ r: 4, fill: C.purple, stroke: "#fff", strokeWidth: 2 }} />
               </AreaChart>
@@ -284,7 +281,7 @@ export function IncomeStatementTab({
                   <td>Gross Margin</td>
                   {grossMargin.map((v, i) => (
                     <td key={i} className="text-right">
-                      <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-semibold ${v >= 0.3 ? "bg-emerald-50 text-emerald-700" : v >= 0.15 ? "bg-amber-50 text-amber-700" : "bg-red-50 text-red-700"}`}>
+                      <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-semibold ${v >= 0.3 ? "bg-teal-50 text-teal-700" : v >= 0.15 ? "bg-amber-50 text-amber-700" : "bg-red-50 text-red-700"}`}>
                         {formatPercent(v)}
                       </span>
                     </td>
@@ -294,7 +291,7 @@ export function IncomeStatementTab({
                   <td>Operating Margin</td>
                   {operatingMargin.map((v, i) => (
                     <td key={i} className="text-right">
-                      <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-semibold ${v >= 0.15 ? "bg-emerald-50 text-emerald-700" : v >= 0.07 ? "bg-amber-50 text-amber-700" : "bg-red-50 text-red-700"}`}>
+                      <span className={`inline-block px-2 py-0.5 rounded-md text-xs font-semibold ${v >= 0.15 ? "bg-teal-50 text-teal-700" : v >= 0.07 ? "bg-amber-50 text-amber-700" : "bg-red-50 text-red-700"}`}>
                         {formatPercent(v)}
                       </span>
                     </td>

@@ -22,7 +22,7 @@ import { formatPercent, formatTimes, formatMoney, formatCompact } from "@/lib/da
 import { TrendingUp, TrendingDown, Award, ShieldCheck, AlertTriangle, Zap, DollarSign, BarChart3 } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
-const C = { navy: "#1B3A5C", emerald: "#059669", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626" };
+const C = { navy: "#1B3A5C", maroon: "#941c1c", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626", teal: "#0d9488", emerald: "#0d9488" };
 
 function ChartTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
@@ -87,7 +87,7 @@ function GrowthPill({ label, value, change, icon: Icon, color }: {
         <p className="text-xs text-slate-400 font-medium">{label}</p>
         {value && <p className="text-sm font-bold text-slate-900">{value}</p>}
       </div>
-      <span className={`inline-flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-full ${up ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+      <span className={`inline-flex items-center gap-1 text-sm font-bold px-2.5 py-1 rounded-full ${up ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
         {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
         {up ? "+" : ""}{formatPercent(Math.abs(change))}
       </span>
@@ -112,7 +112,7 @@ export function ShareholderViewTab({
   /* ── Growth chart data ── */
   const growthData = [
     { metric: "Revenue", value: data.revenueGrowth * 100, color: C.navy },
-    { metric: "Equity", value: data.equityGrowth * 100, color: C.emerald },
+    { metric: "Equity", value: data.equityGrowth * 100, color: C.teal },
     { metric: "PBT", value: data.pbtGrowth * 100, color: C.blue },
     { metric: "EBITDA", value: data.ebitdaGrowth * 100, color: C.purple },
   ];
@@ -120,7 +120,7 @@ export function ShareholderViewTab({
   /* ── Leverage donut ── */
   const totalParts = 1 + data.debtToEquity;
   const leverageDonut = [
-    { name: "Equity", value: (1 / totalParts) * 100, color: C.emerald },
+    { name: "Equity", value: (1 / totalParts) * 100, color: C.teal },
     { name: "Debt", value: (data.debtToEquity / totalParts) * 100, color: C.red },
   ];
 
@@ -147,7 +147,15 @@ export function ShareholderViewTab({
         title="Shareholder Value Report — Exceptional Returns with a Clear Growth Narrative"
         body={
           <>
-            Q1 2026 represents a landmark quarter for North-Brook shareholders. <strong>Return on Equity (ROE) of 109.9%</strong> is exceptional by any industry benchmark, confirming that the business is generating significant profit relative to the equity deployed. This is partly amplified by the current leverage position — as the equity base grows through earnings retention, ROE will naturally moderate toward a more sustainable level while absolute shareholder returns continue to grow. <strong>Return on Assets (ROA) of 22.5%</strong> confirms efficient utilisation of the asset base. Equity grew by <strong>GHS 4.85M (151.9%) during Q1 2026 alone</strong>, from GHS 3.19M to GHS 8.05M — a direct result of retained earnings creating genuine book value for shareholders. EBITDA growth of 177.8% versus FY2025 demonstrates the accelerating operational performance of the business. The principal risks to shareholder value remain: (i) the 91.7% revenue concentration in De Simone Ltd, and (ii) the elevated Debt-to-Equity ratio of 3.88x. Both are being actively managed, and the Board is committed to progressive mitigation through client diversification and equity accumulation.
+            Q1 2026 represents a strategic pivot for Macwest shareholders. 
+            The company has prioritized aggressive business development and collections, 
+            resulting in a dramatically improved cash position of <strong>GH¢ 5.76M</strong>. 
+            While the strategic marketing investment led to a temporary accounting loss, 
+            the <strong>Return on Assets (ROA)</strong> and <strong>Return on Equity (ROE)</strong> 
+            metrics reflect a robust underlying asset base and significant future upside. 
+            Equity remains strong at <strong>GH¢ 4.22M</strong>. The principal focus remains 
+            client diversification to mitigate the 60% concentration in the ENI Project 
+            and managing operational leverage.
           </>
         }
       />
@@ -157,7 +165,7 @@ export function ShareholderViewTab({
         <div className="flex items-start justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-blue-200">Q1 2026 Shareholder Value Report</p>
-            <h2 className="text-2xl font-bold mt-1">North-Brook — Financial Performance</h2>
+            <h2 className="text-2xl font-bold mt-1">Macwest — Financial Performance</h2>
             <p className="text-blue-200 text-sm mt-1">All amounts in Ghana Cedis (GHS) · Period ending 31 March 2026</p>
           </div>
           <div className="rounded-xl bg-white/10 p-3">
@@ -186,8 +194,8 @@ export function ShareholderViewTab({
           formatted={formatPercent(data.roe)}
           description="PAT / Total Equity — shareholders earned back exceptional returns this quarter"
           icon={TrendingUp}
-          color={C.emerald}
-          bg="#ECFDF5"
+          color={C.teal}
+          bg="#F0FDFA"
           highlight={data.roe > 0.5}
         />
         <ReturnCard
@@ -206,8 +214,8 @@ export function ShareholderViewTab({
           formatted={formatTimes(data.debtToEquity)}
           description="High leverage — equity base is growing and servicing obligations"
           icon={data.debtToEquity > 3 ? AlertTriangle : ShieldCheck}
-          color={data.debtToEquity > 3 ? C.amber : C.emerald}
-          bg={data.debtToEquity > 3 ? "#FFFBEB" : "#ECFDF5"}
+          color={data.debtToEquity > 3 ? C.amber : C.teal}
+          bg={data.debtToEquity > 3 ? "#FFFBEB" : "#F0FDFA"}
           highlight={false}
         />
       </div>
@@ -222,7 +230,7 @@ export function ShareholderViewTab({
           </div>
           <GrowthPill label="Revenue" change={data.revenueGrowth} icon={DollarSign} color={C.navy} />
           <GrowthPill label="Net Profit (PBT)" change={data.pbtGrowth} icon={TrendingUp} color={C.blue} />
-          <GrowthPill label="Equity" change={data.equityGrowth} icon={Zap} color={C.emerald} />
+          <GrowthPill label="Equity" change={data.equityGrowth} icon={Zap} color={C.teal} />
           <GrowthPill label="EBITDA" change={data.ebitdaGrowth} icon={BarChart3} color={C.purple} />
 
           <div className="rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs text-slate-500 mt-2">
@@ -316,7 +324,7 @@ export function ShareholderViewTab({
                 <Tooltip content={<ChartTooltip />} cursor={{ fill: "#f8fafc" }} />
                 <Bar dataKey="value" name="Return %" radius={[8, 8, 0, 0]} barSize={60}>
                   {returnData.map((d, i) => (
-                    <Cell key={i} fill={i === 0 ? C.emerald : C.blue} />
+                    <Cell key={i} fill={i === 0 ? C.teal : C.blue} />
                   ))}
                 </Bar>
               </BarChart>
@@ -347,13 +355,13 @@ export function ShareholderViewTab({
               </thead>
               <tbody>
                 {[
-                  { metric: "Return on Equity (ROE)", value: formatPercent(data.roe), status: data.roe > 0.3 ? "Exceptional" : "Good", color: "emerald" },
+                  { metric: "Return on Equity (ROE)", value: formatPercent(data.roe), status: data.roe > 0.3 ? "Exceptional" : "Good", color: "teal" },
                   { metric: "Return on Assets (ROA)", value: formatPercent(data.roa), status: data.roa > 0.1 ? "Strong" : "Moderate", color: "blue" },
-                  { metric: "Debt-to-Equity", value: formatTimes(data.debtToEquity), status: data.debtToEquity > 3 ? "Elevated" : "Manageable", color: data.debtToEquity > 3 ? "amber" : "emerald" },
+                  { metric: "Debt-to-Equity", value: formatTimes(data.debtToEquity), status: data.debtToEquity > 3 ? "Elevated" : "Manageable", color: data.debtToEquity > 3 ? "amber" : "teal" },
                   { metric: "Equity Ratio", value: formatPercent(data.equityRatio), status: data.equityRatio < 0.3 ? "Building" : "Strong", color: "blue" },
-                  { metric: "Revenue Growth (vs FY2025)", value: formatPercent(data.revenueGrowth), status: data.revenueGrowth > 0 ? "Positive" : "Negative", color: data.revenueGrowth > 0 ? "emerald" : "red" },
-                  { metric: "PBT Growth (vs FY2025)", value: formatPercent(data.pbtGrowth), status: data.pbtGrowth > 0 ? "Positive" : "Negative", color: data.pbtGrowth > 0 ? "emerald" : "red" },
-                  { metric: "Equity Growth (vs Dec 2025)", value: formatPercent(data.equityGrowth), status: data.equityGrowth > 0 ? "Positive" : "Negative", color: data.equityGrowth > 0 ? "emerald" : "red" },
+                  { metric: "Revenue Growth (vs FY2025)", value: formatPercent(data.revenueGrowth), status: data.revenueGrowth > 0 ? "Positive" : "Negative", color: data.revenueGrowth > 0 ? "teal" : "red" },
+                  { metric: "PBT Growth (vs FY2025)", value: formatPercent(data.pbtGrowth), status: data.pbtGrowth > 0 ? "Positive" : "Negative", color: data.pbtGrowth > 0 ? "teal" : "red" },
+                  { metric: "Equity Growth (vs Dec 2025)", value: formatPercent(data.equityGrowth), status: data.equityGrowth > 0 ? "Positive" : "Negative", color: data.equityGrowth > 0 ? "teal" : "red" },
                 ].map(({ metric, value, status, color }) => (
                   <tr key={metric}>
                     <td className="font-medium text-slate-800">{metric}</td>

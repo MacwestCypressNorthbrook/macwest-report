@@ -19,8 +19,8 @@ const activities: ActivityItem[] = [
     title: "Revenue recorded",
     description: "Q1 2026 revenue logged",
     time: "Just now",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
+    color: "text-teal-600",
+    bg: "bg-teal-50",
   },
   {
     id: "2",
@@ -28,8 +28,8 @@ const activities: ActivityItem[] = [
     title: "Margin improved",
     description: "Gross margin up 21.1% vs FY2025",
     time: "2 hours ago",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
+    color: "text-teal-600",
+    bg: "bg-teal-50",
   },
   {
     id: "3",

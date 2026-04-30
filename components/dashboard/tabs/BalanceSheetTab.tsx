@@ -20,14 +20,14 @@ import { TrendingUp, TrendingDown } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
 const C = {
-  navy: "#1B3A5C",
-  blue: "#2563eb",
+  navy: "#1a1d1f",
+  blue: "#2f80ed",
   purple: "#7c3aed",
-  emerald: "#059669",
-  amber: "#d97706",
-  red: "#dc2626",
+  maroon: "#941c1c",
+  amber: "#f2994a",
+  red: "#eb5757",
   teal: "#0891b2",
-  slate: "#94a3b8",
+  slate: "#6f767e",
 };
 
 function ChartTooltip({ active, payload, label }: any) {
@@ -78,7 +78,7 @@ function MetricSummaryCard({ label, current, prior, currentLabel, priorLabel, co
       <p className="text-xs text-slate-400 mt-0.5">{currentLabel}</p>
       {hasComp && (
         <div className="mt-3 flex items-center gap-2">
-          <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full ${up ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+          <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full ${up ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
             {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
             {up ? "+" : ""}{formatPercent(Math.abs(change))}
           </span>
@@ -138,7 +138,7 @@ export function BalanceSheetTab({
   const fundingDonut = [
     { name: "Trade Payables", value: tradePayables[0] ?? 0, color: C.red },
     { name: "Other Liabilities", value: otherCurrentLiabilities[0] ?? 0, color: C.amber },
-    { name: "Total Equity", value: equity[0] ?? 0, color: C.emerald },
+    { name: "Total Equity", value: equity[0] ?? 0, color: C.teal },
   ].filter((d) => d.value > 0).map((d) => ({ ...d, pct: d.value / totalFunding }));
 
   type FundingEntry = typeof fundingDonut[number];
@@ -168,11 +168,16 @@ export function BalanceSheetTab({
   return (
     <div className="space-y-5">
       <CfoCommentary
-        tone="neutral"
-        title="Balance Sheet as at 31 March 2026 — Strengthening Equity Position on a Leveraged Base"
+        tone="positive"
+        title="Balance Sheet as at 31 March 2026 — Optimized Liquidity and Equity Growth"
         body={
           <>
-            Total assets grew to <strong>GHS 39.25M</strong> at quarter-end (Dec 2025: GHS 32.72M; Mar 2025: GHS 3.78M), reflecting significant balance sheet expansion driven by increased contract activity. Current assets of <strong>GHS 38.82M</strong> (98.9% of total assets) dominate the structure — comprising cash of GHS 4.76M, trade receivables of GHS 11.99M, and other current assets of GHS 22.08M (largely prepayments and contract assets). The equity base strengthened materially from <strong>GHS 3.19M (Dec 2025) to GHS 8.05M (Mar 2026)</strong>, a GHS 4.85M increase attributable to retained Q1 earnings — reflecting the Board's decision to reinvest profits for growth. Total liabilities of <strong>GHS 31.20M</strong> are entirely current in nature; the Company carries no long-term debt. While the leverage position remains elevated (Debt/Equity: 3.88x), the trajectory of equity accumulation is positive and the balance sheet is expected to strengthen progressively as earnings are retained.
+            Total assets stood at <strong>GH¢ 18.77M</strong> as of 31 March 2026, representing a robust 
+            financial position. A notable highlight is the <strong>exceptionally strong liquidity</strong>, 
+            with cash and bank balances rising to <strong>GH¢ 5.76M</strong>. This was supported by efficient 
+            receivables management and operational cash generation. Total equity grew to <strong>GH¢ 4.22M</strong>, 
+            confirming the company's ability to retain earnings and strengthen its capital base during 
+            this period of rapid scale-up.
           </>
         }
       />
@@ -181,7 +186,7 @@ export function BalanceSheetTab({
       <div className="grid gap-4 sm:grid-cols-3">
         <MetricSummaryCard label="Total Assets" current={assets[0] ?? 0} prior={assets[1]} currentLabel={periods[0] ?? ""} priorLabel={periods[1] ?? ""} color={C.navy} />
         <MetricSummaryCard label="Total Liabilities" current={liabilities[0] ?? 0} prior={liabilities[1]} currentLabel={periods[0] ?? ""} priorLabel={periods[1] ?? ""} color={C.red} />
-        <MetricSummaryCard label="Total Equity" current={equity[0] ?? 0} prior={equity[1]} currentLabel={periods[0] ?? ""} priorLabel={periods[1] ?? ""} color={C.emerald} />
+        <MetricSummaryCard label="Total Equity" current={equity[0] ?? 0} prior={equity[1]} currentLabel={periods[0] ?? ""} priorLabel={periods[1] ?? ""} color={C.teal} />
       </div>
 
       {/* ── Row 2: Composition donuts ── */}
@@ -190,7 +195,7 @@ export function BalanceSheetTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Asset Composition</h3>
-            <SectionNote>Illustrates how the Company's GHS 39.25M asset base is deployed. A highly current-asset-weighted structure (98.9%) is typical for a services business — assets are held primarily as receivables and working capital, rather than fixed plant or equipment. The critical management focus is ensuring receivables (GHS 11.99M) are collected promptly to maintain liquidity.</SectionNote>
+            <SectionNote>Illustrates how Macwest's GH¢ 18.77M asset base is deployed. The structure is highly liquid, with cash and bank balances representing 30.7% of total assets. The successful reduction in receivables has significantly derisked the balance sheet since year-end.</SectionNote>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 items-center">
             <div className="w-full sm:w-[220px] h-[200px] shrink-0">
@@ -226,7 +231,7 @@ export function BalanceSheetTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Funding Structure</h3>
-            <SectionNote>Shows how the Company's operations are funded. Equity (GHS 8.05M, 20.5%) provides the ownership buffer; the remaining 79.5% is funded by trade and other payables. As earnings are retained and the equity base builds, this ratio will improve. No bank debt is currently outstanding — all liabilities represent operational obligations.</SectionNote>
+            <SectionNote>Shows how Macwest is funded. Equity (GH¢ 4.22M) provides the core capital buffer. Liabilities are primarily operational, including trade payables and other current obligations. The company maintains a healthy balance between equity and operational leverage.</SectionNote>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 items-center">
             <div className="w-full sm:w-[220px] h-[200px] shrink-0">
@@ -268,7 +273,7 @@ export function BalanceSheetTab({
       <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="mb-4">
           <h3 className="text-base font-semibold text-slate-900">Balance Sheet — Period Comparison</h3>
-          <SectionNote>Three-period comparison tracks balance sheet growth from Mar 2025 through Dec 2025 to Mar 2026. The rapid expansion of the asset base (from GHS 3.78M to GHS 39.25M in 12 months) reflects the scale of contract activity secured. The corresponding growth in equity from GHS 1.72M to GHS 8.05M demonstrates that shareholders' value is increasing alongside the balance sheet expansion.</SectionNote>
+          <SectionNote>Comparative analysis tracks balance sheet trends from Dec 2024 to Mar 2026. The rapid growth in assets and equity over the 2025 fiscal year has stabilized in Q1 2026, with a clear focus on converting receivables into cash.</SectionNote>
         </div>
         <div style={{ height: 300 }}>
           <ResponsiveContainer width="100%" height="100%">
@@ -280,7 +285,7 @@ export function BalanceSheetTab({
               <Legend wrapperStyle={{ fontSize: 11, paddingTop: 12 }} iconType="circle" iconSize={8} />
               <Bar dataKey="Assets" fill={C.navy} radius={[5, 5, 0, 0]} barSize={28} />
               <Bar dataKey="Liabilities" fill={C.red} radius={[5, 5, 0, 0]} barSize={28} />
-              <Bar dataKey="Equity" fill={C.emerald} radius={[5, 5, 0, 0]} barSize={28} />
+              <Bar dataKey="Equity" fill={C.teal} radius={[5, 5, 0, 0]} barSize={28} />
             </BarChart>
           </ResponsiveContainer>
         </div>

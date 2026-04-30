@@ -68,18 +68,17 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
       open ? "w-60" : "w-[60px]"
     )}>
       {/* Logo */}
-      <div className={cn("flex items-center gap-3 border-b border-slate-100 p-4", !open && "justify-center p-3")}>
-        <div className="relative  shrink-0 flex items-center justify-center">
+      <div className={cn("flex items-center gap-3 border-b border-slate-100 p-6", !open && "justify-center p-4")}>
+        <div className="relative shrink-0 flex items-center justify-center">
           <Image
-            src="/logo-nb.png"
-            alt="Northbrook Logo"
-            width={126}
-            height={24}
+            src="/logo-macwest-new.png"
+            alt="Macwest Logo"
+            width={open ? 140 : 32}
+            height={32}
             className="object-contain"
             priority
           />
         </div>
-
       </div>
 
       {/* Nav items */}
@@ -163,13 +162,13 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
           {/* Re-using the same content structure but forced to be open/expanded for mobile */}
           <nav className="flex h-full w-full flex-col overflow-hidden">
             {/* Logo */}
-            <div className="flex items-center gap-3 border-b border-slate-100 p-4">
+            <div className="flex items-center gap-3 border-b border-slate-100 p-6">
               <div className="relative shrink-0 flex items-center justify-center">
                 <Image
-                  src="/logo-nb.png"
-                  alt="Northbrook Logo"
-                  width={126}
-                  height={24}
+                  src="/logo-macwest-new.png"
+                  alt="Macwest Logo"
+                  width={140}
+                  height={32}
                   className="object-contain"
                   priority
                 />
@@ -194,8 +193,23 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
               ))}
             </div>
 
+            {/* User profile & Company footer */}
+            <div className="border-t border-slate-100 p-4">
+              <div className="flex items-center gap-3">
+                <div className="h-9 w-9 rounded-full bg-[#941c1c] flex items-center justify-center text-white font-bold text-xs shadow-sm border border-[#941c1c]/10">
+                  MW
+                </div>
+                {open && (
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-slate-900 truncate">Macwest Limited</p>
+                    <p className="text-[10px] font-medium text-slate-400 uppercase tracking-wider">CFO Portal</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
             {/* Quick stats on mobile bottom */}
-            <div className="border-t border-slate-100 p-3">
+            <div className="border-t border-slate-100 p-3 md:hidden">
               {model && (
                 <div className="rounded-xl bg-slate-50 border border-slate-200 p-3">
                   <p className="section-label mb-2">Quick Stats</p>

@@ -5,12 +5,13 @@ import { KpiCard } from "@/types/dashboard";
 import { formatMoney, formatPercent } from "@/lib/dashboard/format";
 import { TrendingUp, TrendingDown, DollarSign, Zap, Percent } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const toneMap: Record<KpiCard["tone"], { Icon: LucideIcon; iconColor: string; iconBg: string; sparkColor: string }> = {
-  navy:   { Icon: DollarSign, iconColor: "text-blue-700",    iconBg: "bg-blue-100",    sparkColor: "#2563eb" },
-  green:  { Icon: TrendingUp, iconColor: "text-emerald-700", iconBg: "bg-emerald-100", sparkColor: "#059669" },
-  blue:   { Icon: Zap,        iconColor: "text-indigo-700",  iconBg: "bg-indigo-100",  sparkColor: "#4f46e5" },
-  purple: { Icon: Percent,    iconColor: "text-violet-700",  iconBg: "bg-violet-100",  sparkColor: "#7c3aed" },
+  navy:   { Icon: DollarSign, iconColor: "text-[#941c1c]",    iconBg: "bg-red-50",    sparkColor: "#941c1c" },
+  green:  { Icon: TrendingUp, iconColor: "text-teal-700", iconBg: "bg-teal-50", sparkColor: "#0d9488" },
+  blue:   { Icon: Zap,        iconColor: "text-blue-700",  iconBg: "bg-blue-50",  sparkColor: "#2563eb" },
+  purple: { Icon: Percent,    iconColor: "text-purple-700",  iconBg: "bg-purple-50",  sparkColor: "#7c3aed" },
 };
 
 function Sparkline({ data, color }: { data: number[]; color: string }) {
@@ -53,44 +54,40 @@ function AnimatedNumber({ value, format }: { value: number; format: (v: number) 
 }
 
 function KpiCardItem({ kpi, index }: { kpi: KpiCard; index: number }) {
-  const { Icon, iconColor, iconBg, sparkColor } = toneMap[kpi.tone];
-  const up = kpi.yoy > 0;
-  const dn = kpi.yoy < 0;
-  const hasPrior = kpi.priorValue !== 0 && kpi.priorValue !== undefined;
+  const { Icon, iconColor, iconBg } = toneMap[kpi.tone];
 
   return (
-    <div className="stat-card card-hover animate-fade-in" style={{ animationDelay: `${index * 80}ms` }}>
-      {/* Top row: icon + badge */}
+    <div className="stat-card animate-fade-in flex flex-col justify-between" style={{ animationDelay: `${index * 80}ms` }}>
       <div className="flex items-start justify-between">
-        <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconBg}`}>
-          <Icon className={`h-4.5 w-4.5 ${iconColor}`} />
+        <div className={cn("flex h-10 w-10 items-center justify-center rounded-xl border border-slate-100", iconBg)}>
+          <Icon className={cn("h-5 w-5", iconColor)} />
         </div>
-        {hasPrior && (
-          <span className={`kpi-chip ${up ? "bg-emerald-50 text-emerald-700" : dn ? "bg-red-50 text-red-700" : "bg-slate-100 text-slate-600"}`}>
-            {up && <TrendingUp className="h-3 w-3" />}
-            {dn && <TrendingDown className="h-3 w-3" />}
-            {up ? "+" : ""}{formatPercent(Math.abs(kpi.yoy))}
-          </span>
-        )}
+        <button className="text-slate-300 hover:text-slate-600 transition-colors">
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+          </svg>
+        </button>
       </div>
 
-      {/* Label + value */}
-      <div className="mt-3">
-        <p className="section-label">{kpi.label}</p>
-        <p className="mt-0.5 text-2xl font-bold tracking-tight text-slate-900">
-          <AnimatedNumber value={kpi.value} format={formatMoney} />
-        </p>
-      </div>
-
-      {/* Sparkline + prior */}
-      <div className="mt-3 flex items-end justify-between border-t border-slate-100 pt-3">
-        <div>
-          <p className="text-[10px] text-slate-400 mb-0.5">Prior period</p>
-          <p className="text-xs font-semibold text-slate-600">
-            {hasPrior ? formatMoney(kpi.priorValue) : "—"}
+      <div className="mt-6">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-medium text-slate-500">{kpi.label}</p>
+          <Sparkline data={kpi.sparkline} color={toneMap[kpi.tone].sparkColor} />
+        </div>
+        <div className="mt-1 flex items-baseline gap-2">
+          <p className="text-2xl font-bold text-slate-900">
+            <AnimatedNumber value={kpi.value} format={formatMoney} />
           </p>
+          {kpi.yoy !== undefined && (
+            <span className={cn(
+              "text-xs font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5",
+              kpi.yoy >= 0 ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"
+            )}>
+              {kpi.yoy >= 0 ? <TrendingUp className="h-2.5 w-2.5" /> : <TrendingDown className="h-2.5 w-2.5" />}
+              {Math.abs(kpi.yoy * 100).toFixed(1)}%
+            </span>
+          )}
         </div>
-        <Sparkline data={kpi.sparkline} color={sparkColor} />
       </div>
     </div>
   );

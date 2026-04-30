@@ -1,4 +1,4 @@
-import data from "@/data/northbrook-dashboard-data.json";
+import data from "@/data/macwest-dashboard-data.json";
 import { buildDashboardModel, deriveRatios } from "@/lib/dashboard/derive";
 import { reconcileBenchmarks } from "@/lib/dashboard/validate";
 import type { DashboardData } from "@/types/dashboard";
@@ -10,7 +10,7 @@ describe("dashboard derivations", () => {
     const ratios = deriveRatios(typed);
     expect(ratios.currentRatio).toBeCloseTo(1.24, 2);
     expect(ratios.quickRatio).toBeCloseTo(0.54, 2);
-    expect(ratios.debtToEquity).toBeCloseTo(3.88, 2);
+    expect(ratios.debtToEquity).toBeCloseTo(3.14, 2);
     expect(ratios.dso).toBeCloseTo(64, 0);
     expect(ratios.dpo).toBeCloseTo(27, 0);
   });

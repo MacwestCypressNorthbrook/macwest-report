@@ -10,7 +10,7 @@ function MarginChip({ margin, index }: { margin: MarginCard; index: number }) {
   const changePpt = delta * 100;
 
   const colors = [
-    { bar: "#059669", light: "#ecfdf5", text: "text-emerald-700" },
+    { bar: "#0d9488", light: "#f0fdfa", text: "text-teal-700" },
     { bar: "#2563eb", light: "#eff6ff", text: "text-blue-700" },
     { bar: "#7c3aed", light: "#f5f3ff", text: "text-violet-700" },
   ];
@@ -21,7 +21,7 @@ function MarginChip({ margin, index }: { margin: MarginCard; index: number }) {
       <p className="section-label">{margin.label}</p>
       <div className="mt-2 flex items-baseline gap-3">
         <span className="text-2xl font-bold text-slate-900">{formatPercent(margin.current)}</span>
-        <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${up ? "bg-emerald-50 text-emerald-700" : "bg-red-50 text-red-700"}`}>
+        <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold ${up ? "bg-teal-50 text-teal-700" : "bg-red-50 text-red-700"}`}>
           {up ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
           {up ? "+" : ""}{changePpt.toFixed(1)}pp
         </span>

@@ -17,8 +17,8 @@ import { AlertTriangle, ShieldAlert, Users, TrendingUp } from "lucide-react";
 import { formatCompact, formatMoney, formatPercent } from "@/lib/dashboard/format";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
-const PALETTE = ["#1B3A5C", "#2563eb", "#059669", "#7c3aed", "#d97706", "#dc2626", "#64748b"];
-const C = { navy: "#1B3A5C", emerald: "#059669", blue: "#2563eb", purple: "#7c3aed", amber: "#d97706", red: "#dc2626" };
+const PALETTE = ["#941c1c", "#2f80ed", "#f2994a", "#7c3aed", "#eb5757", "#0891b2", "#6f767e"];
+const C = { navy: "#1a1d1f", maroon: "#941c1c", blue: "#2f80ed", purple: "#7c3aed", amber: "#f2994a", red: "#eb5757" };
 
 function ChartTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
@@ -77,7 +77,7 @@ export function RevenueTab({
     if (!active || !payload?.length) return null;
     const d = payload[0];
     return (
-      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-xl text-sm">
+      <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-xl text-sm font-['Inter']">
         <p className="font-semibold text-slate-900">{d.name}</p>
         <p className="text-slate-500 mt-0.5">{formatCompact(d.value)}</p>
         <p className="text-slate-400 text-xs">{formatPercent(d.value / totalRevenue)} of total</p>
@@ -88,11 +88,15 @@ export function RevenueTab({
   return (
     <div className="space-y-5">
       <CfoCommentary
-        tone="warning"
-        title="Revenue Deep Dive — Concentration Risk Requires Urgent Board Attention"
+        tone="positive"
+        title="Revenue Performance — Transformative 120.2% YoY Growth"
         body={
           <>
-            Total Q1 2026 revenue of <strong>GHS 17.04M</strong> is derived from six active clients. However, <strong>De Simone Ltd accounts for GHS 15.63M — 91.7% of total revenue</strong>. This level of single-client dependency represents a material and elevated business risk. Any disruption, renegotiation or termination of the De Simone contract would have an immediate and severe impact on revenue and profitability. The Board should formally acknowledge this risk and direct management to present a client diversification strategy within the next quarter. The remaining five clients collectively contribute only GHS 1.41M (8.3%), highlighting that no secondary revenue pillar currently exists. Service line diversification across Logistics Support, Technical Works and Manpower Services is positive structurally, but effective diversification requires a broader active client base.
+            Macwest Limited achieved an exceptional <strong>120.2% YoY revenue scale-up</strong> in Q1 2026, 
+            driven by high-value energy infrastructure projects. The <strong>ENI Project</strong> remains the 
+            primary revenue anchor, contributing 60.3% of total turnover. While concentration remains high, 
+            the absolute volume expansion provides a strong capital base for diversifying into consultancy 
+            and trading segments in the upcoming quarters.
           </>
         }
       />
@@ -117,7 +121,7 @@ export function RevenueTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Revenue by Customer</h3>
-            <SectionNote>The donut chart visualises the revenue share by client. The dominant segment (De Simone Ltd) consuming over 90% of the chart illustrates the concentration risk in a single, stark visual. A healthy revenue donut would show no single segment exceeding 30–40% of the total.</SectionNote>
+            <SectionNote>The donut chart visualises the revenue share by client. The ENI Project remains the dominant revenue source. A key objective for FY2026 is to increase the share of 'Other Projects' and 'Cement Sales' to reduce single-project dependency.</SectionNote>
           </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -164,7 +168,7 @@ export function RevenueTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Revenue Ranking</h3>
-            <SectionNote>Clients ranked by Q1 2026 revenue contribution. Progress bars show each client's share of total revenue. The clear dominance of De Simone Ltd underscores the need to grow the remaining five client relationships and actively pursue new accounts to build a sustainable revenue base.</SectionNote>
+            <SectionNote>Revenue ranking by project/client category. The ENI Project's lead is clear, but the 'Other Projects' segment shows promising growth potential. Cement sales provide a tactical revenue stream that can be scaled independently of project cycles.</SectionNote>
           </div>
           <div style={{ height: 280 }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -205,7 +209,7 @@ export function RevenueTab({
         <div className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Service Line / Segment Breakdown</h3>
-            <SectionNote>Contracted value by service line for Q1 2026. Logistics Support represents the largest contracted segment at GHS 38.5M, followed by Technical Works at GHS 11.6M. Note that contracted value differs from invoiced/recognised revenue — actual Q1 revenue of GHS 17.04M reflects the portion executed and billed during the quarter.</SectionNote>
+            <SectionNote>Segment breakdown for Q1 2026. Energy Services (via ENI) is the primary driver, followed by Consultancy and Trading (Cement). This mix aligns with Macwest's core expertise in large-scale infrastructure and industrial supply.</SectionNote>
           </div>
           <div style={{ height: 260 }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -242,7 +246,7 @@ export function RevenueTab({
                   <p className="text-2xl font-bold text-slate-900 mt-0.5">{value}</p>
                   <p className="text-xs text-slate-400">{sub}</p>
                 </div>
-                <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${status === "danger" ? "bg-red-50 text-red-600" : status === "warn" ? "bg-amber-50 text-amber-600" : "bg-emerald-50 text-emerald-600"}`}>
+                <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${status === "danger" ? "bg-red-50 text-red-600" : status === "warn" ? "bg-amber-50 text-amber-600" : "bg-teal-50 text-teal-600"}`}>
                   {icon}
                 </div>
               </div>
