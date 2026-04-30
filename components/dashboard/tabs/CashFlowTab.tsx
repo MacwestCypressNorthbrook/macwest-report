@@ -19,7 +19,7 @@ import { RatioModel } from "@/types/dashboard";
 import { TrendingUp, TrendingDown, Wallet, RefreshCcw, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import { CfoCommentary, SectionNote } from "@/components/dashboard/CfoCommentary";
 
-const C = { navy: "#1a1d1f", maroon: "#941c1c", blue: "#2f80ed", purple: "#7c3aed", amber: "#f2994a", red: "#eb5757" };
+const C = { navy: "#1a1d1f", maroon: "#941c1c", blue: "#2f80ed", purple: "#7c3aed", amber: "#f2994a", red: "#eb5757", teal: "#0d9488" };
 
 function ChartTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
