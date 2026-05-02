@@ -8,15 +8,13 @@ import { buildDashboardModel } from "@/lib/dashboard/derive";
 import { Header } from "@/components/dashboard/Header";
 import { KPIStrip } from "@/components/dashboard/KPIStrip";
 import { MarginBand } from "@/components/dashboard/MarginBand";
-import { RatiosTab } from "@/components/dashboard/tabs/RatiosTab";
-import { FinancialsTab } from "@/components/dashboard/tabs/FinancialsTab";
-import { CashFlowTab } from "@/components/dashboard/tabs/CashFlowTab";
-import { ShareholderViewTab } from "@/components/dashboard/tabs/ShareholderViewTab";
-import { ExecutiveSummaryTab } from "@/components/dashboard/tabs/ExecutiveSummaryTab";
 import { DashboardSidebar, DashboardTab } from "@/components/dashboard/DashboardSidebar";
-import { formatPercent, formatTimes } from "@/lib/dashboard/format";
 import { cn } from "@/lib/utils";
 
+const ExecutiveSummaryTab = dynamic(
+  () => import("@/components/dashboard/tabs/ExecutiveSummaryTab").then((m) => m.ExecutiveSummaryTab),
+  { ssr: false }
+);
 const IncomeStatementTab = dynamic(
   () => import("@/components/dashboard/tabs/IncomeStatementTab").then((m) => m.IncomeStatementTab),
   { ssr: false }
@@ -27,6 +25,18 @@ const RevenueTab = dynamic(
 );
 const BalanceSheetTab = dynamic(
   () => import("@/components/dashboard/tabs/BalanceSheetTab").then((m) => m.BalanceSheetTab),
+  { ssr: false }
+);
+const CashFlowTab = dynamic(
+  () => import("@/components/dashboard/tabs/CashFlowTab").then((m) => m.CashFlowTab),
+  { ssr: false }
+);
+const RatiosTab = dynamic(
+  () => import("@/components/dashboard/tabs/RatiosTab").then((m) => m.RatiosTab),
+  { ssr: false }
+);
+const ShareholderViewTab = dynamic(
+  () => import("@/components/dashboard/tabs/ShareholderViewTab").then((m) => m.ShareholderViewTab),
   { ssr: false }
 );
 
@@ -144,6 +154,7 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
             src="/logo-macwest-new.png"
             alt="Macwest Logo"
             fill
+            sizes="128px"
             className="object-contain object-left"
             priority
           />

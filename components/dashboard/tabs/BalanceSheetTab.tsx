@@ -199,7 +199,7 @@ export function BalanceSheetTab({
           </div>
           <div className="flex flex-col sm:flex-row gap-6 items-center">
             <div className="w-full sm:w-[220px] h-[200px] shrink-0">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" debounce={200}>
                 <PieChart>
                   <Pie data={assetDonut} cx="50%" cy="50%" innerRadius={58} outerRadius={90} paddingAngle={2} dataKey="value" labelLine={false} label={renderPctLabel}>
                     {assetDonut.map((d: AssetEntry, i: number) => <Cell key={i} fill={d.color} stroke="#fff" strokeWidth={2} />)}
@@ -235,7 +235,7 @@ export function BalanceSheetTab({
           </div>
           <div className="flex flex-col sm:flex-row gap-6 items-center">
             <div className="w-full sm:w-[220px] h-[200px] shrink-0">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height="100%" debounce={200}>
                 <PieChart>
                   <Pie data={fundingDonut} cx="50%" cy="50%" innerRadius={58} outerRadius={90} paddingAngle={2} dataKey="value" labelLine={false} label={renderPctLabel}>
                     {fundingDonut.map((d: FundingEntry, i: number) => <Cell key={i} fill={d.color} stroke="#fff" strokeWidth={2} />)}
@@ -275,8 +275,8 @@ export function BalanceSheetTab({
           <h3 className="text-base font-semibold text-slate-900">Balance Sheet — Period Comparison</h3>
           <SectionNote>Comparative analysis tracks balance sheet trends from Dec 2024 to Mar 2026. The rapid growth in assets and equity over the 2025 fiscal year has stabilized in Q1 2026, with a clear focus on converting receivables into cash.</SectionNote>
         </div>
-        <div style={{ height: 300 }}>
-          <ResponsiveContainer width="100%" height="100%">
+        <div style={{ height: 300, minHeight: 300 }}>
+          <ResponsiveContainer width="100%" height="100%" debounce={200}>
             <BarChart data={groupedData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis dataKey="period" tick={{ fontSize: 12, fill: "#94a3b8" }} tickLine={false} axisLine={false} />

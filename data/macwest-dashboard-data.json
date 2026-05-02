@@ -16,7 +16,7 @@
     "otherExpenses": [172446, 13382, 10993.84, 281419, 186765],
     "pbt": [-2599498, 92720, 3701135.56, 68302, 1151422],
     "pat": [-3362913, 92720, 1890882.24, 65395.51, 863567],
-    "ebitda": [-2427052, 106102, 3776378.73, 233354, 1338186],
+    "ebitda": [-2378946, 106102, 3776379, 294688, 1375510],
     "budget": {
       "revenue": 137313697.42,
       "grossProfit": 35391942.67,
@@ -38,9 +38,9 @@
   },
   "segmentRevenue": {
     "segments": [
-      { "name": "Energy Services", "q1_2026": 7669096, "fy_2025": 20118309.23 },
+      { "name": "Construction", "q1_2026": 7669096, "fy_2025": 20118309.23 },
       { "name": "Trading", "q1_2026": 1538931, "fy_2025": 8689109.58 },
-      { "name": "Consultancy", "q1_2026": 3516781, "fy_2025": 495403.43 }
+      { "name": "Other Projects", "q1_2026": 3516781, "fy_2025": 495403.43 }
     ]
   },
   "balanceSheet": {
@@ -68,13 +68,13 @@
     "pbtQ12026": -2599498
   },
   "commentary": {
-    "executiveSummary": "MacWest achieved a monumental 120.2% YoY revenue growth in Q1 2026 (GH¢ 12.72M) compared to Q1 2025. This follows a strong FY 2025 performance which closed with GH¢ 1.89M in net profit. While Q1 operating expenses are currently high due to strategic expansion, the business maintains a robust liquidity position with GH¢ 5.76M in cash and a healthy GH¢ 18.8M total asset base.",
-    "pnlAnalysis": "2024 and 2025 comparatives show a significant expansion in revenue capacity. Gross margins improved to 37.7% in Q1 2026, up from historical lows in 2024. Management is now focusing on optimizing operating leverage to convert this top-line scale into sustainable net profit.",
-    "balanceSheetAnalysis": "The balance sheet remains strong with GH¢ 7.6M in equity and no significant external debt. Cash reserves have scaled to GH¢ 5.76M, providing the necessary working capital to support the current 120% growth trajectory.",
+    "executiveSummary": "MacWest achieved a monumental 120.2% YoY revenue growth in Q1 2026 (GH¢ 12.72M) compared to Q1 2025. This follows a strong FY 2025 performance which closed with GH¢ 1.89M in net profit. The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI. Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.",
+    "pnlAnalysis": "2024 and 2025 comparatives show a significant expansion in revenue capacity. Gross margins improved to 37.7% in Q1 2026, up from historical lows in 2024. Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.",
+    "balanceSheetAnalysis": "The balance sheet remains strong with GH¢ 7.6M in equity. Cash reserves stand at GH¢ 5.76M, providing the necessary working capital to support the current growth trajectory. The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI.",
     "risks": [
-      { "area": "Operating Leverage", "impact": "High", "description": "High indirect costs relative to Q1 revenue require rapid scaling to achieve profitability." },
-      { "area": "Budget Attainment", "impact": "High", "description": "The gap between Q1 actuals and the GH¢ 137M annual revenue budget is substantial." },
-      { "area": "Liquidity", "impact": "Medium", "description": "Current cash reserves are healthy but need to be protected during loss-making periods." }
+      { "area": "Project Diversification", "impact": "High", "description": "The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI." },
+      { "area": "Budget Attainment", "impact": "High", "description": "The gap between Q1 actuals and the GH¢ 137M annual revenue budget is substantial. Profitability targets are expected to be met as projects are completed on schedule." },
+      { "area": "Liquidity", "impact": "Medium", "description": "Current cash reserves are healthy but need to be protected during the period of project ramp-up." }
     ]
   }
 }

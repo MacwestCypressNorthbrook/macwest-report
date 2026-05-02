@@ -202,11 +202,12 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
         title="Key Financial Ratios — Liquidity Strength and Operational Efficiency"
         body={
           <>
-            Macwest's Q1 2026 ratios confirm a <strong>highly liquid and efficient operation</strong>. 
-            The Current Ratio of 1.19x and Quick Ratio of 1.0x meet standard coverage requirements. 
-            Operational efficiency is highlighted by a DSO of 44 days, indicating strong receivables management. 
-            Profitability metrics, including ROE (4.5%) and Net Margin (1.3%), remain positive despite 
-            significant infrastructure delivery costs, providing a solid foundation for FY2026.
+            Macwest's Q1 2026 ratios reflect the current investment phase. Despite reporting negative 
+            ROE and net margin, <strong>the company is expected to meet its profitability targets</strong> as 
+            projects are completed on schedule and new ones are onboarded. The onboarding of Ada 1, 2 &amp; 3; 
+            Anlo 1 &amp; 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise 
+            operations and reduce overdependence on ENI. Liquidity remains healthy with a Current Ratio of 1.19x 
+            and GH¢ 5.76M in cash reserves.
           </>
         }
       />
@@ -225,8 +226,8 @@ export function RatiosTab({ ratios }: { ratios: RatioModel }) {
             <h3 className="text-base font-semibold text-slate-900">Financial Health Radar</h3>
             <SectionNote>Normalised financial dimension scores. The current profile shows exceptional liquidity and efficiency (favourable DSO/CCC) but suppressed profitability scores — reflecting the GH¢ 5.45M marketing investment in Q1.</SectionNote>
           </div>
-          <div style={{ height: 280 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 280, minHeight: 280 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <RadarChart data={radarData}>
                 <PolarGrid stroke="#e2e8f0" />
                 <PolarAngleAxis dataKey="metric" tick={{ fontSize: 11, fill: "#64748b" }} />

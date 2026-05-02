@@ -145,18 +145,16 @@ export function ShareholderViewTab({
     <div className="space-y-5">
       <CfoCommentary
         tone="positive"
-        title="Shareholder Value Report — Exceptional Returns with a Clear Growth Narrative"
+        title="Shareholder Value Report — Financial Performance & Outlook"
         body={
           <>
-            Q1 2026 represents a strategic pivot for Macwest shareholders. 
-            The company has prioritized aggressive business development and collections, 
+            Q1 2026 represents a strategic investment period for Macwest shareholders. 
+            The company has prioritized aggressive business development and project onboarding, 
             resulting in a dramatically improved cash position of <strong>GH¢ 5.76M</strong>. 
-            While the strategic marketing investment led to a temporary accounting loss, 
-            the <strong>Return on Assets (ROA)</strong> and <strong>Return on Equity (ROE)</strong> 
-            metrics reflect a robust underlying asset base and significant future upside. 
-            Equity remains strong at <strong>GH¢ 4.22M</strong>. The principal focus remains 
-            client diversification to mitigate the 60% concentration in the ENI Project 
-            and managing operational leverage.
+            Despite reporting negative <strong>ROE and net margin</strong>, the company is expected to 
+            meet its profitability targets as projects are completed on schedule and new ones are onboarded. 
+            The onboarding of <strong>Ada 1, 2 &amp; 3; Anlo 1 &amp; 2; MDF; the Bakanta Road Project; 
+            and other related projects</strong> is expected to stabilise operations and reduce overdependence on ENI.
           </>
         }
       />
@@ -227,7 +225,7 @@ export function ShareholderViewTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-3">
           <div className="mb-2">
             <h3 className="text-base font-semibold text-slate-900">Growth vs FY2025</h3>
-            <SectionNote>Note: Q1 2026 is a single quarter (91 days) compared to FY2025 (full 12 months). Negative percentage growth in Revenue and PBT versus FY2025 reflects the asymmetric time period — on an annualised basis, Q1 revenue run-rate of GHS 68.2M already exceeds full-year FY2025 performance of GHS 58.5M.</SectionNote>
+            <SectionNote>Note: Q1 2026 is a single quarter (91 days) compared to FY2025 (full 12 months). Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.</SectionNote>
           </div>
           <GrowthPill label="Revenue" change={data.revenueGrowth} icon={DollarSign} color={C.navy} />
           <GrowthPill label="Net Profit (PBT)" change={data.pbtGrowth} icon={TrendingUp} color={C.blue} />
@@ -235,7 +233,7 @@ export function ShareholderViewTab({
           <GrowthPill label="EBITDA" change={data.ebitdaGrowth} icon={BarChart3} color={C.purple} />
 
           <div className="rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs text-slate-500 mt-2">
-            <strong>Note:</strong> Q1 2026 is a single quarter compared against FY 2025 (full year). Annualised Q1 revenue ≈ GHS 68.2M, exceeding FY2025.
+            <strong>Outlook:</strong> Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.
           </div>
         </div>
 
@@ -245,8 +243,8 @@ export function ShareholderViewTab({
             <h3 className="text-base font-semibold text-slate-900">Growth Performance</h3>
             <SectionNote>EBITDA growth of 177.8% and Equity growth of 151.9% are the standout metrics, confirming accelerating value creation. Revenue and PBT show negative % vs FY2025 (full year) — this is expected given the Q1 vs full-year comparison, and does not reflect deteriorating performance.</SectionNote>
           </div>
-          <div style={{ height: 260 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 260, minHeight: 260 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={growthData} layout="vertical" margin={{ top: 8, right: 48, left: 16, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                 <XAxis type="number" tickFormatter={(v) => `${v.toFixed(0)}%`} tick={{ fontSize: 11, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
@@ -268,8 +266,8 @@ export function ShareholderViewTab({
             <h3 className="text-base font-semibold text-slate-900">Capital Structure</h3>
             <SectionNote>The capital structure shows 79.5% of operations financed through trade and supplier obligations, with 20.5% equity. While this implies high leverage, it is important to note that all liabilities are operational (no interest-bearing bank debt), and the equity proportion is growing quarter-on-quarter as profits are retained.</SectionNote>
           </div>
-          <div style={{ height: 200 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 200, minHeight: 200 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <PieChart>
                 <Pie
                   data={leverageDonut}
@@ -316,8 +314,8 @@ export function ShareholderViewTab({
             <h3 className="text-base font-semibold text-slate-900">Return Metrics Comparison</h3>
             <SectionNote>ROE of 109.9% far exceeds ROA of 22.5% — the difference (the "leverage spread") reflects that borrowed capital is amplifying returns to equity holders. This is beneficial when the business generates returns above the cost of liabilities, as is currently the case. Shareholders are earning significantly more per GHS of equity invested than the overall asset base would suggest.</SectionNote>
           </div>
-          <div style={{ height: 220 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 220, minHeight: 220 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={returnData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 13, fill: "#475569", fontWeight: 600 }} tickLine={false} axisLine={false} />

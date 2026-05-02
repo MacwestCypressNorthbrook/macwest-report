@@ -156,8 +156,8 @@ export function ExecutiveSummaryTab({ model, selectedPeriod, priorPeriod, allPer
             <Activity className="h-4 w-4 text-slate-400" />
             <h3 className="text-sm font-bold text-slate-900">Revenue Growth Trajectory</h3>
           </div>
-          <div style={{ height: 240 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 240, minHeight: 240 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <AreaChart data={revTrendData} margin={{ top: 4, right: 8, left: 0, bottom: 4 }}>
                 <defs>
                   <linearGradient id="execRevFill" x1="0" y1="0" x2="0" y2="1">

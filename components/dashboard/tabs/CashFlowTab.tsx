@@ -149,8 +149,8 @@ export function CashFlowTab({
             {cashUp ? "+" : ""}{formatCompact(cashChange)} vs prior
           </div>
         </div>
-        <div style={{ height: 280 }}>
-          <ResponsiveContainer width="100%" height="100%">
+        <div style={{ height: 280, minHeight: 280 }}>
+          <ResponsiveContainer width="100%" height="100%" debounce={200}>
             <AreaChart data={cashData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
               <defs>
                 <linearGradient id="cashFill" x1="0" y1="0" x2="0" y2="1">
@@ -176,8 +176,8 @@ export function CashFlowTab({
             <h3 className="text-base font-semibold text-slate-900">Receivables vs Liabilities</h3>
             <SectionNote>Trade receivables (what clients owe the Company) compared against current liabilities (what the Company owes suppliers and others). The rapid growth in both reflects the scaling of operations. Management's objective should be to ensure receivables growth does not outpace collection speed — a rising DSO alongside growing receivables signals potential collection pressure.</SectionNote>
           </div>
-          <div style={{ height: 260 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 260, minHeight: 260 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={recPayData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
                 <XAxis dataKey="period" tick={{ fontSize: 12, fill: "#94a3b8" }} tickLine={false} axisLine={false} />

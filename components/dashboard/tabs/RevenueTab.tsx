@@ -93,10 +93,10 @@ export function RevenueTab({
         body={
           <>
             Macwest Limited achieved an exceptional <strong>120.2% YoY revenue scale-up</strong> in Q1 2026, 
-            driven by high-value energy infrastructure projects. The <strong>ENI Project</strong> remains the 
-            primary revenue anchor, contributing 60.3% of total turnover. While concentration remains high, 
-            the absolute volume expansion provides a strong capital base for diversifying into consultancy 
-            and trading segments in the upcoming quarters.
+            driven by high-value construction and infrastructure projects. The <strong>ENI Project</strong> remains the 
+            primary revenue anchor, contributing 60.3% of total turnover. The onboarding of <strong>Ada 1, 2 &amp; 3; 
+            Anlo 1 &amp; 2; MDF; the Bakanta Road Project; and other related projects</strong> is expected to 
+            stabilise operations and reduce overdependence on ENI.
           </>
         }
       />
@@ -120,11 +120,11 @@ export function RevenueTab({
         {/* Donut chart */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
-            <h3 className="text-base font-semibold text-slate-900">Revenue by Customer</h3>
-            <SectionNote>The donut chart visualises the revenue share by client. The ENI Project remains the dominant revenue source. A key objective for FY2026 is to increase the share of 'Other Projects' and 'Cement Sales' to reduce single-project dependency.</SectionNote>
+            <h3 className="text-base font-semibold text-slate-900">Revenue by Customer / Project</h3>
+            <SectionNote>The donut chart visualises the revenue share by client. The ENI Project remains the dominant revenue source. The onboarding of Ada 1, 2 &amp; 3; Anlo 1 &amp; 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI.</SectionNote>
           </div>
-          <div style={{ height: 280 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 280, minHeight: 280 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <PieChart>
                 <Pie
                   data={sorted}
@@ -168,10 +168,10 @@ export function RevenueTab({
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
             <h3 className="text-base font-semibold text-slate-900">Revenue Ranking</h3>
-            <SectionNote>Revenue ranking by project/client category. The ENI Project's lead is clear, but the 'Other Projects' segment shows promising growth potential. Cement sales provide a tactical revenue stream that can be scaled independently of project cycles.</SectionNote>
+            <SectionNote>Revenue ranking by project/client category. The ENI Project's lead is clear, but the Construction segment encompasses multiple new project onboardings that will progressively reduce concentration risk as they reach operational maturity.</SectionNote>
           </div>
-          <div style={{ height: 280 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 280, minHeight: 280 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={sorted} layout="vertical" margin={{ top: 4, right: 16, left: 8, bottom: 4 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" horizontal={false} />
                 <XAxis type="number" tickFormatter={(v) => v >= 1e6 ? `${(v / 1e6).toFixed(0)}M` : `${(v / 1000).toFixed(0)}K`} tick={{ fontSize: 11, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
@@ -203,16 +203,16 @@ export function RevenueTab({
         </div>
       </div>
 
-      {/* ── Row 2: Segment Chart + Risk Metrics ── */}
+      {/* ── Row 2: Segment Breakdown (Construction vs Trading) + Risk Metrics ── */}
       <div className="grid gap-5 lg:grid-cols-3">
-        {/* Segment bar */}
+        {/* Segment bar - Construction vs Trading */}
         <div className="lg:col-span-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4">
-            <h3 className="text-base font-semibold text-slate-900">Service Line / Segment Breakdown</h3>
-            <SectionNote>Segment breakdown for Q1 2026. Energy Services (via ENI) is the primary driver, followed by Consultancy and Trading (Cement). This mix aligns with Macwest's core expertise in large-scale infrastructure and industrial supply.</SectionNote>
+            <h3 className="text-base font-semibold text-slate-900">Revenue by Segment — Construction vs Trading</h3>
+            <SectionNote>Segment breakdown for Q1 2026 by business line. Construction projects (including ENI and related infrastructure work) form the primary revenue driver, with Trading (Cement sales) and Other Projects contributing a growing share. This mix reflects Macwest's core expertise in large-scale construction and industrial supply.</SectionNote>
           </div>
-          <div style={{ height: 260 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 260, minHeight: 260 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={segData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 10, fill: "#94a3b8" }} tickLine={false} axisLine={false} angle={-12} textAnchor="end" height={48} />

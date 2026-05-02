@@ -166,9 +166,11 @@ export function IncomeStatementTab({
         body={
           <>
             Macwest Limited delivered GH¢ 12.73M in revenue for Q1 2026, representing a transformative <strong>120.2% year-on-year growth</strong>. 
-            Gross Profit of GH¢ 4.33M reflects a strong 34.0% margin, up from 27.5% in Q1 2025. This expansion highlights 
-            superior contract pricing and operational efficiency. Net Profit increased by 72.3% to GH¢ 159.8k, despite a 
-            179% increase in operating expenses associated with scaling our infrastructure project delivery capacity.
+            Gross Profit of GH¢ 4.79M reflects a healthy 37.6% margin. Despite reporting negative operating income 
+            and net margin due to elevated indirect costs, <strong>the company is expected to meet its profitability 
+            targets</strong> as projects are completed on schedule and new ones are onboarded. The onboarding of 
+            Ada 1, 2 &amp; 3; Anlo 1 &amp; 2; MDF; the Bakanta Road Project; and other related projects is expected 
+            to stabilise operations and reduce overdependence on ENI.
           </>
         }
       />
@@ -184,8 +186,8 @@ export function IncomeStatementTab({
             <Activity className="h-3 w-3" /> Trend
           </span>
         </div>
-        <div style={{ height: 320 }}>
-          <ResponsiveContainer width="100%" height="100%">
+        <div style={{ height: 320, minHeight: 320 }}>
+          <ResponsiveContainer width="100%" height="100%" debounce={200}>
             <ComposedChart data={trendData} margin={{ top: 8, right: 48, left: 8, bottom: 8 }}>
               <defs>
                 <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
@@ -219,8 +221,8 @@ export function IncomeStatementTab({
             <h3 className="text-base font-semibold text-slate-900">Margin Progression</h3>
             <SectionNote>All three margin lines moving upward from FY2023 to Q1 2026 confirms that the business is converting revenue into profit more efficiently over time. The widening gap between Gross Margin and Net Margin reflects operating cost absorption — management's focus should be on sustaining this trajectory.</SectionNote>
           </div>
-          <div style={{ height: 260 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 260, minHeight: 260 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <AreaChart data={marginData} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
                 <defs>
                   <linearGradient id="gmFill" x1="0" y1="0" x2="0" y2="1">

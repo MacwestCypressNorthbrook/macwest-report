@@ -69,13 +69,16 @@ export function DashboardSidebar({ activeTab, onChange, model, isOpen, onClose }
     )}>
       {/* Logo */}
       <div className={cn("flex items-center gap-3 border-b border-slate-100 p-6", !open && "px-4")}>
-        <div className="relative shrink-0 flex items-center justify-center">
+        <div
+          className="relative shrink-0"
+          style={{ width: open ? 140 : 32, height: 32 }}
+        >
           <Image
             src="/logo-macwest-new.png"
             alt="Macwest Logo"
-            width={open ? 140 : 32}
-            height={32}
-            className="object-contain"
+            fill
+            sizes="140px"
+            className="object-contain object-left"
             priority
           />
         </div>

@@ -161,8 +161,8 @@ export function FinancialsTab({
             <h3 className="text-base font-semibold text-slate-900">{periods[0] ?? "Current Period"} — P&L Cascade</h3>
             <SectionNote>Each bar represents a P&L line item, cascading from total revenue down to Net Profit Before Tax. Red bars (Direct Costs, OPEX) represent deductions; the remaining coloured bars show the cumulative profit position at each stage of the income statement.</SectionNote>
           </div>
-          <div style={{ height: 300 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 300, minHeight: 300 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <BarChart data={wf} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
@@ -187,8 +187,8 @@ export function FinancialsTab({
             <h3 className="text-base font-semibold text-slate-900">Revenue Allocation</h3>
             <SectionNote>Of every GHS 1.00 of revenue earned in {periods[0] ?? "the selected period"}: GHS 0.62 covers direct delivery costs, GHS 0.12 funds operating overheads, and GHS 0.27 converts to operating profit. This structure reflects a healthy conversion ratio for a services business.</SectionNote>
           </div>
-          <div style={{ height: 200 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ height: 200, minHeight: 200 }}>
+            <ResponsiveContainer width="100%" height="100%" debounce={200}>
               <PieChart>
                 <Pie
                   data={donutData}
@@ -229,8 +229,8 @@ export function FinancialsTab({
           <h3 className="text-base font-semibold text-slate-900">Multi-Period Profit Comparison</h3>
           <SectionNote>This chart tracks the four headline P&L metrics across all reporting periods. The narrowing gap between Revenue and Gross Profit (i.e. rising gross margin) combined with growing Operating Income and PBT bars confirms that profitability is compounding with scale — a key indicator of a maturing, well-managed business.</SectionNote>
         </div>
-        <div style={{ height: 300 }}>
-          <ResponsiveContainer width="100%" height="100%">
+        <div style={{ height: 300, minHeight: 300 }}>
+          <ResponsiveContainer width="100%" height="100%" debounce={200}>
             <BarChart data={multiData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis dataKey="period" tick={{ fontSize: 12, fill: "#94a3b8" }} tickLine={false} axisLine={false} />
