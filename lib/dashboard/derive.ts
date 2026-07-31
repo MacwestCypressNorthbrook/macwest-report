@@ -87,8 +87,8 @@ export const buildDashboardModel = (data: DashboardData): DashboardModel => {
       pat: data.pnl.pat,
       ebitda: data.pnl.ebitda,
     },
-    revenueByCustomer: data.customerRevenue.customers.map((c) => ({ name: c.name, value: c.q1_2026 })),
-    revenueBySegment: data.segmentRevenue.segments.map((s) => ({ name: s.name, q1: s.q1_2026, fy25: s.fy_2025 })),
+    revenueByCustomer: data.customerRevenue.customers.map((c) => ({ name: c.name, value: c.q2_2026 })),
+    revenueBySegment: data.segmentRevenue.segments.map((s) => ({ name: s.name, q2: s.q2_2026, fy25: s.fy_2025 })),
     balanceSheetSeries: {
       periods: data.balanceSheet.periods,
       assets: data.balanceSheet.totalAssets,

@@ -1,22 +1,22 @@
 {
   "meta": {
     "company": "MacWest",
-    "period": "Q1 2026",
-    "periodEnding": "31 March 2026",
+    "period": "Q2 2026",
+    "periodEnding": "30 June 2026",
     "currency": "GH¢"
   },
   "pnl": {
-    "periods": ["Q1 2026", "Q1 2025", "2025", "2024", "2023"],
-    "revenue": [12724807, 5779137, 29302822.24, 38421668, 20268911],
-    "directCosts": [7933421, 4189340, 17411857.48, 36285756, 18564956],
-    "grossProfit": [4791386, 1589797, 11890964.76, 2135912, 1703955],
-    "opex": [7218438, 1483694, 8182611.7, 1902558, 365769],
-    "operatingIncome": [-2427052, 106102, 3708353.06, 233354, 1338186],
-    "otherIncome": [0, 0, 3776.34, 116367, 0],
-    "otherExpenses": [172446, 13382, 10993.84, 281419, 186765],
-    "pbt": [-2599498, 92720, 3701135.56, 68302, 1151422],
-    "pat": [-3362913, 92720, 1890882.24, 65395.51, 863567],
-    "ebitda": [-2378946, 106102, 3776379, 294688, 1375510],
+    "periods": ["Q2 2026", "Q1 2026", "H1 2026", "FY 2025", "FY 2024", "FY 2023"],
+    "revenue": [15600205, 12725185, 28325390, 29302822.24, 38421668, 20268911],
+    "directCosts": [26902785, 8394975, 35297760, 17411857.48, 36285756, 18564956],
+    "grossProfit": [-11302579, 4330209, -6972370, 11890964.76, 2135912, 1703955],
+    "opex": [5008238, 4142037, 9150275, 8182611.7, 1902558, 365769],
+    "operatingIncome": [-16310815, 188171, -16122644, 3708353.06, 233354, 1338186],
+    "otherIncome": [695, 0, 695, 3776.34, 116367, 0],
+    "otherExpenses": [340392, 28373, 368765, 10993.84, 281419, 186765],
+    "pbt": [-16650512, 159798, -16490714, 3701135.56, 68302, 1151422],
+    "pat": [-12691348, 159798, -12531550, 1890882.24, 65395.51, 863567],
+    "ebitda": [-16198600, 188171, -16010429, 3776379, 294688, 1375510],
     "budget": {
       "revenue": 137313697.42,
       "grossProfit": 35391942.67,
@@ -24,57 +24,58 @@
     }
   },
   "margins": {
-    "grossMargin": [0.3765, 0.2751, 0.4058, 0.0556, 0.0841],
-    "operatingMargin": [-0.1907, 0.0184, 0.1265, 0.0061, 0.0660],
-    "netMarginPbt": [-0.2043, 0.0160, 0.1263, 0.0018, 0.0568],
-    "netMarginPat": [-0.2643, 0.0160, 0.0645, 0.0017, 0.0426]
+    "grossMargin": [-0.7245, 0.3403, -0.2461, 0.4058, 0.0556, 0.0841],
+    "operatingMargin": [-1.0455, 0.0148, -0.5690, 0.1265, 0.0061, 0.0660],
+    "netMarginPbt": [-1.0673, 0.0126, -0.5821, 0.1263, 0.0018, 0.0568],
+    "netMarginPat": [-0.8135, 0.0126, -0.4424, 0.0645, 0.0017, 0.0426]
   },
   "customerRevenue": {
     "customers": [
-      { "name": "ENI Project", "q1_2026": 7669096, "fy_2025": 20118309.23 },
-      { "name": "Cement Sales", "q1_2026": 1538931, "fy_2025": 8689109.58 },
-      { "name": "Other Projects", "q1_2026": 3516781, "fy_2025": 495403.43 }
+      { "name": "ENI Project", "q2_2026": 8658633, "q1_2026": 7669096, "h1_2026": 16327729, "fy_2025": 20118309.23 },
+      { "name": "Cement Sales", "q2_2026": 1445242, "q1_2026": 1538931, "h1_2026": 2984173, "fy_2025": 8689109.58 },
+      { "name": "Other Projects", "q2_2026": 5496707, "q1_2026": 3516781, "h1_2026": 9013488, "fy_2025": 495403.43 }
     ]
   },
   "segmentRevenue": {
     "segments": [
-      { "name": "Construction", "q1_2026": 7669096, "fy_2025": 20118309.23 },
-      { "name": "Trading", "q1_2026": 1538931, "fy_2025": 8689109.58 },
-      { "name": "Other Projects", "q1_2026": 3516781, "fy_2025": 495403.43 }
+      { "name": "Construction", "q2_2026": 8658633, "q1_2026": 7669096, "h1_2026": 16327729, "fy_2025": 20118309.23 },
+      { "name": "Trading", "q2_2026": 1445242, "q1_2026": 1538931, "h1_2026": 2984173, "fy_2025": 8689109.58 },
+      { "name": "Other Projects", "q2_2026": 5496707, "q1_2026": 3516781, "h1_2026": 9013488, "fy_2025": 495403.43 }
     ]
   },
   "balanceSheet": {
-    "periods": ["Q1 2026", "2025", "2024", "2023"],
-    "currentAssets": [17050397, 19014837.75, 8317900, 5713336],
-    "cashAndBank": [5760988, 159633.52, 427774, 85974],
-    "receivables": [6251329, 14073188.91, 5707800, 4949362],
-    "otherCurrentAssets": [5038080, 4782015.32, 2182326, 678000],
-    "nonCurrentAssets": [1718015, 747268.74, 728387, 658528],
-    "totalAssets": [18768412, 19762106.49, 9046287, 6371864],
-    "currentLiabilities": [15011283, 12012514.56, 4265891, 1629309],
-    "tradePayables": [5790086, 5035538.03, 49432, 1445761],
-    "otherCurrentLiabilities": [9221197, 6976976.53, 4216459, 183548],
-    "payables": [5790086, 5035538.03, 49432, 1445761],
-    "totalLiabilities": [15011283, 12012514.56, 4265891, 1629309],
-    "retainedEarnings": [3529194, 7600461.87, 4774257, 4720591],
-    "currentYearEarnings": [-3362913, 1890882.24, 65395.51, 863567],
-    "totalEquity": [3532194, 7603461.87, 4777257, 4723591]
+    "periods": ["H1 2026", "Q1 2026", "FY 2025", "FY 2024", "FY 2023"],
+    "currentAssets": [17267287, 17050397, 19014837.75, 8317900, 5713336],
+    "cashAndBank": [834708, 5760988, 159633.52, 427774, 85974],
+    "receivables": [10174837, 6251329, 14073188.91, 5707800, 4949362],
+    "otherCurrentAssets": [6257742, 5038080, 4782015.32, 2182326, 678000],
+    "nonCurrentAssets": [1666909, 1718015, 747268.74, 728387, 658528],
+    "totalAssets": [18934196, 18768412, 19762106.49, 9046287, 6371864],
+    "currentLiabilities": [29569628, 14321031, 12012514.56, 4265891, 1629309],
+    "tradePayables": [7732512, 5790086, 5035538.03, 49432, 1445761],
+    "otherCurrentLiabilities": [21837116, 8530945, 6976976.53, 4216459, 183548],
+    "payables": [7732512, 5790086, 5035538.03, 49432, 1445761],
+    "totalLiabilities": [29569628, 14545966, 12012514.56, 4265891, 1629309],
+    "retainedEarnings": [-6843576, 3529194, 7600461.87, 4774257, 4720591],
+    "currentYearEarnings": [-12531550, -3362913, 1890882.24, 65395.51, 863567],
+    "totalEquity": [-6840576, 3532194, 7603461.87, 4777257, 4723591]
   },
   "benchmarks": {
-    "topCustomerShare": 0.6026,
-    "revenueQ12026": 12724807,
-    "grossProfitQ12026": 4791386,
-    "operatingIncomeQ12026": -2427052,
-    "pbtQ12026": -2599498
+    "topCustomerShare": 0.555,
+    "revenueQ22026": 15600205,
+    "grossProfitQ22026": -11302579,
+    "operatingIncomeQ22026": -16310815,
+    "pbtQ22026": -16650512
   },
   "commentary": {
-    "executiveSummary": "MacWest achieved a monumental 120.2% YoY revenue growth in Q1 2026 (GH¢ 12.72M) compared to Q1 2025. This follows a strong FY 2025 performance which closed with GH¢ 1.89M in net profit. The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI. Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.",
-    "pnlAnalysis": "2024 and 2025 comparatives show a significant expansion in revenue capacity. Gross margins improved to 37.7% in Q1 2026, up from historical lows in 2024. Despite reporting negative ROE and net margin, the company is expected to meet its profitability targets as projects are completed on schedule and new ones are onboarded.",
-    "balanceSheetAnalysis": "The balance sheet remains strong with GH¢ 7.6M in equity. Cash reserves stand at GH¢ 5.76M, providing the necessary working capital to support the current growth trajectory. The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI.",
+    "executiveSummary": "MacWest recorded a net loss of GH¢ 12.69M in Q2 2026 (Apr–Jun), a sharp reversal from Q1 2026's marginal profit of GH¢ 0.16M. Revenue grew to GH¢ 15.60M (up 22.6% from GH¢ 12.73M in Q1), but direct costs ballooned to GH¢ 26.90M, producing a gross loss of GH¢ 11.30M vs a gross profit of GH¢ 4.33M in Q1. The H1 2026 cumulative net loss stands at GH¢ 12.53M. Cash reserves fell from GH¢ 5.76M (Q1) to GH¢ 0.83M by 30 June. Borrowings reached GH¢ 18.18M and equity turned negative at -GH¢ 6.84M. Immediate cost control, project margin recovery, and working capital management are critical priorities.",
+    "pnlAnalysis": "Q2 2026 revenue grew 22.6% quarter-on-quarter to GH¢ 15.60M, reflecting sustained operational capacity. However, direct costs of GH¢ 26.90M exceeded revenue by 72.4%, eroding Q1's gross profit of GH¢ 4.33M and driving a gross loss of GH¢ 11.30M. Operating expenses rose to GH¢ 5.01M (from GH¢ 4.14M in Q1). The Q2 net loss of GH¢ 12.69M brought the H1 cumulative loss to GH¢ 12.53M, partially offset by a deferred tax credit of GH¢ 3.96M at the half-year level.",
+    "balanceSheetAnalysis": "The balance sheet deteriorated significantly in Q2. Total assets held at GH¢ 18.93M while current liabilities surged to GH¢ 29.57M, driven by GH¢ 18.18M in borrowings. Equity turned negative at -GH¢ 6.84M (from +GH¢ 3.53M at Q1 2026). Cash and bank dropped 85.5% from GH¢ 5.76M (Q1) to GH¢ 0.83M. The company urgently needs to improve collections, reduce borrowings, recover project costs, and restore positive equity.",
     "risks": [
-      { "area": "Project Diversification", "impact": "High", "description": "The onboarding of Ada 1, 2 & 3; Anlo 1 & 2; MDF; the Bakanta Road Project; and other related projects is expected to stabilise operations and reduce overdependence on ENI." },
-      { "area": "Budget Attainment", "impact": "High", "description": "The gap between Q1 actuals and the GH¢ 137M annual revenue budget is substantial. Profitability targets are expected to be met as projects are completed on schedule." },
-      { "area": "Liquidity", "impact": "Medium", "description": "Current cash reserves are healthy but need to be protected during the period of project ramp-up." }
+      { "area": "Negative Equity", "impact": "Critical", "description": "Total equity of -GH¢ 6.84M places the company in a technically insolvent position. Immediate recapitalisation or a restructuring of the borrowing profile is required." },
+      { "area": "Liquidity", "impact": "Critical", "description": "Cash balance of GH¢ 0.83M against GH¢ 29.57M in current liabilities represents a severe liquidity constraint. Borrowings of GH¢ 18.18M are the primary driver." },
+      { "area": "Project Margin Recovery", "impact": "High", "description": "Negative gross margin of -72.4% in Q2 (vs +34.0% in Q1) indicates project costs spiralled. Urgent renegotiation of contracts and tighter cost controls are necessary." },
+      { "area": "Budget Attainment", "impact": "High", "description": "H1 2026 revenue of GH¢ 28.33M represents only 20.6% of the GH¢ 137M annual budget. Q2 revenue of GH¢ 15.60M, while up 22.6% from Q1, is still well below the run-rate needed to close the gap." }
     ]
   }
 }

@@ -23,13 +23,17 @@ export interface MarginData {
 
 export interface CustomerRevenueItem {
   name: string;
+  q2_2026: number;
   q1_2026: number;
+  h1_2026: number;
   fy_2025: number;
 }
 
 export interface SegmentRevenueItem {
   name: string;
+  q2_2026: number;
   q1_2026: number;
+  h1_2026: number;
   fy_2025: number;
 }
 
@@ -65,10 +69,10 @@ export interface DashboardData {
   balanceSheet: BalanceSheetData;
   benchmarks: {
     topCustomerShare: number;
-    revenueQ12026: number;
-    grossProfitQ12026: number;
-    operatingIncomeQ12026: number;
-    pbtQ12026: number;
+    revenueQ22026: number;
+    grossProfitQ22026: number;
+    operatingIncomeQ22026: number;
+    pbtQ22026: number;
   };
   commentary: {
     executiveSummary: string;
@@ -85,7 +89,7 @@ export interface KpiCard {
   yoy: number;
   tone: "navy" | "green" | "blue" | "purple";
   unit?: "money" | "percent";
-  sparkline: number[]; // full series, oldest → newest
+  sparkline: number[];
 }
 
 export interface MarginCard {
@@ -129,7 +133,7 @@ export interface DashboardModel {
     ebitda: number[];
   };
   revenueByCustomer: { name: string; value: number }[];
-  revenueBySegment: { name: string; q1: number; fy25: number }[];
+  revenueBySegment: { name: string; q2: number; fy25: number }[];
   balanceSheetSeries: {
     periods: string[];
     assets: number[];
