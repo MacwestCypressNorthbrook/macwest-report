@@ -67,6 +67,239 @@
     "operatingIncomeQ22026": -16310815,
     "pbtQ22026": -16650512
   },
+  "comparisons": [
+    {
+      "id": "q1-vs-q2-2026",
+      "title": "Q1 2026 vs Q2 2026",
+      "subtitle": "Sequential quarter performance, financial year 2026",
+      "priorLabel": "Q1 2026",
+      "currentLabel": "Q2 2026",
+      "sourceNote": "Q1 2026 is taken directly from the management accounts for the period ended 31 March 2026. Q2 2026 is derived as the H1 YTD position at 30 June 2026 less the Q1 YTD position at 31 March 2026, so any prior-period adjustment booked at the June close falls into Q2.",
+      "pnl": [
+        { "label": "Revenue", "prior": 12724807, "current": 15600583, "direction": "up-good" },
+        { "label": "Direct Cost", "prior": 7933421, "current": 27364339, "direction": "up-bad" },
+        { "label": "Gross Profit", "prior": 4791386, "current": -11763756, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "General & Administrative Expenses", "prior": 7218438, "current": 1931837, "direction": "up-bad" },
+        { "label": "Operating Income (EBIT)", "prior": -2427051, "current": -13695593, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "EBITDA", "prior": -2378945, "current": -13631484, "direction": "up-good" },
+        { "label": "Finance Income", "prior": 0, "current": 695, "direction": "up-good" },
+        { "label": "Finance Charge", "prior": 172446, "current": 196319, "direction": "up-bad" },
+        { "label": "Profit Before Tax", "prior": -2599497, "current": -13891217, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "Tax (Charge) / Credit", "prior": -763415, "current": 4722579, "direction": "up-good" },
+        { "label": "Profit After Tax", "prior": -3362913, "current": -9168637, "direction": "up-good", "emphasis": "total" }
+      ],
+      "margins": [
+        { "label": "Gross Margin", "prior": 0.3765, "current": -0.7541 },
+        { "label": "Operating Margin", "prior": -0.1907, "current": -0.8779 },
+        { "label": "EBITDA Margin", "prior": -0.187, "current": -0.8738 },
+        { "label": "Net Margin (PBT)", "prior": -0.2043, "current": -0.8904 },
+        { "label": "Net Margin (PAT)", "prior": -0.2643, "current": -0.5877 }
+      ],
+      "breakdowns": [
+        {
+          "title": "Revenue by Stream",
+          "direction": "up-good",
+          "rows": [
+            { "label": "ENI Project", "prior": 7669096, "current": 8658633 },
+            { "label": "Other Projects", "prior": 3516781, "current": 5496707 },
+            { "label": "Cement Sales", "prior": 1538931, "current": 1445242 }
+          ]
+        },
+        {
+          "title": "Direct Cost by Category",
+          "direction": "up-bad",
+          "rows": [
+            { "label": "Other Project Expenses", "prior": 3111657, "current": 17193744 },
+            { "label": "Materials", "prior": 3102336, "current": 7210985 },
+            { "label": "Labour", "prior": 398498, "current": 1777307 },
+            { "label": "Purchases of Cement", "prior": 1224100, "current": 841298 },
+            { "label": "Transportation", "prior": 92380, "current": 207328 },
+            { "label": "Equipment Rental", "prior": 4450, "current": 133677 }
+          ]
+        },
+        {
+          "title": "G&A — Largest Movements",
+          "direction": "up-bad",
+          "totalLabel": "Subtotal — items listed",
+          "footnote": "Selected lines only. Total G&A was GH¢ 7.22M in Q1 2026 and GH¢ 1.93M in Q2 2026; smaller lines are excluded. The negative Q2 marketing figure is a reversal of Q1 spend, not a credit earned in the quarter.",
+          "rows": [
+            { "label": "Marketing & Business Development", "prior": 5454713, "current": -1628274 },
+            { "label": "Insurance & Licenses", "prior": 100756, "current": 776293 },
+            { "label": "Staff Cost", "prior": 526917, "current": 754150 },
+            { "label": "Foreign Exchange Loss", "prior": 199302, "current": 498206 },
+            { "label": "Bank Charges", "prior": 360909, "current": 290149 },
+            { "label": "Business Registration & Permit", "prior": 84003, "current": 246673 },
+            { "label": "Board Fees", "prior": 151500, "current": 150100 },
+            { "label": "Staff Meals & Hospitality", "prior": 123734, "current": 137465 }
+          ]
+        },
+        {
+          "title": "Position at Quarter End",
+          "direction": "neutral",
+          "rows": [
+            { "label": "Cash & Bank", "prior": 5760988, "current": 834708 },
+            { "label": "Trade & Other Receivables", "prior": 6251329, "current": 10174837 },
+            { "label": "Due from Related Parties", "prior": 3860080, "current": 5079742 },
+            { "label": "Total Assets", "prior": 18768412, "current": 18934196 },
+            { "label": "Borrowings", "prior": 3583530, "current": 18181454 },
+            { "label": "Trade & Other Payables", "prior": 5782826, "current": 7732512 },
+            { "label": "Current Liabilities", "prior": 14321031, "current": 29569628 },
+            { "label": "Total Equity", "prior": 4222446, "current": -6840576 }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "tone": "critical",
+          "title": "Margin collapsed despite higher revenue",
+          "body": "Revenue rose 22.6% to GH¢ 15.60M, but direct cost tripled to GH¢ 27.36M. Gross margin swung 113 points, from +37.7% in Q1 to -75.4% in Q2, turning a GH¢ 4.79M gross profit into a GH¢ 11.76M gross loss."
+        },
+        {
+          "tone": "critical",
+          "title": "Other Project Expenses is the single driver",
+          "body": "Other Project Expenses moved from GH¢ 3.11M to GH¢ 17.19M, a GH¢ 14.08M increase that accounts for 72% of the total direct-cost movement. Materials added a further GH¢ 4.11M. Revenue on those projects grew by only GH¢ 2.88M over the same quarter."
+        },
+        {
+          "tone": "warning",
+          "title": "The 73% fall in G&A is not a cost saving",
+          "body": "G&A fell from GH¢ 7.22M to GH¢ 1.93M only because Marketing & Business Development was reversed by GH¢ 1.63M in Q2 after GH¢ 5.45M was booked in Q1. Excluding marketing, underlying G&A actually doubled, from GH¢ 1.76M to GH¢ 3.56M. The reversal alongside the Other Project Expenses surge points to a reclassification of cost from G&A into direct cost at the June close, and should be confirmed before the quarter movements are read as operational."
+        },
+        {
+          "tone": "critical",
+          "title": "Liquidity reversed inside one quarter",
+          "body": "The company went from a net cash position of GH¢ 2.18M at 31 March (GH¢ 5.76M cash against GH¢ 3.58M borrowings) to net debt of GH¢ 17.35M at 30 June (GH¢ 0.83M cash against GH¢ 18.18M borrowings). Cash fell 85.5% while current liabilities more than doubled to GH¢ 29.57M."
+        },
+        {
+          "tone": "critical",
+          "title": "Equity turned negative",
+          "body": "Total equity moved from +GH¢ 4.22M to -GH¢ 6.84M, an GH¢ 11.06M deterioration in three months. The Q2 loss of GH¢ 9.17M after a GH¢ 4.72M tax credit, together with prior-year adjustments booked at the June close, drove the shortfall."
+        },
+        {
+          "tone": "neutral",
+          "title": "Tax credit absorbed a third of the loss",
+          "body": "Q2 carried a GH¢ 4.72M tax credit, reversing the GH¢ 0.76M charge recognised in Q1 and reflecting a cumulative deferred tax asset of GH¢ 3.79M at 30 June. The credit reduced the reported Q2 loss from GH¢ 13.89M pre-tax to GH¢ 9.17M after tax, but it is a non-cash item and depends on future taxable profits."
+        }
+      ]
+    },
+    {
+      "id": "h1-2026-vs-h1-2025",
+      "title": "H1 2026 vs H1 2025",
+      "subtitle": "Six months to 30 June, year on year",
+      "priorLabel": "H1 2025",
+      "currentLabel": "H1 2026",
+      "sourceNote": "Both columns are taken from the management accounts for the period ended 30 June 2026, which present the six months to 30 June 2026 against the six months to 30 June 2025. Note that the alternate June 2026 pack circulated with the same 2026 figures compares against FY 2025; the half-year comparative used here is the like-for-like six-month column.",
+      "pnl": [
+        { "label": "Revenue", "prior": 9241058, "current": 28325390, "direction": "up-good" },
+        { "label": "Direct Cost", "prior": 8470738, "current": 35297760, "direction": "up-bad" },
+        { "label": "Gross Profit", "prior": 770320, "current": -6972370, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "General & Administrative Expenses", "prior": 2825939, "current": 9150275, "direction": "up-bad" },
+        { "label": "Operating Income (EBIT)", "prior": -2055618, "current": -16122644, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "EBITDA", "prior": -2022866, "current": -16010429, "direction": "up-good" },
+        { "label": "Finance Income", "prior": 0, "current": 695, "direction": "up-good" },
+        { "label": "Finance Charge", "prior": 0, "current": 368765, "direction": "up-bad" },
+        { "label": "Profit Before Tax", "prior": -2055618, "current": -16490714, "direction": "up-good", "emphasis": "subtotal" },
+        { "label": "Tax (Charge) / Credit", "prior": 370078, "current": 3959164, "direction": "up-good" },
+        { "label": "Profit After Tax", "prior": -1685540, "current": -12531550, "direction": "up-good", "emphasis": "total" }
+      ],
+      "margins": [
+        { "label": "Gross Margin", "prior": 0.0834, "current": -0.2462 },
+        { "label": "Operating Margin", "prior": -0.2224, "current": -0.5692 },
+        { "label": "EBITDA Margin", "prior": -0.2189, "current": -0.5652 },
+        { "label": "Net Margin (PBT)", "prior": -0.2224, "current": -0.5822 },
+        { "label": "Net Margin (PAT)", "prior": -0.1824, "current": -0.4424 }
+      ],
+      "breakdowns": [
+        {
+          "title": "Revenue by Stream",
+          "direction": "up-good",
+          "rows": [
+            { "label": "ENI Project", "prior": 4934353, "current": 16327729 },
+            { "label": "Other Projects", "prior": 213000, "current": 9013488 },
+            { "label": "Cement Sales", "prior": 4093705, "current": 2984173 }
+          ]
+        },
+        {
+          "title": "Direct Cost by Category",
+          "direction": "up-bad",
+          "rows": [
+            { "label": "Other Project Expenses", "prior": 2048947, "current": 20305401 },
+            { "label": "Materials", "prior": 1103986, "current": 10313321 },
+            { "label": "Labour", "prior": 161789, "current": 2175805 },
+            { "label": "Purchases of Cement", "prior": 4867401, "current": 2065398 },
+            { "label": "Transportation", "prior": 239775, "current": 299708 },
+            { "label": "Equipment Rental", "prior": 48840, "current": 138127 }
+          ]
+        },
+        {
+          "title": "G&A — Largest Movements",
+          "direction": "up-bad",
+          "totalLabel": "Subtotal — items listed",
+          "footnote": "Selected lines only. Total G&A was GH¢ 2.83M in H1 2025 and GH¢ 9.15M in H1 2026; smaller lines are excluded.",
+          "rows": [
+            { "label": "Marketing & Business Development", "prior": 409195, "current": 3826439 },
+            { "label": "Insurance & Licenses", "prior": 140006, "current": 877049 },
+            { "label": "Foreign Exchange Loss", "prior": 0, "current": 697508 },
+            { "label": "Bank Charges & Interest", "prior": 38646, "current": 651058 },
+            { "label": "Staff Cost", "prior": 956679, "current": 1281067 },
+            { "label": "Business Registration & Permit", "prior": 208054, "current": 330676 },
+            { "label": "Board Fees", "prior": 152800, "current": 301600 },
+            { "label": "Staff Meals & Hospitality", "prior": 28869, "current": 261199 },
+            { "label": "Depreciation", "prior": 32752, "current": 112215 },
+            { "label": "Equipment Operating Expenses", "prior": 169391, "current": 31139 },
+            { "label": "Housing & Living Costs", "prior": 215334, "current": 68465 }
+          ]
+        },
+        {
+          "title": "Position at 30 June",
+          "direction": "neutral",
+          "rows": [
+            { "label": "Cash & Bank", "prior": 52125, "current": 834708 },
+            { "label": "Trade & Other Receivables", "prior": 2038152, "current": 10174837 },
+            { "label": "Due from Related Parties", "prior": 2994771, "current": 5079742 },
+            { "label": "Property, Plant & Equipment", "prior": 729506, "current": 1666909 },
+            { "label": "Total Assets", "prior": 6492554, "current": 18934196 },
+            { "label": "Borrowings", "prior": 0, "current": 18181454 },
+            { "label": "Trade & Other Payables", "prior": 328407, "current": 7732512 },
+            { "label": "Due to Related Parties", "prior": 1965460, "current": 2828255 },
+            { "label": "Current Liabilities", "prior": 2812944, "current": 29569628 },
+            { "label": "Total Equity", "prior": 4046550, "current": -6840576 }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "tone": "neutral",
+          "title": "Revenue tripled on project work",
+          "body": "Revenue rose 206.5%, from GH¢ 9.24M to GH¢ 28.33M. The ENI Project contributed GH¢ 11.39M of the increase (GH¢ 4.93M to GH¢ 16.33M) and Other Projects a further GH¢ 8.80M from a GH¢ 0.21M base. Cement Sales moved the other way, down 27.1% to GH¢ 2.98M, so the business is now materially more concentrated in project execution."
+        },
+        {
+          "tone": "critical",
+          "title": "Cost grew faster than revenue",
+          "body": "Direct cost rose 316.7% against revenue growth of 206.5%. Gross profit therefore went from +GH¢ 0.77M to -GH¢ 6.97M and gross margin from +8.3% to -24.6%. Other Project Expenses (GH¢ 2.05M to GH¢ 20.31M) and Materials (GH¢ 1.10M to GH¢ 10.31M) account for GH¢ 27.47M of the GH¢ 26.83M total cost increase, partly offset by lower cement purchases."
+        },
+        {
+          "tone": "warning",
+          "title": "Overheads scaled with the top line",
+          "body": "G&A rose 223.8% to GH¢ 9.15M, broadly tracking revenue growth, so the overhead ratio was roughly flat at 32.3% of revenue against 30.6% a year earlier. Marketing & Business Development is the largest single increase, up GH¢ 3.42M to GH¢ 3.83M, followed by Insurance & Licenses (+GH¢ 0.74M) and a GH¢ 0.70M foreign exchange loss with no prior-year equivalent."
+        },
+        {
+          "tone": "critical",
+          "title": "The balance sheet is now leveraged",
+          "body": "Borrowings went from nil at 30 June 2025 to GH¢ 18.18M, carrying a GH¢ 0.37M finance charge. Current liabilities rose 951% to GH¢ 29.57M against total assets of GH¢ 18.93M, and equity swung from +GH¢ 4.05M to -GH¢ 6.84M — a GH¢ 10.89M deterioration that leaves the company technically insolvent on a balance sheet basis."
+        },
+        {
+          "tone": "warning",
+          "title": "Receivables absorbed the growth",
+          "body": "Trade and other receivables rose fivefold to GH¢ 10.17M and amounts due from related parties to GH¢ 5.08M. Together they are GH¢ 15.25M, or 81% of total assets, against cash of GH¢ 0.83M. Collection performance is the binding constraint on liquidity, not the order book."
+        },
+        {
+          "tone": "neutral",
+          "title": "Both halves were loss-making, but the scale changed",
+          "body": "H1 2025 already ran an operating loss of GH¢ 2.06M on GH¢ 9.24M of revenue. The loss after tax deepened 7.4 times to GH¢ 12.53M. The pattern is a business that tripled volume without pricing or controlling project cost, so each additional cedi of revenue enlarged the loss rather than diluting fixed overhead."
+        }
+      ]
+    }
+  ],
   "commentary": {
     "executiveSummary": "MacWest recorded a net loss of GH¢ 12.69M in Q2 2026 (Apr–Jun), a sharp reversal from Q1 2026's marginal profit of GH¢ 0.16M. Revenue grew to GH¢ 15.60M (up 22.6% from GH¢ 12.73M in Q1), but direct costs ballooned to GH¢ 26.90M, producing a gross loss of GH¢ 11.30M vs a gross profit of GH¢ 4.33M in Q1. The H1 2026 cumulative net loss stands at GH¢ 12.53M. Cash reserves fell from GH¢ 5.76M (Q1) to GH¢ 0.83M by 30 June. Borrowings reached GH¢ 18.18M and equity turned negative at -GH¢ 6.84M. Immediate cost control, project margin recovery, and working capital management are critical priorities.",
     "pnlAnalysis": "Q2 2026 revenue grew 22.6% quarter-on-quarter to GH¢ 15.60M, reflecting sustained operational capacity. However, direct costs of GH¢ 26.90M exceeded revenue by 72.4%, eroding Q1's gross profit of GH¢ 4.33M and driving a gross loss of GH¢ 11.30M. Operating expenses rose to GH¢ 5.01M (from GH¢ 4.14M in Q1). The Q2 net loss of GH¢ 12.69M brought the H1 cumulative loss to GH¢ 12.53M, partially offset by a deferred tax credit of GH¢ 3.96M at the half-year level.",

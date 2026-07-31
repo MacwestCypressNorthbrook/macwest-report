@@ -55,6 +55,48 @@ export interface BalanceSheetData {
   totalEquity: number[];
 }
 
+/** How to colour a variance: "up-good" = growth is favourable (revenue, profit),
+ *  "up-bad" = growth is unfavourable (costs), "neutral" = show magnitude only. */
+export type VarianceDirection = "up-good" | "up-bad" | "neutral";
+
+export interface ComparisonRow {
+  label: string;
+  prior: number;
+  current: number;
+  direction?: VarianceDirection;
+  emphasis?: "subtotal" | "total";
+}
+
+export interface ComparisonBreakdown {
+  title: string;
+  direction: VarianceDirection;
+  rows: ComparisonRow[];
+  /** Label for the summed row. Omit for "Total"; set when `rows` is a subset
+   *  of the statement line so the sum is not mistaken for the full balance. */
+  totalLabel?: string;
+  /** Optional caption shown under the table. */
+  footnote?: string;
+}
+
+export interface ComparisonInsight {
+  tone: "critical" | "warning" | "neutral";
+  title: string;
+  body: string;
+}
+
+export interface PeriodComparison {
+  id: string;
+  title: string;
+  subtitle: string;
+  priorLabel: string;
+  currentLabel: string;
+  sourceNote: string;
+  pnl: ComparisonRow[];
+  margins: { label: string; prior: number; current: number }[];
+  breakdowns: ComparisonBreakdown[];
+  insights: ComparisonInsight[];
+}
+
 export interface DashboardData {
   meta: {
     company: string;
@@ -67,6 +109,7 @@ export interface DashboardData {
   customerRevenue: { customers: CustomerRevenueItem[] };
   segmentRevenue: { segments: SegmentRevenueItem[] };
   balanceSheet: BalanceSheetData;
+  comparisons: PeriodComparison[];
   benchmarks: {
     topCustomerShare: number;
     revenueQ22026: number;

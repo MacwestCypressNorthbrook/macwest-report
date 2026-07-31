@@ -34,11 +34,16 @@ const ShareholderViewTab = dynamic(
   () => import("@/components/dashboard/tabs/ShareholderViewTab").then((m) => m.ShareholderViewTab),
   { ssr: false }
 );
+const ComparisonTab = dynamic(
+  () => import("@/components/dashboard/tabs/ComparisonTab").then((m) => m.ComparisonTab),
+  { ssr: false }
+);
 
-type DashboardTab = "Overview" | "Income" | "Revenue" | "Balance Sheet" | "Cash Flow" | "Ratios" | "Shareholders";
+type DashboardTab = "Overview" | "Comparisons" | "Income" | "Revenue" | "Balance Sheet" | "Cash Flow" | "Ratios" | "Shareholders";
 
 const tabs: { key: DashboardTab; label: string }[] = [
   { key: "Overview", label: "Overview" },
+  { key: "Comparisons", label: "Comparisons" },
   { key: "Income", label: "Income" },
   { key: "Revenue", label: "Revenue" },
   { key: "Balance Sheet", label: "Balance Sheet" },
@@ -161,6 +166,9 @@ export function DashboardPortal({ data }: { data: DashboardData }) {
             selectedPeriod={selectedPeriodLabel}
             priorPeriod={priorPeriodLabel}
           />
+        )}
+        {activeTab === "Comparisons" && (
+          <ComparisonTab comparisons={data.comparisons} />
         )}
         {activeTab === "Income" && (
           <IncomeStatementTab
