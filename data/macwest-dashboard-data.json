@@ -1,0 +1,1136 @@
+{
+  "meta": {
+    "company": "MacWest Limited",
+    "reportTitle": "Board Financial Report",
+    "periodLabel": "Q3 2026",
+    "periodEnding": "30 September 2026",
+    "currency": "GH¢",
+    "isSample": false,
+    "sources": [
+      {
+        "id": "mar26",
+        "short": "Mar 2026 accounts",
+        "title": "Management accounts, period ended 31 March 2026"
+      },
+      {
+        "id": "jun26",
+        "short": "Jun 2026 accounts",
+        "title": "Management accounts, period ended 30 June 2026"
+      },
+      {
+        "id": "sep26a",
+        "short": "Sep 2026 accounts (vs Dec 2025)",
+        "title": "Management accounts, period ended 30 September 2026 (compared with 31 December 2025)"
+      },
+      {
+        "id": "sep26b",
+        "short": "Sep 2026 accounts (vs Sep 2025)",
+        "title": "Management accounts, period ended 30 September 2026 (compared with 30 September 2025)"
+      },
+      {
+        "id": "calc",
+        "short": "Calculated",
+        "title": "Calculated in this report from the figures above"
+      }
+    ]
+  },
+  "periods": [
+    {
+      "id": "q1_2026",
+      "label": "Q1 2026",
+      "range": "Jan–Mar 2026",
+      "kind": "quarter"
+    },
+    {
+      "id": "q2_2026",
+      "label": "Q2 2026",
+      "range": "Apr–Jun 2026",
+      "kind": "quarter",
+      "derived": true
+    },
+    {
+      "id": "q3_2026",
+      "label": "Q3 2026",
+      "range": "Jul–Sep 2026",
+      "kind": "quarter",
+      "derived": true
+    },
+    {
+      "id": "ytd_sep_2026",
+      "label": "9M 2026",
+      "range": "Jan–Sep 2026",
+      "kind": "ytd"
+    },
+    {
+      "id": "ytd_sep_2025",
+      "label": "9M 2025",
+      "range": "Jan–Sep 2025",
+      "kind": "ytd"
+    },
+    {
+      "id": "fy_2025",
+      "label": "FY 2025",
+      "range": "Jan–Dec 2025 (restated)",
+      "kind": "year"
+    }
+  ],
+  "pnl": [
+    {
+      "key": "revenue",
+      "label": "Revenue",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": 12724807,
+        "q2_2026": 15600583,
+        "q3_2026": 13168732.37,
+        "ytd_sep_2026": 41494122.37,
+        "ytd_sep_2025": 17705638.1,
+        "fy_2025": 29302822.24
+      }
+    },
+    {
+      "key": "directCost",
+      "label": "Direct cost",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 7933421,
+        "q2_2026": 27364339,
+        "q3_2026": -3727023.37,
+        "ytd_sep_2026": 31570736.63,
+        "ytd_sep_2025": 11313281.22,
+        "fy_2025": 17609611.5
+      }
+    },
+    {
+      "key": "grossProfit",
+      "label": "Gross profit",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": 4791386,
+        "q2_2026": -11763756,
+        "q3_2026": 16895755.74,
+        "ytd_sep_2026": 9923385.74,
+        "ytd_sep_2025": 6392356.88,
+        "fy_2025": 11693210.74
+      }
+    },
+    {
+      "key": "adminExpenses",
+      "label": "General & administrative expenses",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 7218438,
+        "q2_2026": 1931837,
+        "q3_2026": 4037288.95,
+        "ytd_sep_2026": 13187563.95,
+        "ytd_sep_2025": 5602601.54,
+        "fy_2025": 7868360.0
+      }
+    },
+    {
+      "key": "ebit",
+      "label": "Operating profit / (loss)",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": -2427052,
+        "q2_2026": -13695593,
+        "q3_2026": 12858466.79,
+        "ytd_sep_2026": -3264178.21,
+        "ytd_sep_2025": 789755.34,
+        "fy_2025": 3824850.74
+      }
+    },
+    {
+      "key": "financeIncome",
+      "label": "Finance income",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": 0,
+        "q2_2026": 695,
+        "q3_2026": 258061.62,
+        "ytd_sep_2026": 258756.62,
+        "ytd_sep_2025": 0,
+        "fy_2025": 5200
+      }
+    },
+    {
+      "key": "financeCost",
+      "label": "Finance cost",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 172446,
+        "q2_2026": 196319,
+        "q3_2026": 657332.94,
+        "ytd_sep_2026": 1026097.94,
+        "ytd_sep_2025": 0,
+        "fy_2025": 11276
+      }
+    },
+    {
+      "key": "levy",
+      "label": "Growth & sustainability levy",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 0,
+        "q2_2026": 0,
+        "q3_2026": 0,
+        "ytd_sep_2026": 0,
+        "ytd_sep_2025": 19743.88,
+        "fy_2025": 95469.37
+      }
+    },
+    {
+      "key": "pbt",
+      "label": "Profit / (loss) before tax",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": -2599498,
+        "q2_2026": -13891217,
+        "q3_2026": 12459195.47,
+        "ytd_sep_2026": -4031519.53,
+        "ytd_sep_2025": 770011.46,
+        "fy_2025": 3723305.37
+      }
+    },
+    {
+      "key": "tax",
+      "label": "Tax credit / (charge)",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": -763415,
+        "q2_2026": 4722579,
+        "q3_2026": -3251471.04,
+        "ytd_sep_2026": 707692.96,
+        "ytd_sep_2025": -192502.86,
+        "fy_2025": -1407805.38
+      }
+    },
+    {
+      "key": "pat",
+      "label": "Profit / (loss) after tax",
+      "direction": "up-good",
+      "emphasis": "total",
+      "values": {
+        "q1_2026": -3362913,
+        "q2_2026": -9168638,
+        "q3_2026": 9207724.43,
+        "ytd_sep_2026": -3323826.57,
+        "ytd_sep_2025": 577508.6,
+        "fy_2025": 2315499.99
+      }
+    },
+    {
+      "key": "ebitda",
+      "label": "EBITDA",
+      "direction": "up-good",
+      "emphasis": "memo",
+      "values": {
+        "q1_2026": -2378946,
+        "q2_2026": -13631484,
+        "q3_2026": 12919222.46,
+        "ytd_sep_2026": -3091207.54,
+        "ytd_sep_2025": 834399.36,
+        "fy_2025": 3892876.74
+      }
+    }
+  ],
+  "revenueStreams": [
+    {
+      "label": "ENI Project",
+      "values": {
+        "q1_2026": 7669096,
+        "q2_2026": 8658633,
+        "q3_2026": 796883.01,
+        "ytd_sep_2026": 17124612.01,
+        "ytd_sep_2025": 10592335.49,
+        "fy_2025": 20118309.23
+      }
+    },
+    {
+      "label": "Other Projects",
+      "values": {
+        "q1_2026": 3516781,
+        "q2_2026": 5496707,
+        "q3_2026": 11751098.24,
+        "ytd_sep_2026": 20764586.24,
+        "ytd_sep_2025": 274439.0,
+        "fy_2025": 495403.43
+      }
+    },
+    {
+      "label": "Cement Sales",
+      "values": {
+        "q1_2026": 1538931,
+        "q2_2026": 1445242,
+        "q3_2026": 620751.12,
+        "ytd_sep_2026": 3604924.12,
+        "ytd_sep_2025": 6838863.61,
+        "fy_2025": 8689109.58
+      }
+    }
+  ],
+  "directCosts": [
+    {
+      "label": "Other Project Expenses",
+      "values": {
+        "q1_2026": 3111657,
+        "q2_2026": 17193744,
+        "q3_2026": -8459964.66,
+        "ytd_sep_2026": 11845436.34,
+        "ytd_sep_2025": 2256649.3
+      }
+    },
+    {
+      "label": "Materials & Subcontractors",
+      "values": {
+        "q1_2026": 3102336,
+        "q2_2026": 7210985,
+        "q3_2026": 894815.79,
+        "ytd_sep_2026": 11208136.79,
+        "ytd_sep_2025": 1579242.4
+      }
+    },
+    {
+      "label": "Labour",
+      "values": {
+        "q1_2026": 398498,
+        "q2_2026": 1777307,
+        "q3_2026": 1664931.3,
+        "ytd_sep_2026": 3840736.3,
+        "ytd_sep_2025": 282555.88
+      }
+    },
+    {
+      "label": "Purchases of Cement",
+      "values": {
+        "q1_2026": 1224100,
+        "q2_2026": 841298,
+        "q3_2026": 1946794.9,
+        "ytd_sep_2026": 4012192.9,
+        "ytd_sep_2025": 6780965.64
+      }
+    },
+    {
+      "label": "Transportation",
+      "values": {
+        "q1_2026": 92380,
+        "q2_2026": 207328,
+        "q3_2026": 181809.3,
+        "ytd_sep_2026": 481517.3,
+        "ytd_sep_2025": 261518.0
+      }
+    },
+    {
+      "label": "Equipment Rental",
+      "values": {
+        "q1_2026": 4450,
+        "q2_2026": 133677,
+        "q3_2026": 44590.0,
+        "ytd_sep_2026": 182717.0,
+        "ytd_sep_2025": 152350.0
+      }
+    }
+  ],
+  "adminExpenses": {
+    "current": "ytd_sep_2026",
+    "prior": "ytd_sep_2025",
+    "rows": [
+      {
+        "label": "Marketing & business development",
+        "current": 4513372.14,
+        "prior": 1691001.61
+      },
+      {
+        "label": "Staff cost",
+        "current": 2382837.05,
+        "prior": 1452089.16
+      },
+      {
+        "label": "Board fees",
+        "current": 695900.0,
+        "prior": 229600.0
+      },
+      {
+        "label": "Bank charges & interest",
+        "current": 694807.9,
+        "prior": 104268.71
+      },
+      {
+        "label": "Insurance & licences",
+        "current": 686942.48,
+        "prior": 213231.07
+      },
+      {
+        "label": "Foreign exchange loss",
+        "current": 685866.8,
+        "prior": 0
+      },
+      {
+        "label": "Intercompany allocation",
+        "current": 679192.97,
+        "prior": 0
+      },
+      {
+        "label": "Fines & penalties",
+        "current": 501056.21,
+        "prior": 0
+      },
+      {
+        "label": "Staff meals & hospitality",
+        "current": 388208.05,
+        "prior": 138724.0
+      },
+      {
+        "label": "Business registration & permits",
+        "current": 371675.63,
+        "prior": 208053.5
+      }
+    ],
+    "total": {
+      "current": 13187563.95,
+      "prior": 5602601.54
+    }
+  },
+  "balanceSheet": {
+    "columns": [
+      {
+        "id": "sep25",
+        "label": "30 Sep 2025"
+      },
+      {
+        "id": "dec25",
+        "label": "31 Dec 2025"
+      },
+      {
+        "id": "mar26",
+        "label": "31 Mar 2026"
+      },
+      {
+        "id": "jun26",
+        "label": "30 Jun 2026"
+      },
+      {
+        "id": "sep26",
+        "label": "30 Sep 2026"
+      }
+    ],
+    "values": {
+      "ppe": [
+        667003.98,
+        747263.24,
+        1718015,
+        1666909,
+        1609281.45
+      ],
+      "deferredTaxAsset": [
+        0,
+        0,
+        0,
+        0,
+        556819.89
+      ],
+      "prepayments": [
+        0,
+        0,
+        0,
+        0,
+        8938147.39
+      ],
+      "receivables": [
+        2800801.83,
+        12169874.0,
+        6251329,
+        10174837,
+        8036063.17
+      ],
+      "shortTermInvestment": [
+        1178000,
+        1178000,
+        1178000,
+        1178000,
+        1178000
+      ],
+      "dueFromRelated": [
+        3602510.32,
+        3871983.04,
+        3860080,
+        5079742,
+        15155756.01
+      ],
+      "currentTaxAsset": [
+        0,
+        310906.66,
+        0,
+        0,
+        1903269.89
+      ],
+      "cash": [
+        390439.49,
+        155692.0,
+        5760988,
+        834708,
+        1715100.18
+      ],
+      "payables": [
+        820451.5,
+        7095753.41,
+        5782826,
+        7732512,
+        8755224.43
+      ],
+      "borrowings": [
+        0,
+        510993.84,
+        3583530,
+        18181454,
+        18774968.62
+      ],
+      "taxation": [
+        711579.86,
+        0,
+        1530195,
+        827407,
+        0
+      ],
+      "dueToRelated": [
+        774786.6,
+        4528887.0,
+        3424480,
+        2828255,
+        8738859.26
+      ],
+      "deferredTaxLiability": [
+        16574.0,
+        150873.07,
+        224935,
+        -3794856,
+        0
+      ],
+      "equity": [
+        6315363.65,
+        6147211.62,
+        4222446,
+        -6840576,
+        2823385.04
+      ]
+    }
+  },
+  "cashFlow": {
+    "period": "9M 2026",
+    "lines": [
+      {
+        "label": "Loss before tax",
+        "value": -4031519.54
+      },
+      {
+        "label": "Non-cash items & net interest",
+        "value": 940311.99
+      },
+      {
+        "label": "Tax paid",
+        "value": -1592367.89
+      },
+      {
+        "label": "Trade receivables collected",
+        "value": 4132066.69
+      },
+      {
+        "label": "Increase in related-party receivables",
+        "value": -11283772.97
+      },
+      {
+        "label": "Increase in trade payables",
+        "value": 1659471.02
+      },
+      {
+        "label": "Increase in related-party payables",
+        "value": 4209972.26
+      },
+      {
+        "label": "Increase in prepayments",
+        "value": -8938147.39
+      }
+    ],
+    "summary": {
+      "operating": -14903985.81,
+      "investing": -1033238.88,
+      "financing": 17496633.46,
+      "net": 1559408.76,
+      "opening": 155691.41,
+      "closing": 1715100.17,
+      "borrowingProceeds": 18263975,
+      "capex": -1033238.88
+    }
+  },
+  "commentary": {
+    "headline": "Revenue more than doubled compared with the first nine months of 2025, but costs rose faster. The company made a loss of GH¢ 3.32M and now depends on GH¢ 18.77M of borrowing.",
+    "keyMessages": [
+      {
+        "title": "Revenue more than doubled",
+        "text": "Revenue for January to September 2026 was GH¢ 41.49M, 134% more than the same months of 2025. Most of the increase came from Other Projects, which grew from GH¢ 274K to GH¢ 20.76M.",
+        "evidence": [
+          {
+            "label": "Revenue, 9M 2026",
+            "value": 41494122.37,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Revenue, 9M 2025",
+            "value": 17705638.1,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Other Projects revenue, 9M 2026",
+            "value": 20764586.24,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 4"
+          },
+          {
+            "label": "Other Projects revenue, 9M 2025",
+            "value": 274439.0,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 4"
+          }
+        ]
+      },
+      {
+        "title": "Costs grew faster than revenue",
+        "text": "Direct costs rose 179% and administrative expenses rose 135%, while revenue rose 134%. Gross profit was therefore 23.9% of revenue, down from 36.1%.",
+        "evidence": [
+          {
+            "label": "Direct cost, 9M 2026",
+            "value": 31570736.63,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Direct cost, 9M 2025",
+            "value": 11313281.22,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Administrative expenses, 9M 2026",
+            "value": 13187563.95,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Administrative expenses, 9M 2025",
+            "value": 5602601.54,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Gross profit as % of revenue, 9M 2026",
+            "value": 0.2392,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Gross profit ÷ revenue"
+          },
+          {
+            "label": "Gross profit as % of revenue, 9M 2025",
+            "value": 0.361,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Gross profit ÷ revenue"
+          }
+        ]
+      },
+      {
+        "title": "The nine months ended in a loss",
+        "text": "After tax, the company lost GH¢ 3.32M in January to September 2026. In the same months of 2025 it made a profit of GH¢ 578K.",
+        "evidence": [
+          {
+            "label": "Profit / (loss) after tax, 9M 2026",
+            "value": -3323826.57,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Profit / (loss) after tax, 9M 2025",
+            "value": 577508.6,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Income statement"
+          }
+        ]
+      },
+      {
+        "title": "The Q3 profit comes from lower recorded costs, not higher sales",
+        "text": "On its own, Q3 shows a profit of GH¢ 9.21M. This is because the total direct cost recorded for the year went down between the June and September accounts, from GH¢ 35.30M to GH¢ 31.57M. Over the same period, other project expenses fell by GH¢ 8.46M and a new prepayment (money paid in advance for future work) of GH¢ 8.94M appeared on the balance sheet. This suggests costs that were charged as expenses by June were moved to the balance sheet in September. Q3 revenue (GH¢ 13.17M) was lower than Q2 (GH¢ 15.60M). Finance should confirm what was moved and why.",
+        "evidence": [
+          {
+            "label": "Direct cost, Jan–Jun 2026",
+            "value": 35297760,
+            "format": "money",
+            "source": "jun26",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Direct cost, Jan–Sep 2026",
+            "value": 31570736.63,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Income statement"
+          },
+          {
+            "label": "Other project expenses, Jan–Jun 2026",
+            "value": 20305401,
+            "format": "money",
+            "source": "jun26",
+            "ref": "Note 5"
+          },
+          {
+            "label": "Other project expenses, Jan–Sep 2026",
+            "value": 11845436.34,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 5"
+          },
+          {
+            "label": "Prepayments, 30 Jun 2026",
+            "value": 0,
+            "format": "money",
+            "source": "jun26",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Prepayments, 30 Sep 2026",
+            "value": 8938147.39,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet, note 17"
+          },
+          {
+            "label": "Revenue, Q2 2026",
+            "value": 15600583,
+            "format": "money",
+            "source": "calc",
+            "ref": "Jun 2026 less Mar 2026 year to date"
+          },
+          {
+            "label": "Revenue, Q3 2026",
+            "value": 13168732.37,
+            "format": "money",
+            "source": "calc",
+            "ref": "Sep 2026 less Jun 2026 year to date"
+          }
+        ]
+      },
+      {
+        "title": "Day-to-day operations are being paid for with loans",
+        "text": "Borrowings were GH¢ 18.77M at 30 September 2026; a year earlier there were none. In the nine months, operations used GH¢ 14.90M more cash than they brought in, and new loans of GH¢ 18.26M covered the gap. Interest on the loans cost GH¢ 1.03M.",
+        "evidence": [
+          {
+            "label": "Borrowings, 30 Sep 2026",
+            "value": 18774968.62,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet, note 15"
+          },
+          {
+            "label": "Borrowings, 30 Sep 2025",
+            "value": 0,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Net cash from operating activities, 9M 2026",
+            "value": -14903985.81,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Cash flow statement"
+          },
+          {
+            "label": "New borrowing received, 9M 2026",
+            "value": 18263975,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Cash flow statement"
+          },
+          {
+            "label": "Finance cost, 9M 2026",
+            "value": 1026097.94,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 6b"
+          }
+        ]
+      },
+      {
+        "title": "Shareholders' equity is lower than a year ago",
+        "text": "Equity (the shareholders' stake as shown in the accounts) was GH¢ 2.82M at 30 September 2026, down from GH¢ 6.32M a year earlier. The June accounts showed it below zero, at −GH¢ 6.84M; it is back above zero in September mainly because of the Q3 profit described above.",
+        "evidence": [
+          {
+            "label": "Total equity, 30 Sep 2026",
+            "value": 2823385.04,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Total equity, 30 Jun 2026",
+            "value": -6840576,
+            "format": "money",
+            "source": "jun26",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Total equity, 30 Sep 2025",
+            "value": 6315363.65,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Profit after tax, Q3 2026",
+            "value": 9207724.43,
+            "format": "money",
+            "source": "calc",
+            "ref": "Sep 2026 less Jun 2026 year to date"
+          }
+        ]
+      },
+      {
+        "title": "Related parties owe MacWest GH¢ 15.16M",
+        "text": "Amounts owed to MacWest by eight related companies and a director were GH¢ 15.16M at 30 September 2026, up from GH¢ 3.60M a year earlier. This is now the largest item on the balance sheet (39% of total assets). The largest balances are Vertex (GH¢ 5.21M), NorthBrook (GH¢ 3.85M) and Infini (GH¢ 2.73M). MacWest itself owes related parties GH¢ 8.74M.",
+        "evidence": [
+          {
+            "label": "Owed to MacWest by related parties, 30 Sep 2026",
+            "value": 15155756.01,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Owed to MacWest by related parties, 30 Sep 2025",
+            "value": 3602510.32,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Share of total assets, 30 Sep 2026",
+            "value": 0.3877,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Related-party balance ÷ total assets"
+          },
+          {
+            "label": "Owed by Vertex",
+            "value": 5213913.72,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Owed by NorthBrook",
+            "value": 3845446.7,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Owed by Infini",
+            "value": 2734654.63,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Owed by MacWest to related parties, 30 Sep 2026",
+            "value": 8738859.26,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 16"
+          }
+        ]
+      }
+    ],
+    "quarterly": "Q1 figures come straight from the March accounts. Q2 and Q3 are worked out by taking the year-to-date figures in one set of accounts away from the next, so any correction made at a quarter-end shows up in that quarter. Q3 revenue was GH¢ 13.17M, lower than Q2 (GH¢ 15.60M). ENI Project revenue fell to GH¢ 797K in Q3 from GH¢ 8.66M in Q2, while Other Projects brought in GH¢ 11.75M.",
+    "yearOnYear": "Compared with January to September 2025, revenue rose 134%, but direct costs rose 179% and administrative expenses 135%. Costs that did not exist in 2025 include foreign exchange losses (GH¢ 686K), intercompany charges (GH¢ 679K) and fines and penalties (GH¢ 501K). Interest on the new loans cost GH¢ 1.03M, against GH¢ 259K of interest earned.",
+    "position": "Total assets were GH¢ 39.09M at 30 September 2026, against GH¢ 8.64M a year earlier. Most of the increase is money owed by related parties (GH¢ 15.16M) and prepayments (GH¢ 8.94M), not cash. Assets that can be turned into cash within a year cover the bills due within a year 1.02 times, down from 3.46 times. Operations used GH¢ 14.90M of cash in the nine months; new loans of GH¢ 18.26M covered it.",
+    "riskScale": [
+      {
+        "level": "High",
+        "meaning": "Could affect the company's ability to pay its bills, or needs a board decision now."
+      },
+      {
+        "level": "Medium",
+        "meaning": "Reduces profit or needs watching; report on it each quarter."
+      }
+    ],
+    "risks": [
+      {
+        "area": "Cash and borrowing",
+        "level": "High",
+        "why": "Assets that can be turned into cash within a year only just cover the bills due within a year (1.02 times).",
+        "text": "Operations used more cash than they generated, and the gap is being filled with loans. Cash at 30 September 2026 was GH¢ 1.72M, enough to pay 5% of the GH¢ 36.27M due within a year.",
+        "action": "Ask management for a 12-month cash forecast showing how the loans will be repaid.",
+        "evidence": [
+          {
+            "label": "Net cash from operating activities, 9M 2026",
+            "value": -14903985.81,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Cash flow statement"
+          },
+          {
+            "label": "Cash and bank, 30 Sep 2026",
+            "value": 1715100.18,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Amounts due within a year, 30 Sep 2026",
+            "value": 36269052.31,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet, current liabilities"
+          },
+          {
+            "label": "Borrowings, 30 Sep 2026",
+            "value": 18774968.62,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Balance sheet"
+          },
+          {
+            "label": "Current assets ÷ current liabilities",
+            "value": 1.0181,
+            "format": "ratio",
+            "source": "calc",
+            "ref": "Balance sheet"
+          }
+        ]
+      },
+      {
+        "area": "Money owed by related parties",
+        "level": "High",
+        "why": "It is the largest item on the balance sheet and grew 3.9 times in nine months.",
+        "text": "GH¢ 15.16M is owed by eight related companies and a director, up from GH¢ 3.87M at 31 December 2025. Until it is collected, this money cannot be used to run the business or repay loans.",
+        "action": "Agree a repayment date for each balance, and set a limit on new amounts lent to related parties.",
+        "evidence": [
+          {
+            "label": "Owed to MacWest by related parties, 30 Sep 2026",
+            "value": 15155756.01,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Owed to MacWest by related parties, 31 Dec 2025",
+            "value": 3871983.04,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 14"
+          },
+          {
+            "label": "Share of total assets, 30 Sep 2026",
+            "value": 0.3877,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Related-party balance ÷ total assets"
+          }
+        ]
+      },
+      {
+        "area": "Reliability of the Q3 result",
+        "level": "High",
+        "why": "It decides whether the company made a profit or a loss in the quarter.",
+        "text": "The Q3 profit depends on GH¢ 8.94M of payments being treated as prepayments for future work. If some of these are costs of work already done, they belong in the income statement and the nine-month loss would be larger.",
+        "action": "Ask Finance to list what the GH¢ 8.94M prepayment is for, which contracts it relates to, and when the work will be done.",
+        "evidence": [
+          {
+            "label": "Prepayments, 30 Sep 2026",
+            "value": 8938147.39,
+            "format": "money",
+            "source": "sep26a",
+            "ref": "Note 17"
+          },
+          {
+            "label": "Direct cost, Q3 2026",
+            "value": -3727023.37,
+            "format": "money",
+            "source": "calc",
+            "ref": "Sep 2026 less Jun 2026 year to date"
+          },
+          {
+            "label": "Fall in other project expenses, Jun to Sep 2026",
+            "value": 8459964.66,
+            "format": "money",
+            "source": "calc",
+            "ref": "Note 5, Jun and Sep accounts"
+          }
+        ]
+      },
+      {
+        "area": "Margins and overheads",
+        "level": "Medium",
+        "why": "It is reducing profit, but it does not by itself threaten the company's ability to pay its bills.",
+        "text": "Gross profit as a share of revenue fell from 36.1% to 23.9%. Administrative expenses grew 135%. Several costs are new in 2026: fines and penalties (GH¢ 501K), foreign exchange losses (GH¢ 686K) and intercompany charges (GH¢ 679K). Marketing spend rose from GH¢ 1.69M to GH¢ 4.51M.",
+        "action": "Ask management to explain the fines and penalties, and what the marketing spend has delivered.",
+        "evidence": [
+          {
+            "label": "Gross profit as % of revenue, 9M 2026",
+            "value": 0.2392,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Gross profit ÷ revenue"
+          },
+          {
+            "label": "Gross profit as % of revenue, 9M 2025",
+            "value": 0.361,
+            "format": "percent",
+            "source": "calc",
+            "ref": "Gross profit ÷ revenue"
+          },
+          {
+            "label": "Fines and penalties, 9M 2026",
+            "value": 501056.21,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 6a"
+          },
+          {
+            "label": "Foreign exchange loss, 9M 2026",
+            "value": 685866.8,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 6a"
+          },
+          {
+            "label": "Intercompany allocation, 9M 2026",
+            "value": 679192.97,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 6a"
+          },
+          {
+            "label": "Marketing & business development, 9M 2026",
+            "value": 4513372.14,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 6a"
+          },
+          {
+            "label": "Marketing & business development, 9M 2025",
+            "value": 1691001.61,
+            "format": "money",
+            "source": "sep26b",
+            "ref": "Note 6a"
+          }
+        ]
+      }
+    ],
+    "dataNotes": [
+      "Q1 2026 is taken directly from the March 2026 accounts. Q2 is the June year-to-date figures less March; Q3 is September less June.",
+      "Total direct cost for the year was lower in the September accounts (GH¢ 31.57M) than in the June accounts (GH¢ 35.30M), so Q3 direct cost is negative (−GH¢ 3.73M). The June accounts have not been restated, so Q2 and Q3 should be read together.",
+      "FY 2025 and 31 December 2025 figures are the restated comparatives shown in the September 2026 accounts (profit after tax GH¢ 2.32M). Retained earnings at 31 December 2025 also reflect a prior-year adjustment that reduced them by GH¢ 946K.",
+      "The September 2026 vs September 2025 accounts repeat the full-year 2025 cash flow in the comparative column, so no nine-month 2025 cash flow is shown.",
+      "In the September 2026 balance sheet, total assets and total equity plus liabilities differ by GH¢ 0.61 (rounding in the source).",
+      "Risk levels are the preparer's assessment using the scale shown, not a rating from the auditors or management.",
+      "Gross margin means gross profit as a percentage of revenue. Current ratio means current assets divided by current liabilities."
+    ]
+  },
+  "relatedParties": {
+    "current": "30 Sep 2026",
+    "prior": "31 Dec 2025",
+    "rows": [
+      {
+        "entity": "Vertex",
+        "dueFrom": 5213913.72,
+        "dueFromPrior": 256873.0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "NorthBrook",
+        "dueFrom": 3845446.7,
+        "dueFromPrior": 855158.0,
+        "dueTo": 4163256.2,
+        "dueToPrior": 3024555.0
+      },
+      {
+        "entity": "Infini",
+        "dueFrom": 2734654.63,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Valcera",
+        "dueFrom": 2623990.0,
+        "dueFromPrior": 0,
+        "dueTo": 52478.8,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Director",
+        "dueFrom": 295800.0,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 444400.0
+      },
+      {
+        "entity": "Buckle & Grit",
+        "dueFrom": 174924.74,
+        "dueFromPrior": 2754952.04,
+        "dueTo": 0,
+        "dueToPrior": 608032.0
+      },
+      {
+        "entity": "Cypress",
+        "dueFrom": 170387.03,
+        "dueFromPrior": 0,
+        "dueTo": 779192.97,
+        "dueToPrior": 100000.0
+      },
+      {
+        "entity": "Powertech",
+        "dueFrom": 85450.15,
+        "dueFromPrior": 5000.0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Orchid",
+        "dueFrom": 11189.04,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Vertex Ridge",
+        "dueFrom": 0,
+        "dueFromPrior": 0,
+        "dueTo": 3693931.29,
+        "dueToPrior": 351900.0
+      },
+      {
+        "entity": "WaterBridge",
+        "dueFrom": 0,
+        "dueFromPrior": 0,
+        "dueTo": 50000.0,
+        "dueToPrior": 0
+      }
+    ]
+  }
+}

@@ -13,7 +13,8 @@ coverage
 # Confidential financial records — never commit
 *.pdf
 MACWEST LTD/
-data/macwest-dashboard-data.json
+# Figures file is tracked temporarily so Vercel can build it; re-ignore after the presentation:
+# data/macwest-dashboard-data.json
 .playwright-mcp/
 dashboard-home.png
 *.tsbuildinfo
