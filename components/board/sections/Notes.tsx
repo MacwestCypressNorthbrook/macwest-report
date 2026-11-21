@@ -16,7 +16,9 @@ export function Notes({ data }: { data: DashboardData }) {
           {data.meta.sources.length ? (
             <ul className="list-disc space-y-2.5 pl-5 text-sm leading-relaxed text-ink-2 marker:text-ink-3">
               {data.meta.sources.map((s) => (
-                <li key={s}>{s}</li>
+                <li key={s.id}>
+                  <span className="font-medium text-ink">{s.short}</span>: {s.title}
+                </li>
               ))}
             </ul>
           ) : (

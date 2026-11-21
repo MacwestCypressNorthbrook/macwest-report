@@ -76,40 +76,47 @@ export function Quarterly({ data }: { data: DashboardData }) {
       breakBefore
     >
       {q3Cost < 0 && (
-        <Callout title="Read Q2 and Q3 together">
-          Q3 direct cost is {formatMoney(q3Cost)}: year-to-date direct cost fell between the June and September
-          accounts, so part of Q2&apos;s cost has effectively reversed in Q3. The Q3 profit is not a run-rate.
+        <Callout title="Q3 profit is not a sign of normal trading">
+          Q3 direct cost is {formatMoney(q3Cost)}, a negative figure. The total direct cost recorded for the year was
+          lower in the September accounts ({formatMoney(pnlValue(data, "directCost", YTD))}) than in the June accounts
+          ({formatMoney(pnlValue(data, "directCost", "q1_2026") + pnlValue(data, "directCost", "q2_2026"))}), so costs
+          charged in Q2 were taken back out in Q3. Q2 and Q3 should be looked at together. Key message 4 in the summary
+          explains this.
         </Callout>
       )}
 
-      <Panel title="Revenue, gross profit and profit after tax by quarter" caption="GH¢, each quarter on its own">
-        <GroupedBarChart
-          ariaLabel="Revenue, gross profit and profit after tax for Q1, Q2 and Q3 2026"
-          data={chartData}
-          series={[
-            { key: "revenue", name: "Revenue", color: "var(--chart-1)" },
-            { key: "grossProfit", name: "Gross profit", color: "var(--chart-2)" },
-            { key: "pat", name: "Profit after tax", color: "var(--chart-3)" },
-          ]}
-        />
-      </Panel>
-
-      <Panel title="Income statement by quarter">
-        <FigureTable
-          caption="Income statement for each quarter of 2026"
-          columns={columns}
-          rows={rows}
-          footnote="† Derived: the year-to-date accounts at the quarter end less those at the previous quarter end. Brackets show losses or negative amounts."
-        />
-      </Panel>
-
-      <div className="space-y-6">
-        <Panel title="Margins">
-          <FigureTable caption="Margins by quarter" unit="% of revenue" columns={columns} rows={marginRows} />
+      <div className="grid grid-cols-1 items-start gap-6 2xl:grid-cols-2">
+        <div className="space-y-6">
+        <Panel title="Revenue, gross profit and profit after tax by quarter" caption="GH¢, each quarter on its own">
+          <GroupedBarChart
+            ariaLabel="Revenue, gross profit and profit after tax for Q1, Q2 and Q3 2026"
+            data={chartData}
+            series={[
+              { key: "revenue", name: "Revenue", color: "var(--chart-1)" },
+              { key: "grossProfit", name: "Gross profit", color: "var(--chart-2)" },
+              { key: "pat", name: "Profit after tax", color: "var(--chart-3)" },
+            ]}
+          />
         </Panel>
-        <Panel title="Revenue by stream">
-          <FigureTable caption="Revenue by stream by quarter" columns={columns} rows={streamRows} />
+
+          <Panel title="Revenue by stream">
+            <FigureTable caption="Revenue by stream by quarter" columns={columns} rows={streamRows} />
+          </Panel>
+        </div>
+        <div className="space-y-6">
+        <Panel title="Income statement by quarter">
+          <FigureTable
+            caption="Income statement for each quarter of 2026"
+            columns={columns}
+            rows={rows}
+            footnote="† Derived: the year-to-date accounts at the quarter end less those at the previous quarter end. Brackets show losses or negative amounts."
+          />
         </Panel>
+
+          <Panel title="Margins">
+            <FigureTable caption="Margins by quarter" unit="% of revenue" columns={columns} rows={marginRows} />
+          </Panel>
+        </div>
       </div>
     </Section>
   );

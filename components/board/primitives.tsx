@@ -24,7 +24,7 @@ export function Section({
   breakBefore?: boolean;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className={`pt-14 first:pt-8 ${breakBefore ? "print-break" : ""}`}>
+    <section id={id} aria-labelledby={`${id}-title`} className={`pt-8 ${breakBefore ? "print-break" : ""}`}>
       <header className="mb-6 max-w-3xl">
         <p className="text-sm font-medium text-ink-3 tabular-nums">{index}</p>
         <h2 id={`${id}-title`} className="mt-1 text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-tight">

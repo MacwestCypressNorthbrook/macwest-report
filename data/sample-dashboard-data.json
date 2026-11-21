@@ -540,22 +540,138 @@
     }
   },
   "commentary": {
-    "headline": "Sample data — these figures are synthetic and do not describe the company.",
+    "headline": "Sample data: these figures are synthetic and do not describe the company.",
     "keyMessages": [
-      "Supply data/macwest-dashboard-data.json locally to see the real board report."
+      {
+        "title": "Sample message",
+        "text": "Supply data/macwest-dashboard-data.json locally to see the real board report.",
+        "evidence": [
+          {
+            "label": "Example figure",
+            "value": 1000000,
+            "format": "money",
+            "source": "calc",
+            "ref": "Synthetic"
+          }
+        ]
+      }
     ],
     "quarterly": "Sample commentary.",
     "yearOnYear": "Sample commentary.",
     "position": "Sample commentary.",
+    "riskScale": [
+      {
+        "level": "High",
+        "meaning": "Example."
+      },
+      {
+        "level": "Medium",
+        "meaning": "Example."
+      }
+    ],
     "risks": [
       {
         "area": "Sample risk",
         "level": "Medium",
-        "text": "Synthetic example row."
+        "why": "Example.",
+        "text": "Synthetic example row.",
+        "action": "None.",
+        "evidence": [
+          {
+            "label": "Example figure",
+            "value": 1000000,
+            "format": "money",
+            "source": "calc",
+            "ref": "Synthetic"
+          }
+        ]
       }
     ],
     "dataNotes": [
       "This file contains synthetic values for development builds only."
+    ]
+  },
+  "relatedParties": {
+    "current": "30 Sep 2026",
+    "prior": "31 Dec 2025",
+    "rows": [
+      {
+        "entity": "Company A",
+        "dueFrom": 5538000.0,
+        "dueFromPrior": 6805000.0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Company B",
+        "dueFrom": 11106000.0,
+        "dueFromPrior": 5695000.0,
+        "dueTo": 6193000.0,
+        "dueToPrior": 7131000.0
+      },
+      {
+        "entity": "Company C",
+        "dueFrom": 2379000.0,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Company D",
+        "dueFrom": 6241000.0,
+        "dueFromPrior": 0,
+        "dueTo": 7633000.0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Company E",
+        "dueFrom": 9557000.0,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 1311000.0
+      },
+      {
+        "entity": "Company F",
+        "dueFrom": 3780000.0,
+        "dueFromPrior": 1270000.0,
+        "dueTo": 0,
+        "dueToPrior": 9754000.0
+      },
+      {
+        "entity": "Company G",
+        "dueFrom": 8383000.0,
+        "dueFromPrior": 0,
+        "dueTo": 694000.0,
+        "dueToPrior": 11790000.0
+      },
+      {
+        "entity": "Company H",
+        "dueFrom": 11584000.0,
+        "dueFromPrior": 7916000.0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Company I",
+        "dueFrom": 7464000.0,
+        "dueFromPrior": 0,
+        "dueTo": 0,
+        "dueToPrior": 0
+      },
+      {
+        "entity": "Company J",
+        "dueFrom": 0,
+        "dueFromPrior": 0,
+        "dueTo": 2058000.0,
+        "dueToPrior": 377000.0
+      },
+      {
+        "entity": "Company K",
+        "dueFrom": 0,
+        "dueFromPrior": 0,
+        "dueTo": 6435000.0,
+        "dueToPrior": 0
+      }
     ]
   }
 }

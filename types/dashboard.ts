@@ -70,7 +70,7 @@ export interface DashboardData {
     periodEnding: string;
     currency: string;
     isSample: boolean;
-    sources: string[];
+    sources: { id: string; short: string; title: string }[];
   };
   periods: Period[];
   pnl: PnlLine[];
@@ -101,13 +101,48 @@ export interface DashboardData {
       capex: number;
     };
   };
+  relatedParties: {
+    current: string;
+    prior: string;
+    rows: { entity: string; dueFrom: number; dueFromPrior: number; dueTo: number; dueToPrior: number }[];
+  };
   commentary: {
     headline: string;
-    keyMessages: string[];
+    keyMessages: Finding[];
     quarterly: string;
     yearOnYear: string;
     position: string;
-    risks: { area: string; level: "High" | "Medium" | "Low"; text: string }[];
+    riskScale: { level: RiskLevel; meaning: string }[];
+    risks: Risk[];
     dataNotes: string[];
   };
+}
+
+export type RiskLevel = "High" | "Medium" | "Low";
+
+/** A figure that supports a statement, with where it comes from. */
+export interface Evidence {
+  label: string;
+  value: number;
+  format: "money" | "percent" | "points" | "ratio";
+  /** Id into meta.sources. */
+  source: string;
+  /** Statement or note within the source, e.g. "Note 14". */
+  ref: string;
+}
+
+export interface Finding {
+  title: string;
+  text: string;
+  evidence: Evidence[];
+}
+
+export interface Risk {
+  area: string;
+  level: RiskLevel;
+  /** Why this level was given, against the risk scale. */
+  why: string;
+  text: string;
+  action: string;
+  evidence: Evidence[];
 }

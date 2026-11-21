@@ -25,5 +25,8 @@ export const formatPoints = (value: number): string =>
 
 export const formatRatio = (value: number): string => `${value.toFixed(2)}x`;
 
-export const formatAxisMillions = (value: number): string =>
-  value === 0 ? "0" : `${value < 0 ? MINUS : ""}${Math.abs(value / 1_000_000).toFixed(0)}M`;
+export const formatAxisMillions = (value: number): string => {
+  if (value === 0) return "0";
+  const m = Math.abs(value / 1_000_000);
+  return `${value < 0 ? MINUS : ""}${Number.isInteger(m) ? m : m.toFixed(1)}M`;
+};

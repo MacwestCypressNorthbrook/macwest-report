@@ -17,3 +17,4 @@ data/macwest-dashboard-data.json
 .playwright-mcp/
 dashboard-home.png
 *.tsbuildinfo
+.claude/

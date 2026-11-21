@@ -1,19 +1,12 @@
 import Image from "next/image";
 import type { DashboardData } from "@/types/dashboard";
-import { SectionNav } from "@/components/board/SectionNav";
+import { ReportTabs } from "@/components/board/ReportTabs";
 import { Summary } from "@/components/board/sections/Summary";
 import { Quarterly } from "@/components/board/sections/Quarterly";
 import { YearOnYear } from "@/components/board/sections/YearOnYear";
 import { Position } from "@/components/board/sections/Position";
 import { Notes } from "@/components/board/sections/Notes";
 
-const SECTIONS = [
-  { id: "summary", label: "Summary" },
-  { id: "quarterly", label: "Quarterly" },
-  { id: "year-on-year", label: "Year on year" },
-  { id: "position", label: "Position & cash" },
-  { id: "notes", label: "Notes" },
-];
 
 export function BoardReport({ data }: { data: DashboardData }) {
   const { meta } = data;
@@ -26,10 +19,10 @@ export function BoardReport({ data }: { data: DashboardData }) {
       )}
 
       <header className="border-b border-line bg-surface">
-        <div className="mx-auto flex max-w-[1240px] flex-col gap-6 px-4 py-8 md:flex-row md:items-end md:justify-between md:px-8 md:py-10">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 py-8 md:flex-row md:items-end md:justify-between md:px-8 md:py-7 xl:px-12">
           <div>
-            <Image src="/logo-macwest-new.png" alt={meta.company} width={152} height={36} priority className="h-9 w-auto dark:brightness-0 dark:invert" />
-            <h1 className="mt-6 text-[clamp(1.875rem,4vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink">
+            <Image src="/logo-macwest-new.png" alt={meta.company} width={152} height={36} priority className="h-7 w-auto dark:brightness-0 dark:invert" />
+            <h1 className="mt-4 text-[clamp(1.75rem,3.5vw,2.25rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink">
               {meta.reportTitle}
             </h1>
             <p className="mt-2 text-base text-ink-2">
@@ -39,15 +32,15 @@ export function BoardReport({ data }: { data: DashboardData }) {
         </div>
       </header>
 
-      <SectionNav sections={SECTIONS} />
-
-      <main className="mx-auto max-w-[1240px] px-4 pb-24 md:px-8">
-        <Summary data={data} />
-        <Quarterly data={data} />
-        <YearOnYear data={data} />
-        <Position data={data} />
-        <Notes data={data} />
-      </main>
+      <ReportTabs
+        tabs={[
+          { id: "summary", label: "Summary", content: <Summary data={data} /> },
+          { id: "quarterly", label: "Quarterly", content: <Quarterly data={data} /> },
+          { id: "year-on-year", label: "Year on year", content: <YearOnYear data={data} /> },
+          { id: "position", label: "Position & cash", content: <Position data={data} /> },
+          { id: "notes", label: "Notes", content: <Notes data={data} /> },
+        ]}
+      />
 
       <footer className="border-t border-line py-6 text-center text-xs text-ink-3">
         {meta.company} · Confidential — prepared for the Board of Directors

@@ -4,6 +4,7 @@ import { moneyCell } from "@/lib/dashboard/cells";
 import { positionColumns, varianceTone } from "@/lib/dashboard/metrics";
 import { FigureTable, Panel, Section, StatTile, type FigureRow } from "@/components/board/primitives";
 import { DivergingBars, TrendLineChart } from "@/components/board/charts";
+import { RelatedPartyBars } from "@/components/board/insightCharts";
 
 const ASSETS: [BalanceKey, string][] = [
   ["ppe", "Property, plant & equipment"],
@@ -44,6 +45,10 @@ export function Position({ data }: { data: DashboardData }) {
     { label: "Net working capital", cells: pos.map((p) => moneyCell(p.workingCapital)) },
     { label: "Net due from related parties", cells: pos.map((p) => moneyCell(p.netRelated)) },
   ];
+
+  const rp = data.relatedParties;
+  const sumBy = (k: "dueFrom" | "dueFromPrior" | "dueTo" | "dueToPrior") => rp.rows.reduce((t, r) => t + r[k], 0);
+  const [rpFrom, rpFromPrior, rpTo, rpToPrior] = [sumBy("dueFrom"), sumBy("dueFromPrior"), sumBy("dueTo"), sumBy("dueToPrior")];
 
   const signed = (c: number, p: number) => `${c - p >= 0 ? "+" : "−"}${formatMoney(Math.abs(c - p))}`;
 
@@ -115,14 +120,29 @@ export function Position({ data }: { data: DashboardData }) {
         </Panel>
       </div>
 
-      <Panel title="Statement of financial position">
-        <FigureTable
-          caption="Condensed statement of financial position at each reporting date"
-          columns={data.balanceSheet.columns.map((c, i) => ({ label: c.label, divider: i === data.balanceSheet.columns.length - 1 }))}
-          rows={[...rows, ...ratioRows.map((r) => ({ ...r, emphasis: "memo" as const }))]}
-          footnote="31 December 2025 is the restated comparative from the September 2026 accounts. The June 2026 deferred tax figure is a net asset shown within liabilities, as in the source accounts."
-        />
-      </Panel>
+      <div className="grid grid-cols-1 items-start gap-6 2xl:grid-cols-2">
+        <Panel
+          title={`Related-party balances by company, ${rp.current}`}
+          caption={`Owed to MacWest ${formatMoney(rpFrom)} (${rp.prior}: ${formatMoney(rpFromPrior)}) · Owed by MacWest ${formatMoney(rpTo)} (${rp.prior}: ${formatMoney(rpToPrior)})`}
+        >
+          <RelatedPartyBars
+            ariaLabel={`Amounts owed to and by each related party at ${rp.current}`}
+            rows={[...rp.rows].sort((a, b) => b.dueFrom - a.dueFrom || b.dueTo - a.dueTo)}
+          />
+          <p className="mt-4 text-sm text-ink-3">
+            GH¢ millions. Company names are shown exactly as they appear in the accounts; similar names are not merged.
+          </p>
+        </Panel>
+
+        <Panel title="Statement of financial position">
+          <FigureTable
+            caption="Condensed statement of financial position at each reporting date"
+            columns={data.balanceSheet.columns.map((c, i) => ({ label: c.label, divider: i === data.balanceSheet.columns.length - 1 }))}
+            rows={[...rows, ...ratioRows.map((r) => ({ ...r, emphasis: "memo" as const }))]}
+            footnote="31 December 2025 is the restated comparative from the September 2026 accounts. The June 2026 deferred tax figure is a net asset shown within liabilities, as in the source accounts."
+          />
+        </Panel>
+      </div>
     </Section>
   );
 }

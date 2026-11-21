@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import sample from "@/data/sample-dashboard-data.json";
 import type { DashboardData } from "@/types/dashboard";
 import { validateDashboardData } from "@/lib/dashboard/validate";

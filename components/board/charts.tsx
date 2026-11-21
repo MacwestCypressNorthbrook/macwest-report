@@ -14,6 +14,7 @@ import {
   YAxis,
 } from "recharts";
 import { formatAxisMillions, formatMoney } from "@/lib/dashboard/format";
+import { niceTicks } from "@/lib/dashboard/ticks";
 
 export interface SeriesDef {
   key: string;
@@ -73,6 +74,7 @@ export function GroupedBarChart({
   height?: number;
   ariaLabel: string;
 }) {
+  const axis = niceTicks(data.flatMap((d) => series.map((s) => Number(d[s.key]) || 0)));
   return (
     <figure aria-label={ariaLabel}>
       <LegendRow series={series} />
@@ -81,7 +83,7 @@ export function GroupedBarChart({
           <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }} barGap={4} barCategoryGap="22%">
             <CartesianGrid vertical={false} stroke="var(--grid)" />
             <XAxis dataKey="label" tick={axisTick} axisLine={false} tickLine={false} />
-            <YAxis tickFormatter={formatAxisMillions} tick={axisTick} axisLine={false} tickLine={false} width={48} tickCount={6} allowDecimals={false} />
+            <YAxis tickFormatter={formatAxisMillions} tick={axisTick} axisLine={false} tickLine={false} width={48} ticks={axis.ticks} domain={axis.domain} />
             <ReferenceLine y={0} stroke="var(--border-strong)" />
             <Tooltip content={<ChartTooltip />} cursor={{ fill: "var(--surface-muted)" }} />
             {series.map((s) => (
@@ -105,6 +107,7 @@ export function TrendLineChart({
   height?: number;
   ariaLabel: string;
 }) {
+  const axis = niceTicks(data.flatMap((d) => series.map((s) => Number(d[s.key]) || 0)));
   return (
     <figure aria-label={ariaLabel}>
       <LegendRow series={series} />
@@ -113,7 +116,7 @@ export function TrendLineChart({
           <LineChart data={data} margin={{ top: 8, right: 28, left: 0, bottom: 0 }}>
             <CartesianGrid vertical={false} stroke="var(--grid)" />
             <XAxis dataKey="label" tick={axisTick} axisLine={false} tickLine={false} interval={0} />
-            <YAxis tickFormatter={formatAxisMillions} tick={axisTick} axisLine={false} tickLine={false} width={48} tickCount={6} allowDecimals={false} />
+            <YAxis tickFormatter={formatAxisMillions} tick={axisTick} axisLine={false} tickLine={false} width={48} ticks={axis.ticks} domain={axis.domain} />
             <ReferenceLine y={0} stroke="var(--border-strong)" />
             <Tooltip content={<ChartTooltip />} />
             {series.map((s) => (
@@ -132,6 +135,43 @@ export function TrendLineChart({
         </ResponsiveContainer>
       </div>
     </figure>
+  );
+}
+
+/** Ranked horizontal bars of a change, largest first. For costs, an increase is adverse. */
+export function RankedChangeBars({
+  rows,
+  direction = "up-bad",
+}: {
+  rows: { label: string; change: number; detail?: string }[];
+  direction?: "up-good" | "up-bad";
+}) {
+  const sorted = [...rows].sort((a, b) => b.change - a.change);
+  const max = Math.max(...sorted.map((r) => Math.abs(r.change)), 1);
+  return (
+    <ul className="space-y-3">
+      {sorted.map((r) => {
+        const adverse = direction === "up-bad" ? r.change > 0 : r.change < 0;
+        return (
+          <li key={r.label} className="grid grid-cols-[minmax(0,11rem)_minmax(0,1fr)_12rem] items-center gap-3 text-sm max-sm:grid-cols-[minmax(0,1fr)_auto]">
+            <span className="text-ink-2">{r.label}</span>
+            <span className="relative h-3.5 rounded-sm bg-surface-muted max-sm:order-last max-sm:col-span-2" aria-hidden>
+              <span
+                className={`absolute inset-y-0 left-0 rounded-sm ${adverse ? "bg-bad/75" : "bg-good/75"}`}
+                style={{ width: `${(Math.abs(r.change) / max) * 100}%` }}
+              />
+            </span>
+            <span className="text-right tabular-nums">
+              <span className={`font-medium ${adverse ? "text-bad" : "text-good"}`}>
+                {r.change >= 0 ? "+" : "−"}
+                {formatMoney(Math.abs(r.change))}
+              </span>
+              {r.detail && <span className="block text-xs text-ink-3">{r.detail}</span>}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
