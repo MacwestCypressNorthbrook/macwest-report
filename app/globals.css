@@ -1,323 +1,126 @@
 @import "tailwindcss";
 
+/* ---- Design tokens ------------------------------------------------------
+   Neutral surfaces; colour is reserved for brand accents and for the
+   direction of a variance. Every token is redefined for dark mode. */
 :root {
-  --background: #fcfcfc;
-  --foreground: #111827;
-  --sidebar-bg: #f8fafc;
-  --sidebar-border: #f1f5f9;
-  --primary: #941c1c;
-  --primary-light: #fdf2f2;
-  --accent-blue: #2f80ed;
-  --accent-orange: #f2994a;
-  --accent-red: #941c1c;
-  --slate-50: #f8fafc;
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-300: #cbd5e1;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --slate-600: #475569;
-  --slate-700: #334155;
-  --slate-800: #1e293b;
-  --slate-900: #0f172a;
-  --card-bg: #ffffff;
-  --card-border: #f1f5f9;
-  --card-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-muted: #f3f3f0;
+  --border: #e6e5e0;
+  --border-strong: #cfcdc5;
+  --ink: #17181a;
+  --ink-2: #45474c;
+  --ink-3: #6b6d73;
+  --brand: #8c1d1d;
+  --brand-soft: #f6eaea;
+  --good: #11704f;
+  --bad: #b42318;
+  --warn: #9a5b00;
+  --warn-soft: #fbf3e4;
+  --chart-1: #1f2a37;
+  --chart-2: #5a7fa8;
+  --chart-3: #c39a4a;
+  --chart-prior: #c9ccd1;
+  --grid: #ecebe6;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111214;
+    --surface: #18191c;
+    --surface-muted: #202125;
+    --border: #2a2c30;
+    --border-strong: #3a3c42;
+    --ink: #f1f1ef;
+    --ink-2: #c6c7ca;
+    --ink-3: #9a9ca2;
+    --brand: #e07a7a;
+    --brand-soft: #2a1a1a;
+    --good: #4cc79a;
+    --bad: #f07a6e;
+    --warn: #e5b45c;
+    --warn-soft: #2a2416;
+    --chart-1: #e6e7ea;
+    --chart-2: #7fa6d1;
+    --chart-3: #d7b46a;
+    --chart-prior: #4a4d54;
+    --grid: #26282c;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1;
   -webkit-font-smoothing: antialiased;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--slate-200);
-  border-radius: 10px;
-}
-
-.stat-card {
-  border-radius: 16px;
-  border: 1px solid var(--card-border);
-  background: var(--card-bg);
-  padding: 24px;
-  box-shadow: var(--card-shadow);
-  transition: all 0.2s ease;
-}
-
-.stat-card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  color: var(--slate-500);
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-}
-
-.sidebar-item:hover {
-  background: var(--slate-100);
-  color: var(--slate-900);
-}
-
-.sidebar-item.active {
-  background: var(--primary-light);
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.badge-success {
-  background: #fdf2f2;
-  color: #941c1c;
-}
-
-.badge-warning {
-  background: #fff8e1;
-  color: #ff8f00;
-}
-
-.badge-danger {
-  background: #ffebee;
-  color: #c62828;
-}
-
-.badge-info {
-  background: #e3f2fd;
-  color: #1565c0;
-}
-
-.badge-neutral {
-  background: var(--slate-100);
-  color: var(--slate-600);
-}
-
-.kpi-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.progress-track {
-  height: 6px;
-  width: 100%;
-  background: var(--slate-100);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  border-radius: 999px;
-  transition: width 0.6s cubic-bezier(.4, 0, .2, 1);
-}
-
-.tbl {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.875rem;
-}
-
-.tbl thead {
-  background: var(--slate-50);
-  border-bottom: 1px solid var(--slate-200);
-}
-
-.tbl th {
-  color: var(--slate-500);
-  font-weight: 600;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 10px 16px;
-  white-space: nowrap;
-  vertical-align: middle;
-}
-
-.tbl td {
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--slate-100);
-  color: var(--slate-700);
-  vertical-align: middle;
-}
-
-.tbl tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.tbl tbody tr:hover td {
-  background: #f8fafc;
-}
-
-.tbl-accent td {
-  background: var(--slate-50);
-  font-weight: 600;
-  color: var(--slate-900);
-  border-top: 1px solid var(--slate-200);
-  border-bottom: none;
-}
-
-.input-search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 10px;
-  border: 1px solid var(--slate-200);
-  background: var(--slate-50);
-  padding: 8px 12px;
-  transition: all 0.15s;
-}
-
-.input-search:focus-within {
-  background: white;
-  border-color: #93c5fd;
-  box-shadow: 0 0 0 3px #bfdbfe50;
-}
-
-.input-search input {
-  background: transparent;
-  font-size: 0.875rem;
-  color: var(--slate-700);
+/* Recharts focus rectangles are noisy */
+.recharts-wrapper *:focus {
   outline: none;
-  width: 100%;
-}
-
-.input-search input::placeholder {
-  color: var(--slate-400);
-}
-
-.section-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--slate-400);
-}
-
-.insight-card {
-  border-radius: 12px;
-  border: 1px solid var(--slate-200);
-  background: white;
-  padding: 16px 20px;
-}
-
-.insight-card-warn {
-  background: #fffbeb;
-  border-color: #fde68a;
-}
-
-.insight-card-good {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-}
-
-.insight-card-danger {
-  background: #fef2f2;
-  border-color: #fecaca;
-}
-
-.insight-card-info {
-  background: #eff6ff;
-  border-color: #bfdbfe;
-}
-
-.ratio-gauge-card {
-  border-radius: 14px;
-  border: 1px solid var(--slate-200);
-  background: white;
-  padding: 18px 20px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.35s ease both;
 }
 
 @media print {
-
-  nav,
-  aside,
-  .sidebar-item,
-  button,
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+  html {
+    font-size: 12px;
+  }
+  body {
+    background: #fff;
+  }
   .no-print {
     display: none !important;
   }
-
-  body {
-    background: white !important;
+  .print-break {
+    break-before: page;
   }
-
-  .rounded-2xl,
-  .rounded-xl {
-    border-radius: 0 !important;
-  }
-
-  .shadow-sm,
-  .shadow-md {
-    box-shadow: none !important;
-  }
-
-  main {
-    overflow: visible !important;
-    padding: 0 !important;
-  }
-
-  .space-y-6>* {
-    page-break-inside: avoid;
-  }
-
-  table {
-    page-break-inside: auto;
-  }
-
-  tr {
-    page-break-inside: avoid;
-    page-break-after: auto;
+  .avoid-break {
+    break-inside: avoid;
   }
 }

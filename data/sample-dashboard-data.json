@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "company": "MacWest Limited",
+    "reportTitle": "Board Financial Report",
+    "periodLabel": "Q3 2026",
+    "periodEnding": "30 September 2026",
+    "currency": "GH¢",
+    "isSample": true,
+    "sources": []
+  },
+  "periods": [
+    {
+      "id": "q1_2026",
+      "label": "Q1 2026",
+      "range": "Jan–Mar 2026",
+      "kind": "quarter"
+    },
+    {
+      "id": "q2_2026",
+      "label": "Q2 2026",
+      "range": "Apr–Jun 2026",
+      "kind": "quarter",
+      "derived": true
+    },
+    {
+      "id": "q3_2026",
+      "label": "Q3 2026",
+      "range": "Jul–Sep 2026",
+      "kind": "quarter",
+      "derived": true
+    },
+    {
+      "id": "ytd_sep_2026",
+      "label": "9M 2026",
+      "range": "Jan–Sep 2026",
+      "kind": "ytd"
+    },
+    {
+      "id": "ytd_sep_2025",
+      "label": "9M 2025",
+      "range": "Jan–Sep 2025",
+      "kind": "ytd"
+    },
+    {
+      "id": "fy_2025",
+      "label": "FY 2025",
+      "range": "Jan–Dec 2025 (restated)",
+      "kind": "year"
+    }
+  ],
+  "pnl": [
+    {
+      "key": "revenue",
+      "label": "Revenue",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": 4021000.0,
+        "q2_2026": -3137000.0,
+        "q3_2026": 9073000.0,
+        "ytd_sep_2026": 9957000.0,
+        "ytd_sep_2025": 11720000.0,
+        "fy_2025": 3840000.0
+      }
+    },
+    {
+      "key": "directCost",
+      "label": "Direct cost",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 1980000.0,
+        "q2_2026": 4208000.0,
+        "q3_2026": -4527000.0,
+        "ytd_sep_2026": 1661000.0,
+        "ytd_sep_2025": 750000.0,
+        "fy_2025": 9830000.0
+      }
+    },
+    {
+      "key": "grossProfit",
+      "label": "Gross profit",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": 2041000.0,
+        "q2_2026": -7345000.0,
+        "q3_2026": 13600000.0,
+        "ytd_sep_2026": 8296000.0,
+        "ytd_sep_2025": 10970000.0,
+        "fy_2025": -5990000.0
+      }
+    },
+    {
+      "key": "adminExpenses",
+      "label": "General & administrative expenses",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 7881000.0,
+        "q2_2026": -7239000.0,
+        "q3_2026": 2192000.0,
+        "ytd_sep_2026": 2834000.0,
+        "ytd_sep_2025": 10330000.0,
+        "fy_2025": 2333000.0
+      }
+    },
+    {
+      "key": "ebit",
+      "label": "Operating profit / (loss)",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": -5840000.0,
+        "q2_2026": -106000.0,
+        "q3_2026": 11408000.0,
+        "ytd_sep_2026": 5462000.0,
+        "ytd_sep_2025": 640000.0,
+        "fy_2025": -8323000.0
+      }
+    },
+    {
+      "key": "financeIncome",
+      "label": "Finance income",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": 0,
+        "q2_2026": 5317000.0,
+        "q3_2026": 2287000.0,
+        "ytd_sep_2026": 7604000.0,
+        "ytd_sep_2025": 0,
+        "fy_2025": 7063000.0
+      }
+    },
+    {
+      "key": "financeCost",
+      "label": "Finance cost",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 1055000.0,
+        "q2_2026": -31000.0,
+        "q3_2026": 10359000.0,
+        "ytd_sep_2026": 11383000.0,
+        "ytd_sep_2025": 0,
+        "fy_2025": 7739000.0
+      }
+    },
+    {
+      "key": "levy",
+      "label": "Growth & sustainability levy",
+      "direction": "up-bad",
+      "values": {
+        "q1_2026": 0,
+        "q2_2026": 0,
+        "q3_2026": 0,
+        "ytd_sep_2026": 0,
+        "ytd_sep_2025": 3617000.0,
+        "fy_2025": 4594000.0
+      }
+    },
+    {
+      "key": "pbt",
+      "label": "Profit / (loss) before tax",
+      "direction": "up-good",
+      "emphasis": "subtotal",
+      "values": {
+        "q1_2026": -6895000.0,
+        "q2_2026": 5242000.0,
+        "q3_2026": 3336000.0,
+        "ytd_sep_2026": 1683000.0,
+        "ytd_sep_2025": -2977000.0,
+        "fy_2025": -13593000.0
+      }
+    },
+    {
+      "key": "tax",
+      "label": "Tax credit / (charge)",
+      "direction": "up-good",
+      "values": {
+        "q1_2026": -6523000.0,
+        "q2_2026": 7793000.0,
+        "q3_2026": 5740000.0,
+        "ytd_sep_2026": 7010000.0,
+        "ytd_sep_2025": -1902000.0,
+        "fy_2025": -6663000.0
+      }
+    },
+    {
+      "key": "pat",
+      "label": "Profit / (loss) after tax",
+      "direction": "up-good",
+      "emphasis": "total",
+      "values": {
+        "q1_2026": -13418000.0,
+        "q2_2026": 13035000.0,
+        "q3_2026": 9076000.0,
+        "ytd_sep_2026": 8693000.0,
+        "ytd_sep_2025": -4879000.0,
+        "fy_2025": -20256000.0
+      }
+    },
+    {
+      "key": "ebitda",
+      "label": "EBITDA",
+      "direction": "up-good",
+      "emphasis": "memo",
+      "values": {
+        "q1_2026": -1325000.0,
+        "q2_2026": 588000.0,
+        "q3_2026": 11080000.0,
+        "ytd_sep_2026": 10343000.0,
+        "ytd_sep_2025": 2230000.0,
+        "fy_2025": -7382000.0
+      }
+    }
+  ],
+  "revenueStreams": [
+    {
+      "label": "ENI Project",
+      "values": {
+        "q1_2026": 903000.0,
+        "q2_2026": 4343000.0,
+        "q3_2026": 302000.0,
+        "ytd_sep_2026": 5548000.0,
+        "ytd_sep_2025": 8448000.0,
+        "fy_2025": 6397000.0
+      }
+    },
+    {
+      "label": "Other Projects",
+      "values": {
+        "q1_2026": 2630000.0,
+        "q2_2026": 1277000.0,
+        "q3_2026": -170000.0,
+        "ytd_sep_2026": 3737000.0,
+        "ytd_sep_2025": 3080000.0,
+        "fy_2025": 10527000.0
+      }
+    },
+    {
+      "label": "Cement Sales",
+      "values": {
+        "q1_2026": 8229000.0,
+        "q2_2026": -1119000.0,
+        "q3_2026": 2464000.0,
+        "ytd_sep_2026": 9574000.0,
+        "ytd_sep_2025": 6978000.0,
+        "fy_2025": 8807000.0
+      }
+    }
+  ],
+  "directCosts": [
+    {
+      "label": "Other Project Expenses",
+      "values": {
+        "q1_2026": 3598000.0,
+        "q2_2026": 2372000.0,
+        "q3_2026": -2068000.0,
+        "ytd_sep_2026": 3902000.0,
+        "ytd_sep_2025": 11347000.0
+      }
+    },
+    {
+      "label": "Materials & Subcontractors",
+      "values": {
+        "q1_2026": 11766000.0,
+        "q2_2026": -11103000.0,
+        "q3_2026": 7741000.0,
+        "ytd_sep_2026": 8404000.0,
+        "ytd_sep_2025": 5794000.0
+      }
+    },
+    {
+      "label": "Labour",
+      "values": {
+        "q1_2026": 1593000.0,
+        "q2_2026": 6492000.0,
+        "q3_2026": -871000.0,
+        "ytd_sep_2026": 7214000.0,
+        "ytd_sep_2025": 8037000.0
+      }
+    },
+    {
+      "label": "Purchases of Cement",
+      "values": {
+        "q1_2026": 5134000.0,
+        "q2_2026": 4088000.0,
+        "q3_2026": -2179000.0,
+        "ytd_sep_2026": 7043000.0,
+        "ytd_sep_2025": 916000.0
+      }
+    },
+    {
+      "label": "Transportation",
+      "values": {
+        "q1_2026": 9134000.0,
+        "q2_2026": -2172000.0,
+        "q3_2026": -1379000.0,
+        "ytd_sep_2026": 5583000.0,
+        "ytd_sep_2025": 8478000.0
+      }
+    },
+    {
+      "label": "Equipment Rental",
+      "values": {
+        "q1_2026": 1993000.0,
+        "q2_2026": 8538000.0,
+        "q3_2026": -419000.0,
+        "ytd_sep_2026": 10112000.0,
+        "ytd_sep_2025": 7836000.0
+      }
+    }
+  ],
+  "adminExpenses": {
+    "current": "ytd_sep_2026",
+    "prior": "ytd_sep_2025",
+    "rows": [
+      {
+        "label": "Expense line 1",
+        "current": 11919000.0,
+        "prior": 9899000.0
+      },
+      {
+        "label": "Expense line 2",
+        "current": 3558000.0,
+        "prior": 4752000.0
+      },
+      {
+        "label": "Expense line 3",
+        "current": 8090000.0,
+        "prior": 466000.0
+      },
+      {
+        "label": "Expense line 4",
+        "current": 5648000.0,
+        "prior": 2183000.0
+      },
+      {
+        "label": "Expense line 5",
+        "current": 1582000.0,
+        "prior": 896000.0
+      },
+      {
+        "label": "Expense line 6",
+        "current": 9265000.0,
+        "prior": 0
+      },
+      {
+        "label": "Expense line 7",
+        "current": 1726000.0,
+        "prior": 0
+      },
+      {
+        "label": "Expense line 8",
+        "current": 3122000.0,
+        "prior": 0
+      },
+      {
+        "label": "Expense line 9",
+        "current": 4813000.0,
+        "prior": 10483000.0
+      },
+      {
+        "label": "Expense line 10",
+        "current": 1151000.0,
+        "prior": 5500000.0
+      }
+    ],
+    "total": {
+      "current": 66136200.0,
+      "prior": 44432700.0
+    }
+  },
+  "balanceSheet": {
+    "columns": [
+      {
+        "id": "sep25",
+        "label": "30 Sep 2025"
+      },
+      {
+        "id": "dec25",
+        "label": "31 Dec 2025"
+      },
+      {
+        "id": "mar26",
+        "label": "31 Mar 2026"
+      },
+      {
+        "id": "jun26",
+        "label": "30 Jun 2026"
+      },
+      {
+        "id": "sep26",
+        "label": "30 Sep 2026"
+      }
+    ],
+    "values": {
+      "ppe": [
+        6683000.0,
+        10624000.0,
+        9868000.0,
+        10395000.0,
+        3485000.0
+      ],
+      "deferredTaxAsset": [
+        0,
+        0,
+        0,
+        0,
+        5100000.0
+      ],
+      "prepayments": [
+        0,
+        0,
+        0,
+        0,
+        4433000.0
+      ],
+      "receivables": [
+        10633000.0,
+        11501000.0,
+        1981000.0,
+        2279000.0,
+        2937000.0
+      ],
+      "shortTermInvestment": [
+        2953000.0,
+        5923000.0,
+        7152000.0,
+        3300000.0,
+        248000.0
+      ],
+      "dueFromRelated": [
+        5144000.0,
+        4557000.0,
+        6883000.0,
+        11447000.0,
+        8348000.0
+      ],
+      "currentTaxAsset": [
+        0,
+        6283000.0,
+        0,
+        0,
+        7488000.0
+      ],
+      "cash": [
+        8179000.0,
+        837000.0,
+        10814000.0,
+        9404000.0,
+        10519000.0
+      ],
+      "payables": [
+        9615000.0,
+        4830000.0,
+        4908000.0,
+        1422000.0,
+        7685000.0
+      ],
+      "borrowings": [
+        0,
+        935000.0,
+        995000.0,
+        2663000.0,
+        2115000.0
+      ],
+      "taxation": [
+        4213000.0,
+        0,
+        820000.0,
+        203000.0,
+        0
+      ],
+      "dueToRelated": [
+        1985000.0,
+        1397000.0,
+        4491000.0,
+        501000.0,
+        10517000.0
+      ],
+      "deferredTaxLiability": [
+        7446000.0,
+        1953000.0,
+        3177000.0,
+        -4299000.0,
+        0
+      ],
+      "equity": [
+        4497000.0,
+        1650000.0,
+        10217000.0,
+        -11919000.0,
+        5699000.0
+      ]
+    }
+  },
+  "cashFlow": {
+    "period": "9M 2026",
+    "lines": [
+      {
+        "label": "Cash movement 1",
+        "value": -5909000.0
+      },
+      {
+        "label": "Cash movement 2",
+        "value": 1213000.0
+      },
+      {
+        "label": "Cash movement 3",
+        "value": -1406000.0
+      },
+      {
+        "label": "Cash movement 4",
+        "value": 4243000.0
+      },
+      {
+        "label": "Cash movement 5",
+        "value": -3324000.0
+      },
+      {
+        "label": "Cash movement 6",
+        "value": 9980000.0
+      },
+      {
+        "label": "Cash movement 7",
+        "value": 2105000.0
+      },
+      {
+        "label": "Cash movement 8",
+        "value": -473000.0
+      }
+    ],
+    "summary": {
+      "operating": -11422000.0,
+      "investing": -6433000.0,
+      "financing": 1930000.0,
+      "net": 6609000.0,
+      "opening": 519000.0,
+      "closing": 6432000.0,
+      "borrowingProceeds": 11746000.0,
+      "capex": -10387000.0
+    }
+  },
+  "commentary": {
+    "headline": "Sample data — these figures are synthetic and do not describe the company.",
+    "keyMessages": [
+      "Supply data/macwest-dashboard-data.json locally to see the real board report."
+    ],
+    "quarterly": "Sample commentary.",
+    "yearOnYear": "Sample commentary.",
+    "position": "Sample commentary.",
+    "risks": [
+      {
+        "area": "Sample risk",
+        "level": "Medium",
+        "text": "Synthetic example row."
+      }
+    ],
+    "dataNotes": [
+      "This file contains synthetic values for development builds only."
+    ]
+  }
+}

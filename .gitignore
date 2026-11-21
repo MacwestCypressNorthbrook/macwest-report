@@ -9,3 +9,11 @@ coverage
 *.xls
 *.csv
 .env*
+
+# Confidential financial records — never commit
+*.pdf
+MACWEST LTD/
+data/macwest-dashboard-data.json
+.playwright-mcp/
+dashboard-home.png
+*.tsbuildinfo

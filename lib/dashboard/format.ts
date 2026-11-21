@@ -1,45 +1,29 @@
-const moneyFmt = new Intl.NumberFormat("en-GH", {
-  style: "currency",
-  currency: "GHS",
-  maximumFractionDigits: 0,
-});
+const MINUS = "−";
 
-const moneyFmtDecimal = new Intl.NumberFormat("en-GH", {
-  style: "currency",
-  currency: "GHS",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
-
-const pctFmt = new Intl.NumberFormat("en-US", {
-  style: "percent",
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1,
-});
-
-const pctFmt0 = new Intl.NumberFormat("en-US", {
-  style: "percent",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
-
-export const formatMoney = (value: number): string => moneyFmt.format(value);
-export const formatMoneyDecimal = (value: number): string => moneyFmtDecimal.format(value);
-export const formatPercent = (value: number): string => pctFmt.format(value);
-export const formatPercent0 = (value: number): string => pctFmt0.format(value);
-export const formatDays = (value: number): string => `${Math.abs(value).toFixed(0)} days`;
-export const formatTimes = (value: number): string => `${value.toFixed(2)}x`;
-
-export const formatCompact = (value: number): string => {
+/** GH¢ 12.34M / GH¢ 456K, with a true minus sign. */
+export const formatMoney = (value: number, decimals = 2): string => {
   const abs = Math.abs(value);
-  const sign = value < 0 ? "-" : "";
-  if (abs >= 1_000_000) return `${sign}GH¢ ${(abs / 1_000_000).toFixed(2)}M`;
+  const sign = value < 0 ? MINUS : "";
+  if (abs >= 1_000_000) return `${sign}GH¢ ${(abs / 1_000_000).toFixed(decimals)}M`;
   if (abs >= 1_000) return `${sign}GH¢ ${(abs / 1_000).toFixed(0)}K`;
-  return formatMoney(value);
+  return `${sign}GH¢ ${abs.toFixed(0)}`;
 };
 
-export const formatYAxisMoney = (value: number): string => {
-  if (Math.abs(value) >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`;
-  if (Math.abs(value) >= 1_000) return `${(value / 1_000).toFixed(0)}K`;
-  return value.toString();
+/** Figures in GH¢ millions for tables, negatives in brackets (accounting style). */
+export const formatMillions = (value: number): string => {
+  if (value === 0) return "–";
+  if (Math.abs(value) < 5_000) return value < 0 ? "(<0.01)" : "<0.01";
+  const s = (Math.abs(value) / 1_000_000).toFixed(2);
+  return value < 0 ? `(${s})` : s;
 };
+
+export const formatPercent = (value: number, decimals = 1): string =>
+  `${value < 0 ? MINUS : ""}${(Math.abs(value) * 100).toFixed(decimals)}%`;
+
+export const formatPoints = (value: number): string =>
+  `${value > 0 ? "+" : value < 0 ? MINUS : ""}${Math.abs(value * 100).toFixed(1)} pts`;
+
+export const formatRatio = (value: number): string => `${value.toFixed(2)}x`;
+
+export const formatAxisMillions = (value: number): string =>
+  value === 0 ? "0" : `${value < 0 ? MINUS : ""}${Math.abs(value / 1_000_000).toFixed(0)}M`;
