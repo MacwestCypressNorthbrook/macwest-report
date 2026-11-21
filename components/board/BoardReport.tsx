@@ -12,11 +12,7 @@ export function BoardReport({ data }: { data: DashboardData }) {
   const { meta } = data;
   return (
     <div className="min-h-screen bg-bg">
-      {meta.isSample && (
-        <div role="status" className="bg-warn-soft px-4 py-2 text-center text-sm font-medium text-warn">
-          Sample data: these figures are synthetic and do not describe the company.
-        </div>
-      )}
+
 
       <header className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-4 py-8 md:flex-row md:items-end md:justify-between md:px-8 md:py-7 xl:px-12">
