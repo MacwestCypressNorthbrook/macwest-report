@@ -96,10 +96,12 @@ export function RiskItem({ risk, sources }: { risk: Risk; sources: DashboardData
           <dt className="inline font-semibold text-ink">Why {risk.level.toLowerCase()}: </dt>
           <dd className="inline text-ink-2">{risk.why}</dd>
         </div>
-        <div>
-          <dt className="inline font-semibold text-ink">Suggested action: </dt>
-          <dd className="inline text-ink-2">{risk.action}</dd>
-        </div>
+        {risk.action && (
+          <div>
+            <dt className="inline font-semibold text-ink">Suggested action: </dt>
+            <dd className="inline text-ink-2">{risk.action}</dd>
+          </div>
+        )}
       </dl>
       <div className="mt-auto">
         <FiguresToggle items={risk.evidence} sources={sources} />

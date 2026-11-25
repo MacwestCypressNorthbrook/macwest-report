@@ -143,6 +143,7 @@ export interface Risk {
   /** Why this level was given, against the risk scale. */
   why: string;
   text: string;
-  action: string;
+  /** Optional: omitted when the board has not asked for a specific action. */
+  action?: string;
   evidence: Evidence[];
 }

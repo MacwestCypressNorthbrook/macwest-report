@@ -4,14 +4,7 @@ import { Panel, Section } from "@/components/board/primitives";
 export function Notes({ data }: { data: DashboardData }) {
   return (
     <Section id="notes" index="05" title="Basis of preparation">
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <Panel title="How to read these figures">
-          <ul className="list-disc space-y-2.5 pl-5 text-sm leading-relaxed text-ink-2 marker:text-ink-3">
-            {data.commentary.dataNotes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
-        </Panel>
+      <div className="max-w-3xl">
         <Panel title="Sources">
           {data.meta.sources.length ? (
             <ul className="list-disc space-y-2.5 pl-5 text-sm leading-relaxed text-ink-2 marker:text-ink-3">

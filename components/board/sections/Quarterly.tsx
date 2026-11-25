@@ -1,8 +1,7 @@
 import type { DashboardData, PeriodId, PnlKey } from "@/types/dashboard";
 import { deltaCell, marginCell, moneyCell, pointsCell } from "@/lib/dashboard/cells";
-import { formatMoney } from "@/lib/dashboard/format";
 import { margin, pnlValue } from "@/lib/dashboard/metrics";
-import { Callout, FigureTable, Panel, Section, type FigureRow } from "@/components/board/primitives";
+import { FigureTable, Panel, Section, type FigureRow } from "@/components/board/primitives";
 import { GroupedBarChart } from "@/components/board/charts";
 
 const QUARTERS: PeriodId[] = ["q1_2026", "q2_2026", "q3_2026"];
@@ -65,7 +64,6 @@ export function Quarterly({ data }: { data: DashboardData }) {
     { label: ytd.label, sub: "year to date", divider: true },
   ];
 
-  const q3Cost = pnlValue(data, "directCost", "q3_2026");
 
   return (
     <Section
@@ -75,16 +73,6 @@ export function Quarterly({ data }: { data: DashboardData }) {
       lede={data.commentary.quarterly}
       breakBefore
     >
-      {q3Cost < 0 && (
-        <Callout title="Q3 profit is not a sign of normal trading">
-          Q3 direct cost is {formatMoney(q3Cost)}, a negative figure. The total direct cost recorded for the year was
-          lower in the September accounts ({formatMoney(pnlValue(data, "directCost", YTD))}) than in the June accounts
-          ({formatMoney(pnlValue(data, "directCost", "q1_2026") + pnlValue(data, "directCost", "q2_2026"))}), so costs
-          charged in Q2 were taken back out in Q3. Q2 and Q3 should be looked at together. Key message 4 in the summary
-          explains this.
-        </Callout>
-      )}
-
       <div className="grid grid-cols-1 items-start gap-6 2xl:grid-cols-2">
         <div className="space-y-6">
         <Panel title="Revenue, gross profit and profit after tax by quarter" caption="GH¢, each quarter on its own">

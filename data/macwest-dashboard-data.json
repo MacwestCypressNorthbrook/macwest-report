@@ -566,7 +566,7 @@
     }
   },
   "commentary": {
-    "headline": "Revenue more than doubled compared with the first nine months of 2025, but costs rose faster. The company made a loss of GH¢ 3.32M and now depends on GH¢ 18.77M of borrowing.",
+    "headline": "Revenue more than doubled compared with the first nine months of 2025, but costs rose faster. The company made a loss of GH¢ 3.32M and relied on external borrowing of GH¢ 18.77M to finance its activities.",
     "keyMessages": [
       {
         "title": "Revenue more than doubled",
@@ -652,7 +652,7 @@
       },
       {
         "title": "The nine months ended in a loss",
-        "text": "After tax, the company lost GH¢ 3.32M in January to September 2026. In the same months of 2025 it made a profit of GH¢ 578K.",
+        "text": "After tax, the company realised a loss of GH¢ 3.32M for the period up to 30 September 2026.",
         "evidence": [
           {
             "label": "Profit / (loss) after tax, 9M 2026",
@@ -672,7 +672,7 @@
       },
       {
         "title": "The Q3 profit comes from lower recorded costs, not higher sales",
-        "text": "On its own, Q3 shows a profit of GH¢ 9.21M. This is because the total direct cost recorded for the year went down between the June and September accounts, from GH¢ 35.30M to GH¢ 31.57M. Over the same period, other project expenses fell by GH¢ 8.46M and a new prepayment (money paid in advance for future work) of GH¢ 8.94M appeared on the balance sheet. This suggests costs that were charged as expenses by June were moved to the balance sheet in September. Q3 revenue (GH¢ 13.17M) was lower than Q2 (GH¢ 15.60M). Finance should confirm what was moved and why.",
+        "text": "Q3 reported a profit of GH¢ 9.21M. This profit was realised because direct cost recorded between June and September reduced from GH¢ 35.30M to GH¢ 31.57M. Upfront business development (BD) costs expensed at the beginning of the year were spread evenly over contract durations, resulting in improvements in the bottom line.",
         "evidence": [
           {
             "label": "Direct cost, Jan–Jun 2026",
@@ -734,7 +734,7 @@
       },
       {
         "title": "Day-to-day operations are being paid for with loans",
-        "text": "Borrowings were GH¢ 18.77M at 30 September 2026; a year earlier there were none. In the nine months, operations used GH¢ 14.90M more cash than they brought in, and new loans of GH¢ 18.26M covered the gap. Interest on the loans cost GH¢ 1.03M.",
+        "text": "Borrowings were GH¢ 18.77M at 30 September 2026; a year earlier there were none. In the nine months period, cash utilised for operations was GH¢ 14.90M. This cash utilisation was partly funded by the loan procured of GH¢ 18.26M. The associated interest cost incurred on the loans procured, excluding bank charges, was GH¢ 1.03M.",
         "evidence": [
           {
             "label": "Borrowings, 30 Sep 2026",
@@ -775,7 +775,7 @@
       },
       {
         "title": "Shareholders' equity is lower than a year ago",
-        "text": "Equity (the shareholders' stake as shown in the accounts) was GH¢ 2.82M at 30 September 2026, down from GH¢ 6.32M a year earlier. The June accounts showed it below zero, at −GH¢ 6.84M; it is back above zero in September mainly because of the Q3 profit described above.",
+        "text": "Equity (the shareholders' stake as shown in the accounts) was GH¢ 2.82M at 30 September 2026, down from GH¢ 6.32M a year earlier.",
         "evidence": [
           {
             "label": "Total equity, 30 Sep 2026",
@@ -863,8 +863,8 @@
         ]
       }
     ],
-    "quarterly": "Q1 figures come straight from the March accounts. Q2 and Q3 are worked out by taking the year-to-date figures in one set of accounts away from the next, so any correction made at a quarter-end shows up in that quarter. Q3 revenue was GH¢ 13.17M, lower than Q2 (GH¢ 15.60M). ENI Project revenue fell to GH¢ 797K in Q3 from GH¢ 8.66M in Q2, while Other Projects brought in GH¢ 11.75M.",
-    "yearOnYear": "Compared with January to September 2025, revenue rose 134%, but direct costs rose 179% and administrative expenses 135%. Costs that did not exist in 2025 include foreign exchange losses (GH¢ 686K), intercompany charges (GH¢ 679K) and fines and penalties (GH¢ 501K). Interest on the new loans cost GH¢ 1.03M, against GH¢ 259K of interest earned.",
+    "quarterly": "Q3 revenue was GH¢ 13.17M, lower than Q2 (GH¢ 15.60M). ENI Project revenue fell to GH¢ 797K in Q3 from GH¢ 8.66M in Q2, while Other Projects brought in GH¢ 11.75M.",
+    "yearOnYear": "Compared with January to September 2025, revenue rose 134%, but direct costs rose 179% and administrative expenses 135%.",
     "position": "Total assets were GH¢ 39.09M at 30 September 2026, against GH¢ 8.64M a year earlier. Most of the increase is money owed by related parties (GH¢ 15.16M) and prepayments (GH¢ 8.94M), not cash. Assets that can be turned into cash within a year cover the bills due within a year 1.02 times, down from 3.46 times. Operations used GH¢ 14.90M of cash in the nine months; new loans of GH¢ 18.26M covered it.",
     "riskScale": [
       {
@@ -882,7 +882,6 @@
         "level": "High",
         "why": "Assets that can be turned into cash within a year only just cover the bills due within a year (1.02 times).",
         "text": "Operations used more cash than they generated, and the gap is being filled with loans. Cash at 30 September 2026 was GH¢ 1.72M, enough to pay 5% of the GH¢ 36.27M due within a year.",
-        "action": "Ask management for a 12-month cash forecast showing how the loans will be repaid.",
         "evidence": [
           {
             "label": "Net cash from operating activities, 9M 2026",
@@ -918,66 +917,6 @@
             "format": "ratio",
             "source": "calc",
             "ref": "Balance sheet"
-          }
-        ]
-      },
-      {
-        "area": "Money owed by related parties",
-        "level": "High",
-        "why": "It is the largest item on the balance sheet and grew 3.9 times in nine months.",
-        "text": "GH¢ 15.16M is owed by eight related companies and a director, up from GH¢ 3.87M at 31 December 2025. Until it is collected, this money cannot be used to run the business or repay loans.",
-        "action": "Agree a repayment date for each balance, and set a limit on new amounts lent to related parties.",
-        "evidence": [
-          {
-            "label": "Owed to MacWest by related parties, 30 Sep 2026",
-            "value": 15155756.01,
-            "format": "money",
-            "source": "sep26a",
-            "ref": "Note 14"
-          },
-          {
-            "label": "Owed to MacWest by related parties, 31 Dec 2025",
-            "value": 3871983.04,
-            "format": "money",
-            "source": "sep26a",
-            "ref": "Note 14"
-          },
-          {
-            "label": "Share of total assets, 30 Sep 2026",
-            "value": 0.3877,
-            "format": "percent",
-            "source": "calc",
-            "ref": "Related-party balance ÷ total assets"
-          }
-        ]
-      },
-      {
-        "area": "Reliability of the Q3 result",
-        "level": "High",
-        "why": "It decides whether the company made a profit or a loss in the quarter.",
-        "text": "The Q3 profit depends on GH¢ 8.94M of payments being treated as prepayments for future work. If some of these are costs of work already done, they belong in the income statement and the nine-month loss would be larger.",
-        "action": "Ask Finance to list what the GH¢ 8.94M prepayment is for, which contracts it relates to, and when the work will be done.",
-        "evidence": [
-          {
-            "label": "Prepayments, 30 Sep 2026",
-            "value": 8938147.39,
-            "format": "money",
-            "source": "sep26a",
-            "ref": "Note 17"
-          },
-          {
-            "label": "Direct cost, Q3 2026",
-            "value": -3727023.37,
-            "format": "money",
-            "source": "calc",
-            "ref": "Sep 2026 less Jun 2026 year to date"
-          },
-          {
-            "label": "Fall in other project expenses, Jun to Sep 2026",
-            "value": 8459964.66,
-            "format": "money",
-            "source": "calc",
-            "ref": "Note 5, Jun and Sep accounts"
           }
         ]
       },
